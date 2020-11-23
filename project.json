@@ -1,0 +1,37 @@
+{
+  "name": "rpa-future-farming-cross-compliance",
+  "description": "Future Farming process which receipts inspections and then processes compliant cases if applicable",
+  "main": "Main.xaml",
+  "dependencies": {
+    "GetWorkflowDetailActivities": "[1.0.1]",
+    "Reusable.Components": "[1.0.5]",
+    "UiPath.Excel.Activities": "[2.8.6]",
+    "UiPath.System.Activities": "[20.4.0]",
+    "UiPath.UIAutomation.Activities": "[20.4.2]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.10.4.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "expressionLanguage": "VisualBasic"
+}
