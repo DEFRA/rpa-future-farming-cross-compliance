@@ -4,11 +4,12 @@
     <x:Property Name="OUT_strMailbox" Type="OutArgument(x:String)" />
     <x:Property Name="OUT_browserCRM" Type="OutArgument(ui:Browser)" />
     <x:Property Name="OUT_browserRP" Type="OutArgument(ui:Browser)" />
+    <x:Property Name="OUT_browserSitiAgri" Type="OutArgument(ui:Browser)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>751,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Start_Up_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -314,7 +315,7 @@
                                       <av:PointCollection x:Key="ConnectorLocation">300,685.5 300,735.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Flowchart DisplayName="Open Browsers" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+                                  <Flowchart DisplayName="Open Browsers" sap:VirtualizedContainerService.HintSize="1074,1022" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -346,7 +347,12 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Open Siti Agri" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Data Workflows\Siti Agri\Open Siti Agri.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
-                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                </InArgument>
+                                                <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserSitiAgri">
+                                                  <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="OUT_browserSitiAgri" />
+                                                </OutArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -770,7 +776,7 @@
                                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                                                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_30">
                                                                       <Assign.To>
                                                                         <OutArgument x:TypeArguments="x:Int32">[intRetryCounter]</OutArgument>
                                                                       </Assign.To>
@@ -778,7 +784,7 @@
                                                                         <InArgument x:TypeArguments="x:Int32">[intRetryCounter + 1]</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
-                                                                    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close RP Window" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="CloseWindow_2" Selector="[IN_dictConfig(&quot;RPHomeUrl&quot;).ToString]" WaitForReady="INTERACTIVE" />
+                                                                    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" ContinueOnError="True" DisplayName="Close RP Window" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="CloseWindow_2" Selector="[IN_dictConfig(&quot;RPHomeUrl&quot;).ToString]" WaitForReady="INTERACTIVE" />
                                                                   </Sequence>
                                                                   <FlowStep.Next>
                                                                     <x:Reference>__ReferenceID1</x:Reference>
@@ -905,6 +911,7 @@
                                                         <InArgument x:TypeArguments="x:Int32">[intRetryCounter + 1]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
+                                                    <ui:CloseTab Browser="[OUT_browserSitiAgri]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
                                                   </Sequence>
                                                   <FlowStep.Next>
                                                     <x:Reference>__ReferenceID3</x:Reference>
