@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>751,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_Rural_Payments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -74,9 +74,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID14</x:Reference>
+      <x:Reference>__ReferenceID12</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID11">
+    <FlowStep x:Name="__ReferenceID9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,447</av:Point>
@@ -92,7 +92,7 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Ending Workflow - &quot; + strWorkflowName]" />
       </Sequence>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID12">
+    <FlowStep x:Name="__ReferenceID10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,359.5</av:Point>
@@ -111,14 +111,14 @@
             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
-            <x:Double x:Key="Width">799.64166666666665</x:Double>
+            <x:Double x:Key="Width">799.641666666667</x:Double>
             <x:Double x:Key="Height">853.5</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <Flowchart.StartNode>
-          <x:Reference>__ReferenceID10</x:Reference>
+          <x:Reference>__ReferenceID8</x:Reference>
         </Flowchart.StartNode>
-        <FlowStep x:Name="__ReferenceID10">
+        <FlowStep x:Name="__ReferenceID8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -150,156 +150,111 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ro:Check_Logged_In>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID2" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLoggedIn" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID2" Condition="[boolLoggedIn]" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">260.641666666667,271.5</av:Point>
                       <av:Size x:Key="ShapeSize">70,87</av:Size>
-                      <av:PointCollection x:Key="FalseConnector">330.641666666667,315 470,315 470,339</av:PointCollection>
+                      <av:PointCollection x:Key="FalseConnector">330.641666666667,315 460,315 460,379</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.False>
-                    <FlowStep x:Name="__ReferenceID8">
+                    <FlowStep x:Name="__ReferenceID3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">370,339</av:Point>
+                          <av:Point x:Key="ShapeLocation">360,379</av:Point>
                           <av:Size x:Key="ShapeSize">200,22</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">470,361 470,399</av:PointCollection>
+                          <av:PointCollection x:Key="ConnectorLocation">460,401 460,431 465.641666666667,431 465.641666666667,451</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:CloseTab Browser="[OUT_browserRP]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="CloseTab_1">
+                      <ro:Check_For_Sign_In_Screen DisplayName="Check For Sign In Screen" sap:VirtualizedContainerService.HintSize="200,22" IN_browserRP="[OUT_browserRP]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Sign_In_Screen_1" OUT_boolSignInButton="[boolOpenedRP]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:CloseTab>
+                      </ro:Check_For_Sign_In_Screen>
                       <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID9">
+                        <FlowDecision x:Name="__ReferenceID4" Condition="[boolOpenedRP]" DisplayName="RP Open?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">370,399</av:Point>
-                              <av:Size x:Key="ShapeSize">200,22</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">470,421 470,449</av:PointCollection>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <av:Point x:Key="ShapeLocation">430.641666666667,451</av:Point>
+                              <av:Size x:Key="ShapeSize">70,87</av:Size>
+                              <av:PointCollection x:Key="FalseConnector">500.641666666667,494.5 599.641666666667,494.5</av:PointCollection>
+                              <av:PointCollection x:Key="TrueConnector">430.641666666667,494.5 300.641666666667,494.5 300.641666666667,538.52</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ro:Open_Rural_Payments DisplayName="Open Rural Payments" sap:VirtualizedContainerService.HintSize="200,22" IN_strURL="[IN_dictConfig(&quot;RPLogInUrl&quot;)]" sap2010:WorkflowViewState.IdRef="Open_Rural_Payments_4" OUT_browserRP="[OUT_browserRP]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ro:Open_Rural_Payments>
-                          <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID3">
+                          <FlowDecision.True>
+                            <FlowStep x:Name="__ReferenceID5">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">370,449</av:Point>
-                                  <av:Size x:Key="ShapeSize">200,22</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">470,471 470,501 465.641666666667,501 465.641666666667,521</av:PointCollection>
+                                  <av:Point x:Key="ShapeLocation">200.641666666667,538.52</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">300.641666666667,589.52 300.641666666667,619.52 300,619.52 300,639</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ro:Check_For_Sign_In_Screen DisplayName="Check For Sign In Screen" sap:VirtualizedContainerService.HintSize="200,22" IN_browserRP="[OUT_browserRP]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Sign_In_Screen_1" OUT_boolSignInButton="[boolOpenedRP]">
+                              <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Log in to Rural Payments" DisplayName="Prompt User to Enter Log in Details" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please can you log into Rural Payments&quot; + Environment.NewLine + Environment.NewLine + &quot;Click OK when on the home screen so the robot can continue&quot;]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                              </ro:Check_For_Sign_In_Screen>
+                              </ui:MessageBox>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID4" DisplayName="RP Open?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                                  <FlowDecision.Condition>
-                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolOpenedRP" />
-                                  </FlowDecision.Condition>
+                                <FlowStep x:Name="__ReferenceID6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <av:Point x:Key="ShapeLocation">430.641666666667,521</av:Point>
-                                      <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                      <av:PointCollection x:Key="FalseConnector">500.641666666667,564.5 599.641666666667,564.5</av:PointCollection>
-                                      <av:PointCollection x:Key="TrueConnector">430.641666666667,564.5 300.641666666667,564.5 300.641666666667,608.52</av:PointCollection>
+                                      <av:Point x:Key="ShapeLocation">200,639</av:Point>
+                                      <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">300,661 300,691 295.641666666667,691 295.641666666667,696.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <FlowDecision.True>
-                                    <FlowStep x:Name="__ReferenceID5">
+                                  <ro:Check_Logged_In DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserRP="[OUT_browserRP]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_2" OUT_boolSearchLink="[boolLoggedIn]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ro:Check_Logged_In>
+                                  <FlowStep.Next>
+                                    <FlowDecision x:Name="__ReferenceID7" Condition="[boolLoggedIn]" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <av:Point x:Key="ShapeLocation">200.641666666667,608.52</av:Point>
-                                          <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                          <av:PointCollection x:Key="ConnectorLocation">300.641666666667,659.52 300.641666666667,689.52 300,689.52 300,709</av:PointCollection>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <av:Point x:Key="ShapeLocation">260.641666666667,696.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">70,87</av:Size>
+                                          <av:PointCollection x:Key="FalseConnector">330.641666666667,740 699.641666666667,740 699.641666666667,505.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Log in to Rural Payments" DisplayName="Prompt User to Enter Log in Details" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please can you log into Rural Payments&quot; + Environment.NewLine + Environment.NewLine + &quot;Click OK when on the home screen so the robot can continue&quot;]">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </ui:MessageBox>
-                                      <FlowStep.Next>
-                                        <FlowStep x:Name="__ReferenceID6">
+                                      <FlowDecision.False>
+                                        <FlowStep x:Name="__ReferenceID0">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <av:Point x:Key="ShapeLocation">200,709</av:Point>
+                                              <av:Point x:Key="ShapeLocation">599.641666666667,483.5</av:Point>
                                               <av:Size x:Key="ShapeSize">200,22</av:Size>
-                                              <av:PointCollection x:Key="ConnectorLocation">300,731 300,761 295.641666666667,761 295.641666666667,766.5</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ro:Check_Logged_In DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserRP="[OUT_browserRP]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_2" OUT_boolSearchLink="[boolLoggedIn]">
+                                          <Throw Exception="[new system.Exception(&quot;Failed to open the Rural Payments application&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                          </ro:Check_Logged_In>
-                                          <FlowStep.Next>
-                                            <FlowDecision x:Name="__ReferenceID7" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                                              <FlowDecision.Condition>
-                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLoggedIn" />
-                                              </FlowDecision.Condition>
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  <av:Point x:Key="ShapeLocation">260.641666666667,766.5</av:Point>
-                                                  <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                                  <av:PointCollection x:Key="FalseConnector">330.641666666667,810 699.641666666667,810 699.641666666667,575.5</av:PointCollection>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                              <FlowDecision.False>
-                                                <FlowStep x:Name="__ReferenceID0">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <av:Point x:Key="ShapeLocation">599.641666666667,553.5</av:Point>
-                                                      <av:Size x:Key="ShapeSize">200,22</av:Size>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                  <Throw Exception="[new system.Exception(&quot;Failed to open the Rural Payments application&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
-                                                    <sap:WorkflowViewStateService.ViewState>
-                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      </scg:Dictionary>
-                                                    </sap:WorkflowViewStateService.ViewState>
-                                                  </Throw>
-                                                </FlowStep>
-                                              </FlowDecision.False>
-                                            </FlowDecision>
-                                          </FlowStep.Next>
+                                          </Throw>
                                         </FlowStep>
-                                      </FlowStep.Next>
-                                    </FlowStep>
-                                  </FlowDecision.True>
-                                  <FlowDecision.False>
-                                    <x:Reference>__ReferenceID0</x:Reference>
-                                  </FlowDecision.False>
-                                </FlowDecision>
+                                      </FlowDecision.False>
+                                    </FlowDecision>
+                                  </FlowStep.Next>
+                                </FlowStep>
                               </FlowStep.Next>
                             </FlowStep>
-                          </FlowStep.Next>
-                        </FlowStep>
+                          </FlowDecision.True>
+                          <FlowDecision.False>
+                            <x:Reference>__ReferenceID0</x:Reference>
+                          </FlowDecision.False>
+                        </FlowDecision>
                       </FlowStep.Next>
                     </FlowStep>
                   </FlowDecision.False>
@@ -316,14 +271,12 @@
         <x:Reference>__ReferenceID5</x:Reference>
         <x:Reference>__ReferenceID6</x:Reference>
         <x:Reference>__ReferenceID7</x:Reference>
-        <x:Reference>__ReferenceID8</x:Reference>
-        <x:Reference>__ReferenceID9</x:Reference>
       </Flowchart>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID11</x:Reference>
+        <x:Reference>__ReferenceID9</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID14">
+    <FlowStep x:Name="__ReferenceID12">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -341,7 +294,7 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - &quot;+strWorkflowName]" />
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID13">
+        <FlowStep x:Name="__ReferenceID11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
@@ -367,11 +320,11 @@
             </If>
           </Sequence>
           <FlowStep.Next>
-            <x:Reference>__ReferenceID12</x:Reference>
+            <x:Reference>__ReferenceID10</x:Reference>
           </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID13</x:Reference>
+    <x:Reference>__ReferenceID11</x:Reference>
   </Flowchart>
 </Activity>

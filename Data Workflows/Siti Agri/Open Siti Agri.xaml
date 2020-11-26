@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1052,741</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,744</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_Siti_Agri_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -58,7 +58,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Open_Siti_Agri" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Open_Siti_Agri" sap:VirtualizedContainerService.HintSize="649,639" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
     </Flowchart.Variables>
@@ -68,6 +68,8 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Double x:Key="Width">615</x:Double>
+        <x:Double x:Key="Height">603</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -134,7 +136,7 @@
                 <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                 <av:Size x:Key="ShapeSize">60,75</av:Size>
                 <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
-                <x:Double x:Key="Width">772.64166666666665</x:Double>
+                <x:Double x:Key="Width">772.641666666667</x:Double>
                 <x:Double x:Key="Height">773.5</x:Double>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -165,7 +167,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">300,221.5 300,251.5 295.641666666667,251.5 295.641666666667,271.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <so:Check_Logged_In DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserSitiAgri="[OUT_browserSitiAgri]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_1" OUT_boolMenuExists="[boolLoggedIn]">
+                  <so:Check_Logged_In DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserSitiAgri="[OUT_browserSitiAgri]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_1" OUT_boolMenuExists="[boolLoggedIn]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,25 +175,22 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </so:Check_Logged_In>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID4" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLoggedIn" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID4" Condition="[boolLoggedIn]" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">260.641666666667,271.5</av:Point>
                           <av:Size x:Key="ShapeSize">70,87</av:Size>
-                          <av:PointCollection x:Key="FalseConnector">330.641666666667,315 450,315 450,379</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">330.641666666667,315 450,315 450,359</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.False>
                         <FlowStep x:Name="__ReferenceID2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">350,379</av:Point>
+                              <av:Point x:Key="ShapeLocation">350,359</av:Point>
                               <av:Size x:Key="ShapeSize">200,22</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">450,401 450,431 451.641666666667,431 451.641666666667,451</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">450,381 450,411 451.641666666667,411 451.641666666667,451</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <so:Check_For_Log_In_Screen DisplayName="Check For Log In Screen" sap:VirtualizedContainerService.HintSize="200,22" IN_browserSitiAgri="[OUT_browserSitiAgri]" sap2010:WorkflowViewState.IdRef="Check_For_Log_In_Screen_1" OUT_boolSignIn="[boolLogInScreen]">
@@ -202,10 +201,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </so:Check_For_Log_In_Screen>
                           <FlowStep.Next>
-                            <FlowDecision x:Name="__ReferenceID5" DisplayName="Log In Screen?" sap:VirtualizedContainerService.HintSize="82,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                              <FlowDecision.Condition>
-                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLogInScreen" />
-                              </FlowDecision.Condition>
+                            <FlowDecision x:Name="__ReferenceID5" Condition="[boolLogInScreen]" DisplayName="Log In Screen?" sap:VirtualizedContainerService.HintSize="82,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,7 +236,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">290,651 290,681 285.641666666667,681 285.641666666667,686.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <so:Check_Logged_In DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserSitiAgri="[OUT_browserSitiAgri]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_2" OUT_boolMenuExists="[boolLoggedIn]">
+                                      <so:Check_Logged_In IN_intTimeout="{x:Null}" DisplayName="Check Logged In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserSitiAgri="[OUT_browserSitiAgri]" sap2010:WorkflowViewState.IdRef="Check_Logged_In_2" OUT_boolMenuExists="[boolLoggedIn]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -248,10 +244,7 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </so:Check_Logged_In>
                                       <FlowStep.Next>
-                                        <FlowDecision x:Name="__ReferenceID7" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                                          <FlowDecision.Condition>
-                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLoggedIn" />
-                                          </FlowDecision.Condition>
+                                        <FlowDecision x:Name="__ReferenceID7" Condition="[boolLoggedIn]" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

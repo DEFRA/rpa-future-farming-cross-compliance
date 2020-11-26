@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="IN_browserSitiAgri" Type="InArgument(ui:Browser)" />
     <x:Property Name="OUT_boolMenuExists" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>751,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_Logged_In_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,10 +79,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:UiElementExists DisplayName="IACS Element Exists " Exists="[OUT_boolMenuExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13e6c265-108f-44bb-b534-4facc1f69798" InformativeScreenshot="0211b50c570949bcebba8d7d73e28a02" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl id='x-auto-42' tag='DIV' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13e6c265-108f-44bb-b534-4facc1f69798" InformativeScreenshot="0211b50c570949bcebba8d7d73e28a02" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl id='x-auto-42' tag='DIV' /&gt;" TimeoutMS="[IN_intTimeout]">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
