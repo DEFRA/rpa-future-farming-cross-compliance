@@ -9,6 +9,7 @@
     "Rural.Payments": "[1.0.11]",
     "Siti.Agri": "[1.0.4]",
     "UiPath.Excel.Activities": "[2.8.6]",
+    "UiPath.PDF.Activities": "[3.3.0]",
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.2]",
     "UiPath.Word.Activities": "[1.5.3]"
