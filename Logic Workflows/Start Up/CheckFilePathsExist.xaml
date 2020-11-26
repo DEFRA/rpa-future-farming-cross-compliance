@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>792,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,732</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckFilePathsExist_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -52,7 +52,7 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="CheckFilePathsExist" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="This workflow checks that the folders the robot requires exist and throws a business exception if they do not." DisplayName="CheckFilePathsExist" sap:VirtualizedContainerService.HintSize="634,667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
     </Flowchart.Variables>
@@ -62,6 +62,7 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -135,7 +136,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,400.5 300,447</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="798,2520" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+              <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <Flowchart.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="boolRobotProcessingFolderExists" />
                   <Variable x:TypeArguments="x:Boolean" Name="boolCIIReceiptingFolderExists" />
@@ -178,10 +179,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:PathExists>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID0" DisplayName="Processing Folder Exists?" sap:VirtualizedContainerService.HintSize="135,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolRobotProcessingFolderExists" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID0" Condition="[boolRobotProcessingFolderExists]" DisplayName="Processing Folder Exists?" sap:VirtualizedContainerService.HintSize="135,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -208,10 +206,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:PathExists>
                           <FlowStep.Next>
-                            <FlowDecision x:Name="__ReferenceID4" DisplayName="CII Receipting Exists?" sap:VirtualizedContainerService.HintSize="115,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                              <FlowDecision.Condition>
-                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolCIIReceiptingFolderExists" />
-                              </FlowDecision.Condition>
+                            <FlowDecision x:Name="__ReferenceID4" Condition="[boolCIIReceiptingFolderExists]" DisplayName="CII Receipting Exists?" sap:VirtualizedContainerService.HintSize="115,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -238,10 +233,7 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:PathExists>
                                   <FlowStep.Next>
-                                    <FlowDecision x:Name="__ReferenceID6" DisplayName="Master Copies Exists?" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                                      <FlowDecision.Condition>
-                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolMasterCopiesFolderExists" />
-                                      </FlowDecision.Condition>
+                                    <FlowDecision x:Name="__ReferenceID6" Condition="[boolMasterCopiesFolderExists]" DisplayName="Master Copies Exists?" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -268,10 +260,7 @@
                                             </sap:WorkflowViewStateService.ViewState>
                                           </ui:PathExists>
                                           <FlowStep.Next>
-                                            <FlowDecision x:Name="__ReferenceID9" DisplayName="BPS C TBA Exists?" sap:VirtualizedContainerService.HintSize="98,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
-                                              <FlowDecision.Condition>
-                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolBPSCFolderExists" />
-                                              </FlowDecision.Condition>
+                                            <FlowDecision x:Name="__ReferenceID9" Condition="[boolBPSCFolderExists]" DisplayName="BPS C TBA Exists?" sap:VirtualizedContainerService.HintSize="98,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -298,10 +287,7 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                   </ui:PathExists>
                                                   <FlowStep.Next>
-                                                    <FlowDecision x:Name="__ReferenceID12" DisplayName="BPS NC TBA Exists?" sap:VirtualizedContainerService.HintSize="107,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
-                                                      <FlowDecision.Condition>
-                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolBPSNCFolderExists" />
-                                                      </FlowDecision.Condition>
+                                                    <FlowDecision x:Name="__ReferenceID12" Condition="[boolBPSNCFolderExists]" DisplayName="BPS NC TBA Exists?" sap:VirtualizedContainerService.HintSize="107,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -328,10 +314,7 @@
                                                             </sap:WorkflowViewStateService.ViewState>
                                                           </ui:PathExists>
                                                           <FlowStep.Next>
-                                                            <FlowDecision x:Name="__ReferenceID15" DisplayName="Non BPS C Exists?" sap:VirtualizedContainerService.HintSize="99,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
-                                                              <FlowDecision.Condition>
-                                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolNonBPSCTBAFolderExists" />
-                                                              </FlowDecision.Condition>
+                                                            <FlowDecision x:Name="__ReferenceID15" Condition="[boolNonBPSCTBAFolderExists]" DisplayName="Non BPS C Exists?" sap:VirtualizedContainerService.HintSize="99,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -358,10 +341,7 @@
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                   </ui:PathExists>
                                                                   <FlowStep.Next>
-                                                                    <FlowDecision x:Name="__ReferenceID18" DisplayName="Non BPS NC Exists?" sap:VirtualizedContainerService.HintSize="108,87" sap2010:WorkflowViewState.IdRef="FlowDecision_9">
-                                                                      <FlowDecision.Condition>
-                                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolNonBPSNCTBAFolderExists" />
-                                                                      </FlowDecision.Condition>
+                                                                    <FlowDecision x:Name="__ReferenceID18" Condition="[boolNonBPSNCTBAFolderExists]" DisplayName="Non BPS NC Exists?" sap:VirtualizedContainerService.HintSize="108,87" sap2010:WorkflowViewState.IdRef="FlowDecision_9">
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -388,10 +368,7 @@
                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                           </ui:PathExists>
                                                                           <FlowStep.Next>
-                                                                            <FlowDecision x:Name="__ReferenceID21" DisplayName="ARF Folder Exists?" sap:VirtualizedContainerService.HintSize="99,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
-                                                                              <FlowDecision.Condition>
-                                                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolARFFolderExists" />
-                                                                              </FlowDecision.Condition>
+                                                                            <FlowDecision x:Name="__ReferenceID21" Condition="[boolARFFolderExists]" DisplayName="ARF Folder Exists?" sap:VirtualizedContainerService.HintSize="99,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -418,10 +395,7 @@
                                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                                   </ui:PathExists>
                                                                                   <FlowStep.Next>
-                                                                                    <FlowDecision x:Name="__ReferenceID24" DisplayName="Awaiting ARF Exists?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
-                                                                                      <FlowDecision.Condition>
-                                                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolAwaitingARFFolderExists" />
-                                                                                      </FlowDecision.Condition>
+                                                                                    <FlowDecision x:Name="__ReferenceID24" Condition="[boolAwaitingARFFolderExists]" DisplayName="Awaiting ARF Exists?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -448,10 +422,7 @@
                                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                                           </ui:PathExists>
                                                                                           <FlowStep.Next>
-                                                                                            <FlowDecision x:Name="__ReferenceID27" DisplayName="ARF Matched Exists?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-                                                                                              <FlowDecision.Condition>
-                                                                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolARFMatchedFolderExists" />
-                                                                                              </FlowDecision.Condition>
+                                                                                            <FlowDecision x:Name="__ReferenceID27" Condition="[boolARFMatchedFolderExists]" DisplayName="ARF Matched Exists?" sap:VirtualizedContainerService.HintSize="113,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
