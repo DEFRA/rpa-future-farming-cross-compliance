@@ -89,7 +89,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="78d871cd-542e-4925-8c43-a6a262ef0ca0" InformativeScreenshot="287b18bd81366ec1f35643f69596f8d3" Selector="&lt;webctrl tag='IMG' tableCol='2' idx='6' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="78d871cd-542e-4925-8c43-a6a262ef0ca0" InformativeScreenshot="287b18bd81366ec1f35643f69596f8d3" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl parentid='main_content' tag='IMG' isleaf='1' tableCol='2' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -99,9 +99,9 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:UiElementExists DisplayName="Element Exists - Page Title" Exists="[OUT_boolPageLoaded]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists DisplayName="Element Exists 'TD'" Exists="[OUT_boolPageLoaded]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="794b1ebc-8cd1-42bf-beae-2a5363b624cf" InformativeScreenshot="f475c052c92e77cba384913f6f968386">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e6f8d811-fbe5-4938-b9ee-ea96f6fa2dec" InformativeScreenshot="29900117eca1539a27cc796a5aabd780" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl parentid='main_content' tag='TABLE' idx='1' /&gt;&lt;webctrl aaname='PROFILE FARMER REGISTRY ' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>

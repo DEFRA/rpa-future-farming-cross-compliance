@@ -88,7 +88,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5e7c2270-0cbe-42fa-9450-8eb46a13160b" InformativeScreenshot="b7c1d32c1812c99ff5a6350b7a8c87e9" Selector="&lt;webctrl id='x-auto-154' tag='DIV' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5e7c2270-0cbe-42fa-9450-8eb46a13160b" InformativeScreenshot="b7c1d32c1812c99ff5a6350b7a8c87e9" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl id='x-auto-42' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -100,7 +100,7 @@
             </ui:Click>
             <ui:UiElementExists DisplayName="Element Exists IACS Menu" Exists="[OUT_boolPageLoaded]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20ed5c44-1592-42aa-a8ff-1898a7ffb126" InformativeScreenshot="11ea6f9c57fdb2e81ac7fa1f1c1e2839" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl tag='DIV' aaname='* IACS' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20ed5c44-1592-42aa-a8ff-1898a7ffb126" InformativeScreenshot="11ea6f9c57fdb2e81ac7fa1f1c1e2839" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl tag='DIV' aaname='* IACS' id='x-auto-10' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>

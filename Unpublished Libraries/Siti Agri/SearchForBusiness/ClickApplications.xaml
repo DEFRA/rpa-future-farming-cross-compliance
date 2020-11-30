@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ClickApplications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="OUT_boolPageLoaded" Type="OutArgument(x:Boolean)" />
     <x:Property Name="IN_browserSitiAgri" Type="InArgument(ui:Browser)" />
+    <x:Property Name="OUT_boolApplicationsTableExists" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -89,7 +89,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4fa388ad-a55e-4e0f-b263-f8772dfa1609" InformativeScreenshot="fc08de3a2f389ca6eb1dd1a20b6cf928" Selector="&lt;webctrl aaname='APPLICATIONS' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4fa388ad-a55e-4e0f-b263-f8772dfa1609" InformativeScreenshot="fc08de3a2f389ca6eb1dd1a20b6cf928" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl aaname='APPLICATIONS' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -99,9 +99,9 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists - Table" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists DisplayName="Element Exists - Table" Exists="[OUT_boolApplicationsTableExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="10454ced-81b6-43ae-b385-b34cdd133ab0" InformativeScreenshot="ad957901d7266698addd5a1593aa53c8" Selector="&lt;webctrl id='tbl' /&gt;&lt;webctrl aaname='Year' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="10454ced-81b6-43ae-b385-b34cdd133ab0" InformativeScreenshot="ad957901d7266698addd5a1593aa53c8" Selector="&lt;html title='sitiAgriMenu' /&gt;&lt;webctrl parentid='tbl' colName='Year' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
