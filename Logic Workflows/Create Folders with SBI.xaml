@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Proxy_Main" this:Proxy_Main.IN_strSBINumber="123456789" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Proxy_Main" this:Proxy_Main.IN_strSBINumber="107110113" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
@@ -37,7 +37,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -59,6 +59,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Proxy_Main" sap:VirtualizedContainerService.HintSize="634,639" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -132,7 +133,7 @@
                   <av:Size x:Key="ShapeSize">200,51</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(strBaseFolderPath+IN_strSBINumber+&quot;\&quot;)]">
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="758,1043" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;)]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
@@ -153,7 +154,10 @@
                       <Flowchart.StartNode>
                         <x:Reference>__ReferenceID0</x:Reference>
                       </Flowchart.StartNode>
-                      <FlowDecision x:Name="__ReferenceID0" Condition="[item.tolower.Contains(&quot;crf&quot;)]" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                      <FlowDecision x:Name="__ReferenceID0" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                        <FlowDecision.Condition>
+                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="item.ToLower.Contains(&quot;crf&quot;) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)" />
+                        </FlowDecision.Condition>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -346,21 +350,22 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[strBaseFolderPath+IN_strSBINumber]">
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]" />
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_4" Path="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CreateDirectory>
-                    <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strBaseFolderPath+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_3" MailMessage="[IN_email]">
+                    <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_3" MailMessage="[IN_email]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:SaveMail>
-                    <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[strBaseFolderPath+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[IN_email]">
+                    <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_3" Message="[IN_email]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -383,21 +388,21 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[strMasterFolderPath+IN_strSBINumber]">
+                        <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:CreateDirectory>
-                        <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strMasterFolderPath+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_4" MailMessage="[IN_email]">
+                        <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_4" MailMessage="[IN_email]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:SaveMail>
-                        <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[strMasterFolderPath+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_4" Message="[IN_email]">
+                        <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_4" Message="[IN_email]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -425,7 +430,7 @@
                                   <av:PointCollection x:Key="ConnectorLocation">400,735.5 400,786.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Find And Save CRF to SBI Folder" sap:VirtualizedContainerService.HintSize="830,1123" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[directory.GetFiles(IN_dictConfig(&quot;CIIReceiptingFolder&quot;))]">
+                              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Find And Save CRF to SBI Folder" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[directory.GetFiles(IN_dictConfig(&quot;CIIReceiptingFolder&quot;))]">
                                 <ui:ForEach.Body>
                                   <ActivityAction x:TypeArguments="x:String">
                                     <ActivityAction.Argument>
@@ -520,7 +525,7 @@
                                                         <av:PointCollection x:Key="ConnectorLocation">160,544 160,596.5</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+IN_strSBINumber+item.Split(&quot;\&quot;c)(7)]" PathType="File" />
+                                                    <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+IN_strSBINumber+item.Split(&quot;\&quot;c)(7)]" PathType="File" />
                                                     <FlowStep.Next>
                                                       <FlowDecision x:Name="__ReferenceID8" Condition="[boolExists]" DisplayName="CRF Moved?" sap:VirtualizedContainerService.HintSize="72,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                                         <sap:WorkflowViewStateService.ViewState>
@@ -701,10 +706,7 @@
                                 </ui:ForEach.Body>
                               </ui:ForEach>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID22" DisplayName="CRF Found?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
-                                  <FlowDecision.Condition>
-                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolCRFfound" />
-                                  </FlowDecision.Condition>
+                                <FlowDecision x:Name="__ReferenceID22" Condition="[boolCRFfound]" DisplayName="CRF Found?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
