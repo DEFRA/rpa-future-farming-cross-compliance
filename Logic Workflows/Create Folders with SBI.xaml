@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,704</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1488,704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -60,6 +60,7 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Proxy_Main" sap:VirtualizedContainerService.HintSize="634,639" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -134,7 +135,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">780,735.5 780,776.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;)]">
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="758,1043" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;)]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
@@ -155,7 +156,10 @@
                       <Flowchart.StartNode>
                         <x:Reference>__ReferenceID3</x:Reference>
                       </Flowchart.StartNode>
-                      <FlowDecision x:Name="__ReferenceID3" Condition="[item.tolower.Contains(&quot;crf&quot;)]" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                      <FlowDecision x:Name="__ReferenceID3" DisplayName="Check For CRF Saved" sap:VirtualizedContainerService.HintSize="117,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                        <FlowDecision.Condition>
+                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="item.ToLower.Contains(&quot;crf&quot;) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)" />
+                        </FlowDecision.Condition>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -238,10 +242,7 @@
                 </ui:ForEach.Body>
               </ui:ForEach>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID26" DisplayName="Found?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolCRFfound" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID26" Condition="[boolCRFfound]" DisplayName="Found?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -251,10 +252,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.False>
-                    <FlowDecision x:Name="__ReferenceID25" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_9">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &gt; 2" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID25" Condition="[intRetryCounter &gt; 2]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
