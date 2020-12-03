@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,724</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>982,724</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -108,7 +108,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,450.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -127,13 +127,13 @@
               <av:Size x:Key="ShapeSize">200,51</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2181" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,1044" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2072" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,935" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -175,13 +175,13 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
-                  <Flowchart DisplayName="Read Cells" sap:VirtualizedContainerService.HintSize="634,1188" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+                  <Flowchart DisplayName="Read Cells" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                     <Flowchart.Variables>
                       <Variable x:TypeArguments="x:String" Name="strLatestDate" />
                     </Flowchart.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                         <av:Size x:Key="ShapeSize">60,75</av:Size>
@@ -466,15 +466,9 @@
                                                             </Assign>
                                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Get Latest Date of Inspection" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Latest Date of Inspection.xaml">
                                                               <ui:InvokeWorkflowFile.Arguments>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strDateOfInspection">
-                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strDateOfInspection" />
-                                                                </InArgument>
-                                                                <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateOfInspection">
-                                                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strLatestDate" />
-                                                                </OutArgument>
-                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="IN_strSeparateDates">
-                                                                  <Literal x:TypeArguments="x:Boolean" Value="True" />
-                                                                </InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strDateOfInspection">[strDateOfInspection]</InArgument>
+                                                                <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateOfInspection">[strLatestDate]</OutArgument>
+                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="IN_strSeparateDates">True</InArgument>
                                                               </ui:InvokeWorkflowFile.Arguments>
                                                             </ui:InvokeWorkflowFile>
                                                             <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
@@ -611,7 +605,7 @@
                         </Assign>
                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
                           <Assign.To>
-                            <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectorOrganisation")]</OutArgument>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
                             <InArgument x:TypeArguments="ui:GenericValue">["Hallmark"]</InArgument>
@@ -622,7 +616,7 @@
                     <If.Else>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectorOrganisation")]</OutArgument>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="ui:GenericValue">["APHA"]</InArgument>
