@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Validate_SAG_CRF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Validate_SAG_CRF" this:Validate_SAG_CRF.IN_strSBINumber="106668934" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strCRFPath" Type="InArgument(x:String)" />
@@ -12,7 +12,7 @@
   <sap:VirtualizedContainerService.HintSize>1240,724</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="42">
+    <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -35,10 +35,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -61,6 +63,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Validate_SAG_CRF" sap:VirtualizedContainerService.HintSize="634,659" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -105,7 +108,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,450.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -124,13 +127,13 @@
               <av:Size x:Key="ShapeSize">200,51</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,1833" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2181" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1724" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2072" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -173,6 +176,9 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
                   <Flowchart DisplayName="Read Cells" sap:VirtualizedContainerService.HintSize="634,1188" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+                    <Flowchart.Variables>
+                      <Variable x:TypeArguments="x:String" Name="strLatestDate" />
+                    </Flowchart.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,17 +400,21 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="listDates" />
+                                                  <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
+                                                </Sequence.Variables>
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:ExcelReadCell Cell="F51" DisplayName="Read Date of Inspection" sap:VirtualizedContainerService.HintSize="671,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_30" SheetName="[OUT_strSheet]">
+                                                <ui:ExcelReadCell Cell="F51" DisplayName="Read Date of Inspection" sap:VirtualizedContainerService.HintSize="1084,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_30" SheetName="[OUT_strSheet]">
                                                   <ui:ExcelReadCell.Result>
                                                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection")]</OutArgument>
                                                   </ui:ExcelReadCell.Result>
                                                 </ui:ExcelReadCell>
-                                                <If Condition="[dictAttachmentFields(&quot;dateOfInspection&quot;) is Nothing]" DisplayName="If Date of Inspection nothing" sap:VirtualizedContainerService.HintSize="671,646" sap2010:WorkflowViewState.IdRef="If_49">
+                                                <If Condition="[dictAttachmentFields(&quot;dateOfInspection&quot;) is Nothing]" DisplayName="If Date of Inspection nothing" sap:VirtualizedContainerService.HintSize="1084,965" sap2010:WorkflowViewState.IdRef="If_49">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -412,29 +422,97 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <If.Then>
-                                                    <Sequence sap:VirtualizedContainerService.HintSize="526,498" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="663,817" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                      <Sequence.Variables>
+                                                        <Variable x:TypeArguments="s:DateTime" Name="strDateRecordsInspected" />
+                                                        <Variable x:TypeArguments="s:DateTime" Name="strDateAnimalsInspected" />
+                                                      </Sequence.Variables>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:ExcelReadCell Cell="F54" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_31" SheetName="[OUT_strSheet]">
+                                                      <ui:ExcelReadCell Cell="F54" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="621,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_31" SheetName="[OUT_strSheet]">
                                                         <ui:ExcelReadCell.Result>
-                                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateRecordsInspected")]</OutArgument>
+                                                          <OutArgument x:TypeArguments="s:DateTime">[strDateRecordsInspected]</OutArgument>
                                                         </ui:ExcelReadCell.Result>
                                                       </ui:ExcelReadCell>
-                                                      <ui:ExcelReadCell Cell="F56" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_32" SheetName="[OUT_strSheet]">
+                                                      <ui:ExcelReadCell Cell="F56" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="621,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_32" SheetName="[OUT_strSheet]">
                                                         <ui:ExcelReadCell.Result>
-                                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateAnimalsInspected")]</OutArgument>
+                                                          <OutArgument x:TypeArguments="s:DateTime">[strDateAnimalsInspected]</OutArgument>
                                                         </ui:ExcelReadCell.Result>
                                                       </ui:ExcelReadCell>
-                                                      <If Condition="[dictAttachmentFields(&quot;dateRecordsInspected&quot;) is Nothing and dictAttachmentFields(&quot;dateAnimalsInspected&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_48">
+                                                      <If Condition="[strDateRecordsInspected.ToString is Nothing and strDateAnimalsInspected.ToString is Nothing]" sap:VirtualizedContainerService.HintSize="621,527" sap2010:WorkflowViewState.IdRef="If_48">
                                                         <If.Then>
                                                           <Throw Exception="[new BusinessRuleException(&quot;No Inspection Date found on CRF.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_30" />
                                                         </If.Then>
+                                                        <If.Else>
+                                                          <Sequence sap:VirtualizedContainerService.HintSize="376,379" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                            <Sequence.Variables>
+                                                              <Variable x:TypeArguments="x:String" Name="strDateOfInspection" />
+                                                            </Sequence.Variables>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                              <Assign.To>
+                                                                <OutArgument x:TypeArguments="x:String">[strDateOfInspection]</OutArgument>
+                                                              </Assign.To>
+                                                              <Assign.Value>
+                                                                <InArgument x:TypeArguments="x:String">[strDateRecordsInspected.ToString + " " + strDateAnimalsInspected.ToString]</InArgument>
+                                                              </Assign.Value>
+                                                            </Assign>
+                                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Get Latest Date of Inspection" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Latest Date of Inspection.xaml">
+                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strDateOfInspection">
+                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strDateOfInspection" />
+                                                                </InArgument>
+                                                                <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateOfInspection">
+                                                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strLatestDate" />
+                                                                </OutArgument>
+                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="IN_strSeparateDates">
+                                                                  <Literal x:TypeArguments="x:Boolean" Value="True" />
+                                                                </InArgument>
+                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                            </ui:InvokeWorkflowFile>
+                                                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                                              <Assign.To>
+                                                                <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection")]</OutArgument>
+                                                              </Assign.To>
+                                                              <Assign.Value>
+                                                                <InArgument x:TypeArguments="ui:GenericValue">[strLatestDate]</InArgument>
+                                                              </Assign.Value>
+                                                            </Assign>
+                                                          </Sequence>
+                                                        </If.Else>
                                                       </If>
                                                     </Sequence>
                                                   </If.Then>
+                                                  <If.Else>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="376,279" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Get Latest Date of Inspection" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Latest Date of Inspection.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="IN_strDateOfInspection">[dictAttachmentFields("dateOfInspection")]</InArgument>
+                                                          <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateOfInspection">[strLatestDate]</OutArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection")]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="ui:GenericValue">[strLatestDate]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                  </If.Else>
                                                 </If>
                                               </Sequence>
                                               <FlowStep.Next>
@@ -509,10 +587,10 @@
                     <x:Reference>__ReferenceID6</x:Reference>
                     <x:Reference>__ReferenceID7</x:Reference>
                   </Flowchart>
-                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="If_39">
+                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,399" sap2010:WorkflowViewState.IdRef="If_39">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -523,12 +601,12 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_22">
                           <Assign.To>
                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorName")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorName").ToLower.Replace("(hallmark)", "")]</InArgument>
+                            <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorName").ToLower.Replace("hallmark", "").Replace("()", "").Trim]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
@@ -663,7 +741,7 @@
                     <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\SAG\SBI 200102289 2020 SAG CRF.xlsm</InArgument>
+                    <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\SAG\SBI 106668934 2020 SAG Inspection report.xlsm</InArgument>
                   </Assign.Value>
                 </Assign>
               </If.Then>

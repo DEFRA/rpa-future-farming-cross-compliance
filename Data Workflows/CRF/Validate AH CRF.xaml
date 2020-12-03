@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>624,741</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,701</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_AH_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -84,10 +84,10 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,447</av:Point>
-          <av:Size x:Key="ShapeSize">200,68</av:Size>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Log End" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence DisplayName="Log End" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,11 +100,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,68</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,311.5 300,359.5</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,359.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Get IN Args" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence DisplayName="Get IN Args" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,7 +138,7 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,359.5</av:Point>
-              <av:Size x:Key="ShapeSize">200,52</av:Size>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
               <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,447</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -173,18 +173,10 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ConvertCRFtoPDF" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\CRF\ConvertCRFtoPDF.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strCRFpdfPath">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCRFpdfPath" />
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strPdfText">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strPdfText" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strCRFpdfPath">[strCRFpdfPath]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strPdfText">[strPdfText]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -254,7 +246,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">300,425.5 300,455.5 295.641666666667,455.5 295.641666666667,485.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch DisplayName="Try Extract PDF Data" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch DisplayName="Try Extract PDF Data" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                         <TryCatch.Try>
                           <Sequence sap:VirtualizedContainerService.HintSize="376,379" sap2010:WorkflowViewState.IdRef="Sequence_7">
                             <sap:WorkflowViewStateService.ViewState>
@@ -476,11 +468,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,68</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,243.5</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,193.5 300,243.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
