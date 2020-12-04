@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1488,744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,731</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -107,7 +107,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304.5 300,356.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="562,682" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(&quot;Z:\Cross Compliance 2020\9)Processing Folders\Robot\200230854&quot;)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="562,682" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(IN_strCaseFolderPath)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -148,10 +148,7 @@
             </ui:ForEach.Body>
           </ui:ForEach>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID2" DisplayName="Found CRF?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
-              <FlowDecision.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="OUT_strCRFfolderPath  = nothing" />
-              </FlowDecision.Condition>
+            <FlowDecision x:Name="__ReferenceID2" Condition="[OUT_strCRFfolderPath  = nothing]" DisplayName="Found CRF?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

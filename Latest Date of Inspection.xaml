@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>882,864</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,864</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Earliest_Date_of_Inspection_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -89,7 +89,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,439.5 300,469.5 299.895,469.5 299.895,489.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[iEnumDates]">
+      <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="823,723" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[iEnumDates]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="str:Match">
             <ActivityAction.Argument>
@@ -255,7 +255,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 295.641666666667,208.5 295.641666666667,218.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="(\d{2}\/){2}\d{4}" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]" />
+      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="(\d{1,2}\/){1,2}(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]" />
       <FlowStep.Next>
         <FlowDecision x:Name="__ReferenceID4" Condition="[iEnumDates.Count = 0]" DisplayName="Matches?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>

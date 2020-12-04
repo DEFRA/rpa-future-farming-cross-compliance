@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="IN_browserXcom" Type="InArgument(ui:Browser)" />
     <x:Property Name="OUT_boolLoggedIn" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1488,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,701</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>check_logged_in_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -91,10 +92,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:UiElementExists DisplayName="Element Exists 'A '" Exists="[OUT_boolLoggedIn]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3de2c815-38a7-4290-bc94-4217b9e7869b" InformativeScreenshot="a00958544cc2d420e3566c63c8256a57" Selector="&lt;html title='Cross Compliance *' /&gt;&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table' idx='4' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='2' tag='TD' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3de2c815-38a7-4290-bc94-4217b9e7869b" InformativeScreenshot="a00958544cc2d420e3566c63c8256a57" Selector="&lt;html title='Cross Compliance *' /&gt;&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table' idx='4' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='2' tag='TD' /&gt;" TimeoutMS="[IN_intTimeout]">
                     <ui:Target.WaitForReady>
                       <InArgument x:TypeArguments="ui:WaitForReady" />
                     </ui:Target.WaitForReady>

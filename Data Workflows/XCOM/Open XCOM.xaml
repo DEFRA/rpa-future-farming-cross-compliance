@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1488,741</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_XCOM_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -51,6 +51,12 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Open_XCOM" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -127,7 +133,7 @@
                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Throw Exception="[new system.Exception(&quot;Failed to open the Siti Agri application&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+              <Throw Exception="[new system.Exception(&quot;Failed to open the XCOM application&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -153,7 +159,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </ui:MessageBox>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID7">
+            <FlowStep x:Name="__ReferenceID6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">290,609</av:Point>
@@ -161,7 +167,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">390,631 390,666.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:check_logged_in DisplayName="check logged in" sap:VirtualizedContainerService.HintSize="200,22" IN_browserXcom="[OUT_browserXcom]" sap2010:WorkflowViewState.IdRef="check_logged_in_2" OUT_boolLoggedIn="[boolLoggedIn]">
+              <p:check_logged_in IN_intTimeout="{x:Null}" DisplayName="check logged in" sap:VirtualizedContainerService.HintSize="200,22" IN_browserXcom="[OUT_browserXcom]" sap2010:WorkflowViewState.IdRef="check_logged_in_2" OUT_boolLoggedIn="[boolLoggedIn]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -196,7 +202,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID6">
+            <FlowStep x:Name="__ReferenceID5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">460,369</av:Point>
@@ -204,7 +210,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">560,391 560,426.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:Check_For_Logged_In_Screen IN_browserXcom="{x:Null}" DisplayName="Check For Log In Screen" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Check_For_Logged_In_Screen_1" OUT_boolSignIn="[boolLogInScreen]">
+              <p:Check_For_Logged_In_Screen DisplayName="Check For Log In Screen" sap:VirtualizedContainerService.HintSize="200,22" IN_browserXcom="[OUT_browserXcom]" sap2010:WorkflowViewState.IdRef="Check_For_Logged_In_Screen_1" OUT_boolSignIn="[boolLogInScreen]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -233,7 +239,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </p:Open_Xcom>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID5">
+            <FlowStep x:Name="__ReferenceID7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">300,199.5</av:Point>
@@ -241,7 +247,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">400,221.5 400,246.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:check_logged_in DisplayName="check logged in" sap:VirtualizedContainerService.HintSize="200,22" IN_browserXcom="[OUT_browserXcom]" sap2010:WorkflowViewState.IdRef="check_logged_in_1" OUT_boolLoggedIn="[boolLoggedIn]">
+              <p:check_logged_in DisplayName="check logged in" sap:VirtualizedContainerService.HintSize="200,22" IN_browserXcom="[OUT_browserXcom]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="check_logged_in_4" OUT_boolLoggedIn="[boolLoggedIn]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

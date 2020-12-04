@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Proxy_Main" this:Proxy_Main.IN_strMailbox="SAG" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Proxy_Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="OUT_strFlow" Type="OutArgument(x:String)" />
     <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1488,1153</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1434,1113</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -132,7 +132,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">670,374.5 670,404.5 670.5,404.5 670.5,417</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" sap:VirtualizedContainerService.HintSize="1354,1578" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+              <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -191,7 +191,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">580,515.02 580,566.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="1372,846" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMailMessages]">
+                        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMailMessages]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="snm:MailMessage">
                               <ActivityAction.Argument>
@@ -418,15 +418,10 @@
                                             <If.Then>
                                               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Excel SBI Look Up workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows/Excel SBI Look Up.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strSBILookUpPath">
-                                                    <Literal x:TypeArguments="x:String">Z:\Cross Compliance 2020\2020 SBI_CPH Link\2020 SBI_CPH Link.xls</Literal>
-                                                  </InArgument>
-                                                  <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">
-                                                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strSBINumber" />
-                                                  </OutArgument>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strReceiptingFolder">
-                                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;RobotProcessingFolder&quot;)" />
-                                                  </InArgument>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strSBILookUpPath">Z:\Cross Compliance 2020\2020 SBI_CPH Link\2020 SBI_CPH Link.xls</InArgument>
+                                                  <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">[OUT_strSBINumber]</OutArgument>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="IN_strReceiptingFolder">[IN_dictConfig("RobotProcessingFolder")]</InArgument>
+                                                  <InArgument x:TypeArguments="snm:MailMessage" x:Key="IN_email">[email]</InArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                               </ui:InvokeWorkflowFile>
                                             </If.Then>
@@ -510,19 +505,19 @@
                         <av:PointCollection x:Key="ConnectorLocation">360,333 360,363 580,363 580,464.02</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Get RPAi Emails" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence DisplayName="Get RPAi Emails" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_dictConfig(&quot;RPAiMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="False" Top="15" />
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[IN_dictConfig(&quot;RPAMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="False" Top="15" />
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_34">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strMailboxName]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[IN_dictConfig("RPAiMailbox")]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[IN_dictConfig("RPAMailbox")]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </Sequence>
