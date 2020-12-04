@@ -115,9 +115,7 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath" />
-                <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">
-                  <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                </OutArgument>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">[IN_dictConfig]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </If.Then>
@@ -135,7 +133,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strMailbox]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">AH</InArgument>
+                  <InArgument x:TypeArguments="x:String">CII</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
@@ -147,7 +145,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strAHtype]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">animal welfare</InArgument>
+                  <InArgument x:TypeArguments="x:String">[nothing]</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
@@ -159,7 +157,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Test\FFTest\AW\SBI 106218347 2020 Animal Welfare CRF.docm</InArgument>
+                  <InArgument x:TypeArguments="x:String">["\\GFD218DF\x953922$\Test\FFTest\CII\SBI 106267154 2020 CII CRF.xlsx"]</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
@@ -171,7 +169,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strSBINumber]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">106218347</InArgument>
+                  <InArgument x:TypeArguments="x:String">106267154</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
@@ -225,21 +223,11 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate CII CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate CII CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSheet" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">[strSheet]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -279,18 +267,10 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Create Inspection Report" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Data Workflows\CRF\CreateInspectionReport.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSheet">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSheet" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strDocType">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCrfDocType" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSheet">[strSheet]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strDocType">[strCrfDocType]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -313,21 +293,11 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate RPA CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate RPA CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                    </OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSheet" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">[strSheet]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -349,23 +319,13 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate AH CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate AH CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
                     <OutArgument x:TypeArguments="x:String" x:Key="OUT_strCRFpdfPath" />
                     <OutArgument x:TypeArguments="x:String" x:Key="OUT_strPdfText" />
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strAHtype">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strAHtype" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strAHtype">[IN_strAHtype]</InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -411,21 +371,11 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate SAG CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate SAG CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                    </OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSheet" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">[strSheet]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
