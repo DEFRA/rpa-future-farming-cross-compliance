@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,704</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1053,704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -253,27 +253,13 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Logic Workflows\Start Up.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
-                                    </InArgument>
-                                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMailbox">
-                                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strMailbox" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserCRM">
-                                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browserCRM" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserRP">
-                                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browserRP" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserSitiAgri">
-                                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browserSitiAgri" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserXCOM">
-                                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browserXCOM" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strLogFilePath">
-                                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strLogFilePath" />
-                                    </OutArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMailbox">[strMailbox]</OutArgument>
+                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserCRM">[browserCRM]</OutArgument>
+                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserRP">[browserRP]</OutArgument>
+                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserSitiAgri">[browserSitiAgri]</OutArgument>
+                                    <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserXCOM">[browserXCOM]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strLogFilePath">[strLogFilePath]</OutArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                                 <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
@@ -354,9 +340,15 @@
                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Logic Workflows\Populate Queue.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow" />
-                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
-                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
-                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">[strSBINumber]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
+                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
+                                            </InArgument>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
+                                            </InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">
+                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSBINumber" />
+                                            </OutArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
@@ -429,30 +421,29 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="564,1451" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <TryCatch.Try>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="376,885" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="526,1224" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Starting - Get Next Case&quot;]" />
-                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Starting - Get Next Case&quot;]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_21">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="s:String[]">[arrFolderPaths]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="s:String[]">[Directory.GetDirectories(string.Format(dictConfig("RobotProcessingFolder"),today.year)+"\")]</InArgument>
+                                                    <InArgument x:TypeArguments="s:String[]">[Directory.GetDirectories(string.Format(dictConfig("RobotProcessingFolder"),today.year)+"\"+strMailbox+"\")]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[intCaseCounter.ToString]" />
-                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:String">[strCaseFolderPath]</OutArgument>
                                                   </Assign.To>
@@ -460,8 +451,35 @@
                                                     <InArgument x:TypeArguments="x:String">[arrFolderPaths(intCaseCounter)]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[strCaseFolderPath]" />
-                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                                <If Condition="[strCaseFolderPath.ToLower.Contains(&quot;in progress&quot;) or strCaseFolderPath.ToLower.Contains(&quot;ready to be receipted&quot;)]" sap:VirtualizedContainerService.HintSize="484,400" sap2010:WorkflowViewState.IdRef="If_2">
+                                                  <If.Then>
+                                                    <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:String">[strCaseFolderPath]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:String">[arrFolderPaths(intCaseCounter + 1)]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                                        <Assign.To>
+                                                          <OutArgument x:TypeArguments="x:Int32">[intCaseCounter]</OutArgument>
+                                                        </Assign.To>
+                                                        <Assign.Value>
+                                                          <InArgument x:TypeArguments="x:Int32">[intCaseCounter + 1]</InArgument>
+                                                        </Assign.Value>
+                                                      </Assign>
+                                                    </Sequence>
+                                                  </If.Then>
+                                                </If>
+                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[strCaseFolderPath]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_24">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Int32">[intCaseCounter]</OutArgument>
                                                   </Assign.To>
@@ -469,7 +487,7 @@
                                                     <InArgument x:TypeArguments="x:Int32">[intCaseCounter + 1]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_15">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="s:Exception">[exceptionCurrent]</OutArgument>
                                                   </Assign.To>
@@ -477,7 +495,7 @@
                                                     <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_16">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Int32">[intRetryCounter]</OutArgument>
                                                   </Assign.To>
@@ -488,7 +506,7 @@
                                               </Sequence>
                                             </TryCatch.Try>
                                             <TryCatch.Catches>
-                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -499,7 +517,7 @@
                                                   <ActivityAction.Argument>
                                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                                   </ActivityAction.Argument>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="304,250" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="304,253" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -520,10 +538,7 @@
                                             </TryCatch.Catches>
                                           </TryCatch>
                                           <FlowStep.Next>
-                                            <FlowDecision x:Name="__ReferenceID12" DisplayName="Got Case?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-                                              <FlowDecision.Condition>
-                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="strCaseFolderPath isnot nothing" />
-                                              </FlowDecision.Condition>
+                                            <FlowDecision x:Name="__ReferenceID12" Condition="[strCaseFolderPath isnot nothing]" DisplayName="Got Case?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -557,27 +572,13 @@
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process Case workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows\Process Case.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
                                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow" />
-                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserRP" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserCRM" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSBINumber" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserSitiAgri" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCaseFolderPath" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
-                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[browserRP]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[browserCRM]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[strSBINumber]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">[browserSitiAgri]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">[strCaseFolderPath]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
                                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">

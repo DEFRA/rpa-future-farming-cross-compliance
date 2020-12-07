@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>882,726</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateAnimalWelfareCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -194,7 +194,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,367</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="591,1691" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -369,13 +369,13 @@
                         </ui:ForEach.Body>
                       </ui:ForEach>
                     </Sequence>
-                    <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="549,730" sap2010:WorkflowViewState.IdRef="Sequence_15">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -428,6 +428,14 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEach>
+                      <Assign sap:VirtualizedContainerService.HintSize="340,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear")]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection").ToString.Remove(0,6)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
                     </Sequence>
                     <Sequence DisplayName="Get Inspection Notice" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <Sequence.Variables>
@@ -577,7 +585,7 @@
                           <av:Size x:Key="ShapeSize">200,66</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="725,1318" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="s:String[]" Default="[{&quot;AH Standalone&quot;, &quot;AH Selection&quot;}]" Name="arrInspectionTypes" />
                         </Sequence.Variables>

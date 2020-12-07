@@ -78,7 +78,7 @@
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXcom]" BrowserType="IE" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="434,306" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXcom]" BrowserType="IE" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -92,11 +92,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:UiElementExists DisplayName="Sign in Button Exists " Exists="[OUT_boolSignIn]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13e6c265-108f-44bb-b534-4facc1f69798" InformativeScreenshot="a09cc33ad5948306aa50af1381e4abab" Selector="&lt;html url='*' /&gt;&lt;webctrl tag='BUTTON' aaname='Log In' /&gt;" TimeoutMS="[IN_intTimeout]">
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13e6c265-108f-44bb-b534-4facc1f69798" InformativeScreenshot="5855213f3daceed9123bb4455dbaaf44" Selector="&lt;html url='http://rpa-domino-dev.dev.azure.defra.cloud/intranet/xcompliance2015.nsf' /&gt;&lt;webctrl tag='BUTTON' /&gt;" TimeoutMS="[IN_intTimeout]" WaitForReady="COMPLETE" />
                 </ui:UiElementExists.Target>
               </ui:UiElementExists>
             </Sequence>
