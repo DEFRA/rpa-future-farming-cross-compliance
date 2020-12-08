@@ -351,33 +351,33 @@
                         <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("ARFFolder"),Today.Year)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("ARFMatchedFolder"),Today.Year)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                       <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_38">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("ARFMatchedFolder"),Today.Year)]</InArgument>
+                              <InArgument x:TypeArguments="x:String">["\\CAVMFIL001.earth.gsi.gov.uk\Common\SinglePaymentScheme\Cross Compliance 2020\9)Processing Folders\Robot\ARFS matched"]</InArgument>
                             </Assign.Value>
                           </Assign>
                         </Sequence>
                       </ui:CommentOut.Body>
                     </ui:CommentOut>
-                    <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_36">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">["\\CAVMFIL001.earth.gsi.gov.uk\Common\SinglePaymentScheme\Cross Compliance 2020\9)Processing Folders\Robot\ARFS matched"]</InArgument>
-                      </Assign.Value>
-                    </Assign>
                   </Sequence>
                 </If.Then>
                 <If.Else>
@@ -487,10 +487,7 @@
                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="Save Attachmentts master" />
                       </Sequence>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID17" DisplayName="Cii?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                          <FlowDecision.Condition>
-                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IN_strMailbox.ToLower= &quot;cii&quot;" />
-                          </FlowDecision.Condition>
+                        <FlowDecision x:Name="__ReferenceID17" Condition="[IN_strMailbox.ToLower= &quot;cii&quot;]" DisplayName="Cii?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -555,21 +552,21 @@
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strSBINumber]">
+                                              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder with SBI" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber]">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:CreateDirectory>
-                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
+                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:SaveMail>
-                                              <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_5" Message="[IN_email]">
+                                              <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_5" Message="[IN_email]">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -593,7 +590,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(7)]" DisplayName="Copy File to master folder" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_6" Overwrite="True" Path="[item]" />
-                                                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(7)]" DisplayName="Copy Processing Folder" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_7" Overwrite="True" Path="[item]" />
+                                                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(7)]" DisplayName="Copy Processing Folder" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_7" Overwrite="True" Path="[item]" />
                                                 </Sequence>
                                                 <FlowStep.Next>
                                                   <FlowStep x:Name="__ReferenceID5">
@@ -604,7 +601,7 @@
                                                         <av:PointCollection x:Key="ConnectorLocation">160,544 160,596.5</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:PathExists DisplayName="Path Exists" Exists="[boolExists]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(7)]" PathType="File" />
+                                                    <ui:PathExists DisplayName="Path Exists" Exists="[boolExists]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(7)]" PathType="File" />
                                                     <FlowStep.Next>
                                                       <FlowDecision x:Name="__ReferenceID7" Condition="[boolExists]" DisplayName="CRF Moved?" sap:VirtualizedContainerService.HintSize="72,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                                         <sap:WorkflowViewStateService.ViewState>
@@ -621,23 +618,17 @@
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">60,749</av:Point>
-                                                                <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                                                <av:PointCollection x:Key="ConnectorLocation">160,800 159.895,800 159.895,821</av:PointCollection>
+                                                                <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                                                <av:PointCollection x:Key="ConnectorLocation">160,771 160,801 159.895,801 159.895,821</av:PointCollection>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                                                              <ui:CommentOut.Body>
-                                                                <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_36">
-                                                                  <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_4" Path="[item]">
-                                                                    <sap:WorkflowViewStateService.ViewState>
-                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                      </scg:Dictionary>
-                                                                    </sap:WorkflowViewStateService.ViewState>
-                                                                  </ui:Delete>
-                                                                </Sequence>
-                                                              </ui:CommentOut.Body>
-                                                            </ui:CommentOut>
+                                                            <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_4" Path="[item]">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:Delete>
                                                             <FlowStep.Next>
                                                               <FlowStep x:Name="__ReferenceID13">
                                                                 <sap:WorkflowViewStateService.ViewState>
@@ -806,22 +797,16 @@
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">140,899</av:Point>
-                                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                                          <av:Size x:Key="ShapeSize">200,22</av:Size>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
-                                        <ui:CommentOut.Body>
-                                          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                            <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_6" Path="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]">
-                                              <sap:WorkflowViewStateService.ViewState>
-                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                </scg:Dictionary>
-                                              </sap:WorkflowViewStateService.ViewState>
-                                            </ui:Delete>
-                                          </Sequence>
-                                        </ui:CommentOut.Body>
-                                      </ui:CommentOut>
+                                      <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_6" Path="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber]">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:Delete>
                                     </FlowStep>
                                   </FlowDecision.True>
                                   <FlowDecision.False>

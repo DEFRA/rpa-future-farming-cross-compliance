@@ -340,15 +340,9 @@
                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Logic Workflows\Populate Queue.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow" />
-                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
-                                            </InArgument>
-                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
-                                            </InArgument>
-                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">
-                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSBINumber" />
-                                            </OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">[strSBINumber]</OutArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
@@ -421,21 +415,21 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="564,1451" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="642,1539" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <TryCatch.Try>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="526,1224" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="604,1312" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Starting - Get Next Case&quot;]" />
-                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Starting - Get Next Case&quot;]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_21">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="s:String[]">[arrFolderPaths]</OutArgument>
                                                   </Assign.To>
@@ -443,51 +437,52 @@
                                                     <InArgument x:TypeArguments="s:String[]">[Directory.GetDirectories(string.Format(dictConfig("RobotProcessingFolder"),today.year)+"\"+strMailbox+"\")]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:String">[strCaseFolderPath]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:String">[arrFolderPaths(intCaseCounter)]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String">[nothing]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <If Condition="[strCaseFolderPath.ToLower.Contains(&quot;in progress&quot;) or strCaseFolderPath.ToLower.Contains(&quot;ready to be receipted&quot;)]" sap:VirtualizedContainerService.HintSize="484,400" sap2010:WorkflowViewState.IdRef="If_2">
-                                                  <If.Then>
-                                                    <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
-                                                        <Assign.To>
-                                                          <OutArgument x:TypeArguments="x:String">[strCaseFolderPath]</OutArgument>
-                                                        </Assign.To>
-                                                        <Assign.Value>
-                                                          <InArgument x:TypeArguments="x:String">[arrFolderPaths(intCaseCounter + 1)]</InArgument>
-                                                        </Assign.Value>
-                                                      </Assign>
-                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
-                                                        <Assign.To>
-                                                          <OutArgument x:TypeArguments="x:Int32">[intCaseCounter]</OutArgument>
-                                                        </Assign.To>
-                                                        <Assign.Value>
-                                                          <InArgument x:TypeArguments="x:Int32">[intCaseCounter + 1]</InArgument>
-                                                        </Assign.Value>
-                                                      </Assign>
-                                                    </Sequence>
-                                                  </If.Then>
-                                                </If>
-                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[strCaseFolderPath]" />
-                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_24">
-                                                  <Assign.To>
-                                                    <OutArgument x:TypeArguments="x:Int32">[intCaseCounter]</OutArgument>
-                                                  </Assign.To>
-                                                  <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:Int32">[intCaseCounter + 1]</InArgument>
-                                                  </Assign.Value>
-                                                </Assign>
-                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,588" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrFolderPaths]">
+                                                  <ui:ForEach.Body>
+                                                    <ActivityAction x:TypeArguments="x:String">
+                                                      <ActivityAction.Argument>
+                                                        <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                                                      </ActivityAction.Argument>
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,454" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <If Condition="[item.ToLower.Contains(&quot;in progress&quot;) or item.ToLower.Contains(&quot;ready to be receipted&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_2">
+                                                          <If.Else>
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[strCaseFolderPath]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[item]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                                            </Sequence>
+                                                          </If.Else>
+                                                        </If>
+                                                      </Sequence>
+                                                    </ActivityAction>
+                                                  </ui:ForEach.Body>
+                                                </ui:ForEach>
+                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[strCaseFolderPath]" />
+                                                <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_15">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="s:Exception">[exceptionCurrent]</OutArgument>
                                                   </Assign.To>
@@ -495,7 +490,7 @@
                                                     <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_16">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="x:Int32">[intRetryCounter]</OutArgument>
                                                   </Assign.To>
@@ -506,7 +501,7 @@
                                               </Sequence>
                                             </TryCatch.Try>
                                             <TryCatch.Catches>
-                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="608,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>

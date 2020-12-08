@@ -1,14 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ValidateAnimalWelfareCRF" this:ValidateAnimalWelfareCRF.IN_strSBINumber="106172025" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ValidateAnimalWelfareCRF" this:ValidateAnimalWelfareCRF.IN_strSBINumber="106172025" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
     <x:Property Name="OUT_dictAttachmentFields" Type="OutArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strPdfText" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strCRFPath" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,726</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1053,726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateAnimalWelfareCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -191,10 +192,10 @@
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,66</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,367</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,365.04</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="591,1691" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -369,13 +370,13 @@
                         </ui:ForEach.Body>
                       </ui:ForEach>
                     </Sequence>
-                    <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="549,730" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -581,152 +582,173 @@
                     <FlowStep x:Name="__ReferenceID1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">200,367</av:Point>
-                          <av:Size x:Key="ShapeSize">200,66</av:Size>
+                          <av:Point x:Key="ShapeLocation">200,365.04</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="s:String[]" Default="[{&quot;AH Standalone&quot;, &quot;AH Selection&quot;}]" Name="arrInspectionTypes" />
-                        </Sequence.Variables>
+                      <p:WordApplicationScope DisplayName="Setting User Input Values" FilePath="[IN_strCRFPath]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+                        <p:WordApplicationScope.Body>
+                          <ActivityAction x:TypeArguments="ui:WordDocument">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="767,1409" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="725,1317" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="s:String[]" Default="[{&quot;AH Standalone&quot;, &quot;AH Selection&quot;}]" Name="arrInspectionTypes" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InputDialog DisplayName="Input Dialog - Inspection Type" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;Please select whether this inspection (&quot; + IN_strSBINumber + &quot;) is an AH Standalone or AH Selection.&quot;]" Options="[arrInspectionTypes]" Title="Animal Welfare CRF - Inspection Type">
+                                  <ui:InputDialog.Result>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
+                                  </ui:InputDialog.Result>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InputDialog>
+                                <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;) is Nothing]" DisplayName="If Inspection Type Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_15">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Throw Exception="[new BusinessRuleException(&quot;Inspection Type not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_10" />
+                                  </If.Then>
+                                </If>
+                                <If Condition="[dictAttachmentFields(&quot;smr&quot;) is Nothing]" DisplayName="Assign Compliance &amp; Get SMR if nothing" sap:VirtualizedContainerService.HintSize="683,431" sap2010:WorkflowViewState.IdRef="If_16">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="376,284" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="ui:GenericValue">["Compliant"]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please select the which SMR codes are applicable for this inspection" Options="[{&quot;11&quot;, &quot;12&quot;, &quot;13&quot;}]" Title="Animal Welfare CRF - Inspection SMR">
+                                        <ui:InputDialog.Result>
+                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
+                                        </ui:InputDialog.Result>
+                                      </ui:InputDialog>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="ui:GenericValue">["Non Compliant"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[dictAttachmentFields(&quot;smr&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_17">
+                                  <If.Then>
+                                    <Throw Exception="[new BusinessRuleException(&quot;User did not select an SMR value&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_11" />
+                                  </If.Then>
+                                </If>
+                                <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).Equals(&quot;AH Standalone&quot;)]" DisplayName="If Selection ask user for Inspection Reason" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_18">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="ui:GenericValue">["Risk"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="376,184" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:InputDialog DisplayName="Input Dialog - Reason for Inspection" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_7" IsPassword="False" Label="Please select the Reason for Inspection for this CRF:" Options="[{&quot;Random&quot;, &quot;Risk&quot;, &quot;Targeted&quot;}]" Title="Animal Welfare CRF - Reason for Inspection">
+                                        <ui:InputDialog.Result>
+                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
+                                        </ui:InputDialog.Result>
+                                      </ui:InputDialog>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" DisplayName="If Inspection Reason Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_19">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Throw Exception="[new BusinessRuleException(&quot;Inspection Reason not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_12" />
+                                  </If.Then>
+                                </If>
+                                <ui:InputDialog DisplayName="Input Dialog - Inspection Refusal" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Please select the whether the inspection was refused" Options="[{&quot;Yes&quot;, &quot;No&quot;}]" Title="Animal Welfare CRF - Inspection Refusal">
+                                  <ui:InputDialog.Result>
+                                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("refusal")]</OutArgument>
+                                  </ui:InputDialog.Result>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InputDialog>
+                                <If Condition="[dictAttachmentFields(&quot;refusal&quot;) is Nothing]" DisplayName="If refusal Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_20">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <Throw Exception="[new BusinessRuleException(&quot;Inspection Refusal not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_13" />
+                                  </If.Then>
+                                </If>
+                              </Sequence>
+                            </Sequence>
+                          </ActivityAction>
+                        </p:WordApplicationScope.Body>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InputDialog DisplayName="Input Dialog - Inspection Type" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Please select whether this inspection (&quot; + IN_strSBINumber + &quot;) is an AH Standalone or AH Selection.&quot;]" Options="[arrInspectionTypes]" Title="Animal Welfare CRF - Inspection Type">
-                          <ui:InputDialog.Result>
-                            <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
-                          </ui:InputDialog.Result>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:InputDialog>
-                        <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;) is Nothing]" DisplayName="If Inspection Type Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_2">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Throw Exception="[new BusinessRuleException(&quot;Inspection Type not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                          </If.Then>
-                        </If>
-                        <If Condition="[dictAttachmentFields(&quot;smr&quot;) is Nothing]" DisplayName="Assign Compliance &amp; Get SMR if nothing" sap:VirtualizedContainerService.HintSize="683,432" sap2010:WorkflowViewState.IdRef="If_5">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="376,284" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_13">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="ui:GenericValue">["Compliant"]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Please select the which SMR codes are applicable for this inspection" Options="[{&quot;11&quot;, &quot;12&quot;, &quot;13&quot;}]" Title="Animal Welfare CRF - Inspection SMR">
-                                <ui:InputDialog.Result>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
-                                </ui:InputDialog.Result>
-                              </ui:InputDialog>
-                            </Sequence>
-                          </If.Then>
-                          <If.Else>
-                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="ui:GenericValue">["Non Compliant"]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Else>
-                        </If>
-                        <If Condition="[dictAttachmentFields(&quot;smr&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_14">
-                          <If.Then>
-                            <Throw Exception="[new BusinessRuleException(&quot;User did not select an SMR value&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_9" />
-                          </If.Then>
-                        </If>
-                        <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).Equals(&quot;AH Standalone&quot;)]" DisplayName="If Selection ask user for Inspection Reason" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_3">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="ui:GenericValue">["Risk"]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Then>
-                          <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="376,184" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:InputDialog DisplayName="Input Dialog - Reason for Inspection" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Please select the Reason for Inspection for this CRF:" Options="[{&quot;Random&quot;, &quot;Risk&quot;, &quot;Targeted&quot;}]" Title="Animal Welfare CRF - Reason for Inspection">
-                                <ui:InputDialog.Result>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
-                                </ui:InputDialog.Result>
-                              </ui:InputDialog>
-                            </Sequence>
-                          </If.Else>
-                        </If>
-                        <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" DisplayName="If Inspection Reason Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_4">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Throw Exception="[new BusinessRuleException(&quot;Inspection Reason not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
-                          </If.Then>
-                        </If>
-                        <ui:InputDialog DisplayName="Input Dialog - Inspection Refusal" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please select the whether the inspection was refused" Options="[{&quot;Yes&quot;, &quot;No&quot;}]" Title="Animal Welfare CRF - Inspection Refusal">
-                          <ui:InputDialog.Result>
-                            <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("refusal")]</OutArgument>
-                          </ui:InputDialog.Result>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </ui:InputDialog>
-                        <If Condition="[dictAttachmentFields(&quot;refusal&quot;) is Nothing]" DisplayName="If refusal Nothing" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_12">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Throw Exception="[new BusinessRuleException(&quot;Inspection Refusal not selected by user.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_8" />
-                          </If.Then>
-                        </If>
-                      </Sequence>
+                      </p:WordApplicationScope>
                     </FlowStep>
                   </FlowStep.Next>
                 </FlowStep>

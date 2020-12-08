@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,724</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1053,724</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -127,20 +127,20 @@
               <av:Size x:Key="ShapeSize">200,51</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2181" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2809" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2072" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2700" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="634,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_2" Sheets="[listSheets]" />
-                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listSheets]">
+                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,432" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listSheets]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -170,11 +170,22 @@
                     </ui:ForEach.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
+                  <If Condition="[OUT_strSheet is Nothing]" DisplayName="If No crf sheet found" sap:VirtualizedContainerService.HintSize="634,207" sap2010:WorkflowViewState.IdRef="If_52">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Throw Exception="[new BusinessRuleException(&quot;Couldn't find CRF sheet in excel document.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_33" />
+                    </If.Then>
+                  </If>
                   <Flowchart DisplayName="Read Cells" sap:VirtualizedContainerService.HintSize="634,1188" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                     <Flowchart.Variables>
                       <Variable x:TypeArguments="x:String" Name="strLatestDate" />
@@ -200,7 +211,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">300,193 300,243</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Get Inspection Type" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <Sequence DisplayName="Get Inspection Type" sap:VirtualizedContainerService.HintSize="526,647" sap2010:WorkflowViewState.IdRef="Sequence_16">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -211,9 +222,14 @@
                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
                           </ui:ExcelReadCell.Result>
                         </ui:ExcelReadCell>
+                        <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;) is Nothing]" DisplayName="If Inspection type nothing" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_53">
+                          <If.Then>
+                            <Throw Exception="[new BusinessRuleException(&quot;CRF Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_34" />
+                          </If.Then>
+                        </If>
                         <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).ToLower.Contains(&quot;sag&quot;)]" DisplayName="If Inspection Type contains SAG" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_40">
                           <If.Else>
-                            <Throw Exception="[new BusinessRuleException(&quot;CRF Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_22" />
+                            <Throw Exception="[new BusinessRuleException(&quot;CRF Inspection Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_22" />
                           </If.Else>
                         </If>
                       </Sequence>

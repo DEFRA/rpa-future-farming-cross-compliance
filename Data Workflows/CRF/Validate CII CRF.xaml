@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,714</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>882,714</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_CII_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -121,16 +121,31 @@
             </ui:InvokeWorkflowFile>
           </If.Then>
         </If>
-        <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_12">
+        <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,400" sap2010:WorkflowViewState.IdRef="If_12">
           <If.Then>
-            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\CII\SBI 106455425 2020 CII Inspection report.xlsx</InArgument>
-              </Assign.Value>
-            </Assign>
+            <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Test\FFTest\CII\SBI 106229293 2020 CII CRF.xlsx</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IN_strSBINumber]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">106229293</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
           </If.Then>
         </If>
       </Sequence>
@@ -162,13 +177,13 @@
                   <av:Size x:Key="ShapeSize">200,51</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,1941" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+              <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2569" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
                 <ui:ExcelApplicationScope.Body>
                   <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1832" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2460" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:List(x:String)" Name="listSheets" />
                       </Sequence.Variables>
@@ -178,7 +193,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="634,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[listSheets]" />
-                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listSheets]">
+                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,432" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listSheets]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
@@ -208,11 +223,16 @@
                         </ui:ForEach.Body>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEach>
+                      <If Condition="[OUT_strSheet is Nothing]" DisplayName="If no crf sheet found" sap:VirtualizedContainerService.HintSize="634,207" sap2010:WorkflowViewState.IdRef="If_33">
+                        <If.Then>
+                          <Throw Exception="[new BusinessRuleException(&quot;Couldn't find CRF sheet in excel document.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_28" />
+                        </If.Then>
+                      </If>
                       <Flowchart DisplayName="Read Cells" sap:VirtualizedContainerService.HintSize="634,1140" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -246,6 +266,11 @@
                                 <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
                               </ui:ExcelReadCell.Result>
                             </ui:ExcelReadCell>
+                            <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;) is Nothing]" DisplayName="If Inspection type nothing" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_34">
+                              <If.Then>
+                                <Throw Exception="[new BusinessRuleException(&quot;CRF Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_29" />
+                              </If.Then>
+                            </If>
                             <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).ToLower.Contains(&quot;cattle identification inspection&quot;)]" DisplayName="If Inspection Type is CII" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_23">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -254,7 +279,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Else>
-                                <Throw Exception="[new BusinessRuleException(&quot;CRF Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_19" />
+                                <Throw Exception="[new BusinessRuleException(&quot;CRF Inspection Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_19" />
                               </If.Else>
                             </If>
                           </Sequence>
@@ -312,15 +337,15 @@
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:ExcelReadCell Cell="I25" DisplayName="Read CPH" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="[OUT_strSheet]">
+                                    <ui:ExcelReadCell Cell="I25" DisplayName="Read CPH" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="[OUT_strSheet]">
                                       <ui:ExcelReadCell.Result>
                                         <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("cph")]</OutArgument>
                                       </ui:ExcelReadCell.Result>
                                     </ui:ExcelReadCell>
-                                    <If Condition="[dictAttachmentFields(&quot;cph&quot;) is Nothing]" DisplayName="If CPH nothing" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_26">
+                                    <If Condition="[dictAttachmentFields(&quot;cph&quot;) is Nothing]" DisplayName="If CPH nothing" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_26">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -344,15 +369,15 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:ExcelReadCell Cell="K50" DisplayName="Read Refusal " sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_22" SheetName="[OUT_strSheet]">
+                                        <ui:ExcelReadCell Cell="K50" DisplayName="Read Refusal " sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_22" SheetName="[OUT_strSheet]">
                                           <ui:ExcelReadCell.Result>
                                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("refusal")]</OutArgument>
                                           </ui:ExcelReadCell.Result>
                                         </ui:ExcelReadCell>
-                                        <If Condition="[dictAttachmentFields(&quot;refusal&quot;) is Nothing]" DisplayName="If Refusal nothing" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_27">
+                                        <If Condition="[dictAttachmentFields(&quot;refusal&quot;) is Nothing]" DisplayName="If Refusal nothing" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_27">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
@@ -440,7 +465,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">300,879 300,929</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="663,718" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                  <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                     <Sequence.Variables>
                                                       <Variable x:TypeArguments="x:String" Name="strLatestDate" />
                                                     </Sequence.Variables>
