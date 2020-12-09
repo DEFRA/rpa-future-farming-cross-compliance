@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,704</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1488,704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -330,7 +330,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">580,165.02 580,215.02</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[IN_strMailbox.ToLower = &quot;cii&quot;]" DisplayName="Check for Cii Mailbox" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_2">
+              <If Condition="[IN_strMailbox.ToLower = &quot;cii&quot;]" DisplayName="Check for Cii Mailbox" sap:VirtualizedContainerService.HintSize="827,670" sap2010:WorkflowViewState.IdRef="If_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -400,7 +400,7 @@
                         <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("MasterCopiesFolder"),Today.Year)]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("MasterCopiesFolder"),Today.Year)+"\"+IN_strMailbox]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </Sequence>
