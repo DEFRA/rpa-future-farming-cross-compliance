@@ -120,16 +120,31 @@
             </ui:InvokeWorkflowFile>
           </If.Then>
         </If>
-        <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_11">
+        <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,420" sap2010:WorkflowViewState.IdRef="If_11">
           <If.Then>
-            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\RPA\SBI 107642593 2020 RPA CRF.xlsm</InArgument>
-              </Assign.Value>
-            </Assign>
+            <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\RPA\SBI 107642593 2020 RPA CRF.xlsm</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_49">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[IN_strSBINumber]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">["107642593"]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
           </If.Then>
         </If>
       </Sequence>
@@ -248,7 +263,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">300,192.08 300,242.08</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Get Inspection Type" sap:VirtualizedContainerService.HintSize="526,647" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <Sequence DisplayName="Get Inspection Type" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -420,7 +435,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">300,772.08 300,822.08</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="663,718" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                 <Sequence.Variables>
                                                   <Variable x:TypeArguments="x:String" Name="strLatestDate" />
                                                 </Sequence.Variables>
