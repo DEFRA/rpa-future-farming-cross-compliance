@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,704</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -38,7 +38,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -119,6 +119,8 @@
               <Variable x:TypeArguments="snm:MailMessage" Name="mailCurrentCase" />
               <Variable x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" Name="dictConfig" />
               <Variable x:TypeArguments="x:String" Name="strContinueRobot" />
+              <Variable x:TypeArguments="x:Int32" Name="intFileIndex" />
+              <Variable x:TypeArguments="x:Boolean" Name="boolLastDocument" />
             </Flowchart.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -218,11 +220,11 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">123,382.235</av:Point>
-                          <av:Size x:Key="ShapeSize">334,55</av:Size>
+                          <av:Size x:Key="ShapeSize">334,56</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">290,437.235 290,467.235 290.641666666667,467.235 290.641666666667,495.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:Comment sap:VirtualizedContainerService.HintSize="334,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Create New Case in CRM">
+                      <ui:Comment sap:VirtualizedContainerService.HintSize="334,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Create New Case in CRM">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -331,18 +333,30 @@
                                           <av:PointCollection x:Key="ConnectorLocation">290,935.5 290,965.5 290.641666666667,965.5 290.641666666667,1005.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Document" sap:VirtualizedContainerService.HintSize="602,461" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
+                                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[intFileIndex]" DisplayName="For Each Document" sap:VirtualizedContainerService.HintSize="602,709" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
                                         <ui:ForEach.Body>
                                           <ActivityAction x:TypeArguments="x:String">
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                                             </ActivityAction.Argument>
-                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="566,327" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="566,575" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
+                                              <If Condition="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;).Count = intFileIndex + 1]" sap:VirtualizedContainerService.HintSize="524,208" sap2010:WorkflowViewState.IdRef="If_2">
+                                                <If.Then>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[boolLastDocument]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                </If.Then>
+                                              </If>
                                               <If Condition="[item.ToLower.Contains(&quot;inspection report&quot;) or item.ToLower.Contains(&quot;eartag proforma&quot;) or item.ToLower.Contains(&quot;awf02&quot;) or item.ToLower.Contains(&quot;arf&quot;)]" sap:VirtualizedContainerService.HintSize="524,235" sap2010:WorkflowViewState.IdRef="If_1">
                                                 <If.Then>
                                                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Data Workflows\CRM\AttachingSupportingDocuments.xaml">
@@ -352,6 +366,12 @@
                                                       </InArgument>
                                                       <InArgument x:TypeArguments="x:String" x:Key="IN_strFileName">
                                                         <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="item" />
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
+                                                        <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserCRM" />
+                                                      </InArgument>
+                                                      <InArgument x:TypeArguments="x:Boolean" x:Key="IN_boolLastDocument">
+                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolLastDocument" />
                                                       </InArgument>
                                                     </ui:InvokeWorkflowFile.Arguments>
                                                   </ui:InvokeWorkflowFile>
@@ -391,15 +411,9 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Resolve Case" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRM\ResolveCase.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
-                                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserCRM" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
-                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictAttachmentFields" />
-                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[IN_browserCRM]</InArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[IN_dictAttachmentFields]</InArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">

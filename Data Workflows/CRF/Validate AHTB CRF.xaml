@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,726</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_AHTB_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -78,9 +78,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID9</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,450.5</av:Point>
@@ -104,7 +104,7 @@
         </Assign>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID8">
+        <FlowStep x:Name="__ReferenceID5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,557</av:Point>
@@ -122,7 +122,7 @@
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID6">
+    <FlowStep x:Name="__ReferenceID3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
@@ -160,7 +160,7 @@
         </If>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID7">
+        <FlowStep x:Name="__ReferenceID4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,359.5</av:Point>
@@ -168,29 +168,28 @@
               <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,450.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="655,676" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="688,676" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                 <av:Size x:Key="ShapeSize">60,75</av:Size>
-                <x:Double x:Key="Width">621</x:Double>
-                <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+                <x:Double x:Key="Width">654</x:Double>
+                <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,117</av:PointCollection>
                 <x:Double x:Key="Height">639.5</x:Double>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Flowchart.StartNode>
-              <x:Reference>__ReferenceID4</x:Reference>
+              <x:Reference>__ReferenceID1</x:Reference>
             </Flowchart.StartNode>
-            <FlowStep x:Name="__ReferenceID4">
+            <FlowStep x:Name="__ReferenceID0">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">200,227</av:Point>
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,193.5 300,243.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="304,1352" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -267,231 +266,235 @@
                     <InArgument x:TypeArguments="ui:GenericValue">["No"]</InArgument>
                   </Assign.Value>
                 </Assign>
-              </Sequence>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID0">
+                <Assign DisplayName="Setting Customer Notification Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("customerNotificationSubject")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">["SBI (or CPH): " + IN_strSBINumber + " - " + dictAttachmentFields("applicationYear") + " Cross Compliance APHA Late TB Test CRF, letter and supporting documents"]</InArgument>
+                  </Assign.Value>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,66</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,339.5 299.895,339.5 299.895,359.5</av:PointCollection>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                </Assign>
+                <Assign DisplayName="Assign Resolution Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign DisplayName="Assign Resolution" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("Resolution")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " APHA Late TB Test case closed and all relevant documents attached."]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign DisplayName="Assign Inspection Result Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectionResult")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("AHTBInspectionResult")]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign DisplayName="Assign Guidance Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("GuidanceTitle")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("AHTBGuidanceTitle")]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign DisplayName="Assign Guidance Version" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("GuidanceVersion")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("AHTBGuidanceVersion")]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+              </Sequence>
+            </FlowStep>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">200,117</av:Point>
+                  <av:Size x:Key="ShapeSize">200,66</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">300,183 300,227</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Setting Regex Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="Get CPH" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="340,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;ahtbCPH&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Get CPH" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:Matches sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;ahtbCPH&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:Matches>
-                      <If Condition="[matches.Count = 0]" DisplayName="If no matches found - throw" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <Throw Exception="[new BusinessRuleException(&quot;Failed to find CPH on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                        </If.Then>
-                      </If>
-                      <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="484,348" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[matches]">
-                        <ui:ForEach.Body>
-                          <ActivityAction x:TypeArguments="str:Match">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="str:Match" Name="match" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("cph")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="ui:GenericValue">[match.Groups(1).ToString]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
-                            </Sequence>
-                          </ActivityAction>
-                        </ui:ForEach.Body>
-                      </ui:ForEach>
-                    </Sequence>
-                    <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="376,433" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:Matches sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;ahtbDate&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:Matches>
-                      <If Condition="[matches.Count = 0]" DisplayName="If no matches found - throw" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_3">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <Throw Exception="[new BusinessRuleException(&quot;Failed to find Date on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
-                        </If.Then>
-                      </If>
-                      <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[matches]">
-                        <ui:ForEach.Body>
-                          <ActivityAction x:TypeArguments="str:Match">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="str:Match" Name="match" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="ui:GenericValue">[match.Groups(1).ToString]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_2" />
-                            </Sequence>
-                          </ActivityAction>
-                        </ui:ForEach.Body>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:ForEach>
-                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection").ToString.Remove(0,6)]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </Sequence>
-                  <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID1">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">168.895,359.5</av:Point>
-                          <av:Size x:Key="ShapeSize">262,60</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">299.895,419.5 299.895,449.5 299.79,449.5 299.79,469.5</av:PointCollection>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Setting Customer Notification Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("customerNotificationSubject")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="ui:GenericValue">["SBI (or CPH): " + IN_strSBINumber + " - " + dictAttachmentFields("applicationYear") + " Cross Compliance APHA Late TB Test CRF, letter and supporting documents"]</InArgument>
-                        </Assign.Value>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Assign>
-                      <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID3">
+                  </ui:Matches>
+                  <If Condition="[matches.Count = 0]" DisplayName="If no matches found - throw" sap:VirtualizedContainerService.HintSize="340,51" sap2010:WorkflowViewState.IdRef="If_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Throw Exception="[new BusinessRuleException(&quot;Failed to find CPH on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </If.Then>
+                  </If>
+                  <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="340,348" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[matches]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="str:Match">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="str:Match" Name="match" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">168.79,469.5</av:Point>
-                              <av:Size x:Key="ShapeSize">262,60</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">299.79,529.5 299.79,579.5</av:PointCollection>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign Resolution Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                             <Assign.To>
-                              <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("cph")]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                              <InArgument x:TypeArguments="ui:GenericValue">[match.Groups(1).ToString]</InArgument>
                             </Assign.Value>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
                           </Assign>
-                          <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID2">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">168.79,579.5</av:Point>
-                                  <av:Size x:Key="ShapeSize">262,60</av:Size>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign Resolution" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("Resolution")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " APHA Late TB Test case closed and all relevant documents attached."]</InArgument>
-                                </Assign.Value>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Assign>
-                            </FlowStep>
-                          </FlowStep.Next>
-                        </FlowStep>
-                      </FlowStep.Next>
-                    </FlowStep>
-                  </FlowStep.Next>
-                </FlowStep>
+                          <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+                <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;ahtbDate&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Matches>
+                  <If Condition="[matches.Count = 0]" DisplayName="If no matches found - throw" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Throw Exception="[new BusinessRuleException(&quot;Failed to find Date on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                    </If.Then>
+                  </If>
+                  <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[matches]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="str:Match">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="str:Match" Name="match" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection")]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">[match.Groups(1).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEach>
+                  <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("dateOfInspection").ToString.Remove(0,6)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </Sequence>
+              <FlowStep.Next>
+                <x:Reference>__ReferenceID0</x:Reference>
               </FlowStep.Next>
             </FlowStep>
-            <x:Reference>__ReferenceID0</x:Reference>
-            <x:Reference>__ReferenceID1</x:Reference>
-            <x:Reference>__ReferenceID2</x:Reference>
-            <x:Reference>__ReferenceID3</x:Reference>
           </Flowchart>
           <FlowStep.Next>
-            <x:Reference>__ReferenceID5</x:Reference>
+            <x:Reference>__ReferenceID2</x:Reference>
           </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID9">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -509,10 +512,10 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - &quot;+strWorkflowName]" />
       </Sequence>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID6</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
   </Flowchart>
 </Activity>
