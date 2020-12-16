@@ -3,7 +3,7 @@
   "description": "Future Farming process which receipts inspections and then processes compliant cases if applicable",
   "main": "Main.xaml",
   "dependencies": {
-    "CRM": "[1.0.36]",
+    "CRM": "[1.0.37]",
     "GetWorkflowDetailActivities": "[1.0.1]",
     "Reusable.Components": "[1.0.7]",
     "Rural.Payments": "[1.0.11]",
