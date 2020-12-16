@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,724</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>965,724</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -135,14 +135,14 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2700" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1963" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets" sap:VirtualizedContainerService.HintSize="634,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_2" Sheets="[listSheets]" />
-                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,432" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listSheets]">
+                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Find CRF Sheet" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listSheets]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
@@ -172,15 +172,15 @@
                     </ui:ForEach.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
-                  <If Condition="[OUT_strSheet is Nothing]" DisplayName="If No crf sheet found" sap:VirtualizedContainerService.HintSize="634,207" sap2010:WorkflowViewState.IdRef="If_52">
+                  <If Condition="[OUT_strSheet is Nothing]" DisplayName="If No crf sheet found" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="If_52">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -417,7 +417,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">300,885 300,935</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="1126,1256" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                                 <Sequence.Variables>
                                                   <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="listDates" />
                                                   <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
@@ -650,22 +650,6 @@
                       </Assign>
                     </If.Else>
                   </If>
-                  <Assign DisplayName="Assign SMR " sap:VirtualizedContainerService.HintSize="634,60" sap2010:WorkflowViewState.IdRef="Assign_14">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="ui:GenericValue">["8"]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                  <Assign DisplayName="Assign Case Title" sap:VirtualizedContainerService.HintSize="634,60" sap2010:WorkflowViewState.IdRef="Assign_15">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("caseTitle")]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="ui:GenericValue">["2020 Cross Compliance Sheep and Goat Inspection"]</InArgument>
-                    </Assign.Value>
-                  </Assign>
                 </Sequence>
               </ActivityAction>
             </ui:ExcelApplicationScope.Body>
@@ -683,7 +667,7 @@
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_31">
+              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="304,852" sap2010:WorkflowViewState.IdRef="Sequence_31">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -707,7 +691,7 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                    <InArgument x:TypeArguments="ui:GenericValue">["Problem Solved"]</InArgument>
                   </Assign.Value>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -766,6 +750,22 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <Assign DisplayName="Assign SMR " sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">["8"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Case Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("caseTitle")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " Cross Compliance Sheep and Goat Inspection"]</InArgument>
+                  </Assign.Value>
                 </Assign>
               </Sequence>
             </FlowStep>

@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,726</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>965,726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateAnimalWelfareCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -182,7 +182,7 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("caseTitle")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="ui:GenericValue">["2020 Cross Compliance Animal Welfare Inspection"]</InArgument>
+                    <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " Cross Compliance Animal Welfare Inspection"]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Assign DisplayName="Setting Customer Notification Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
@@ -203,7 +203,7 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                    <InArgument x:TypeArguments="ui:GenericValue">["Problem Solved"]</InArgument>
                   </Assign.Value>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
