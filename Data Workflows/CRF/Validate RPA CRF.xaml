@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,794</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>965,754</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_RPA_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -78,9 +78,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID90</x:Reference>
+      <x:Reference>__ReferenceID88</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID86">
+    <FlowStep x:Name="__ReferenceID84">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,587</av:Point>
@@ -96,7 +96,7 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Ending Workflow - &quot; + strWorkflowName]" />
       </Sequence>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID87">
+    <FlowStep x:Name="__ReferenceID85">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,243.5</av:Point>
@@ -149,7 +149,7 @@
         </If>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID88">
+        <FlowStep x:Name="__ReferenceID86">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">200,359.5</av:Point>
@@ -157,24 +157,25 @@
               <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,467</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,866" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                 <av:Size x:Key="ShapeSize">60,75</av:Size>
                 <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,144.5</av:PointCollection>
+                <x:Double x:Key="Height">829.5</x:Double>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Flowchart.StartNode>
-              <x:Reference>__ReferenceID85</x:Reference>
+              <x:Reference>__ReferenceID83</x:Reference>
             </Flowchart.StartNode>
-            <FlowStep x:Name="__ReferenceID85">
+            <FlowStep x:Name="__ReferenceID83">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">200,144.5</av:Point>
                   <av:Size x:Key="ShapeSize">200,51</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,225.5 299.895,225.5 299.895,239.5</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,225.5 299.895,225.5 299.895,251.58</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
@@ -183,7 +184,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,2058" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1858" sap2010:WorkflowViewState.IdRef="Sequence_5">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:List(x:String)" Name="listSheets" />
                       </Sequence.Variables>
@@ -2197,22 +2198,6 @@
                         <x:Reference>__ReferenceID79</x:Reference>
                         <x:Reference>__ReferenceID80</x:Reference>
                       </Flowchart>
-                      <Assign sap:VirtualizedContainerService.HintSize="634,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="ui:GenericValue">["RPA"]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign DisplayName="Assign Case Title" sap:VirtualizedContainerService.HintSize="634,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("caseTitle")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="ui:GenericValue">["2020 Cross Compliance RPA Inspection"]</InArgument>
-                        </Assign.Value>
-                      </Assign>
                     </Sequence>
                   </ActivityAction>
                 </ui:ExcelApplicationScope.Body>
@@ -2226,80 +2211,118 @@
                 <FlowStep x:Name="__ReferenceID82">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">168.895,239.5</av:Point>
-                      <av:Size x:Key="ShapeSize">262,60</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">299.895,299.5 299.895,329.5 299.79,329.5 299.79,349.5</av:PointCollection>
+                      <av:Point x:Key="ShapeLocation">199.895,251.58</av:Point>
+                      <av:Size x:Key="ShapeSize">200,66</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Setting Customer Notification Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_50">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("customerNotificationSubject")]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="ui:GenericValue">["SBI (or CPH): " + IN_strSBINumber + " - " + dictAttachmentFields("applicationYear") + " Cross Compliance RPA Inspection Documents”]</InArgument>
-                    </Assign.Value>
+                  <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="304,852" sap2010:WorkflowViewState.IdRef="Sequence_20">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </Assign>
-                  <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID84">
+                    <Assign DisplayName="Setting Customer Notification Subject" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("customerNotificationSubject")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">["SBI (or CPH): " + IN_strSBINumber + " - " + dictAttachmentFields("applicationYear") + " Cross Compliance RPA Inspection Documents”]</InArgument>
+                      </Assign.Value>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">168.79,349.5</av:Point>
-                          <av:Size x:Key="ShapeSize">262,60</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">299.79,409.5 299.79,459.5</av:PointCollection>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign Resolution Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_51">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
-                        </Assign.Value>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Assign>
-                      <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID83">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">168.79,459.5</av:Point>
-                              <av:Size x:Key="ShapeSize">262,60</av:Size>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign Resolution" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_52">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("Resolution")]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " RPA inspection case closed and all relevant documents attached."]</InArgument>
-                            </Assign.Value>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Assign>
-                        </FlowStep>
-                      </FlowStep.Next>
-                    </FlowStep>
-                  </FlowStep.Next>
+                    </Assign>
+                    <Assign DisplayName="Assign Resolution Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_57">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("ResolutionType")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">["Problem Solved"]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign Resolution" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_58">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("Resolution")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " RPA inspection case closed and all relevant documents attached."]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign Inspection Result Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_59">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectionResult")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("RPAInspectionResult")]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign Guidance Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_60">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("GuidanceTitle")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("RPAGuidanceTitle")]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign Guidance Version" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_61">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("GuidanceVersion")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("RPAGuidanceVersion")]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_62">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">["RPA"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Assign Case Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_63">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("caseTitle")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " Cross Compliance RPA Inspection"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
             <x:Reference>__ReferenceID82</x:Reference>
-            <x:Reference>__ReferenceID83</x:Reference>
-            <x:Reference>__ReferenceID84</x:Reference>
           </Flowchart>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID89">
+            <FlowStep x:Name="__ReferenceID87">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">200,467</av:Point>
@@ -2328,14 +2351,14 @@
                 </Assign>
               </Sequence>
               <FlowStep.Next>
-                <x:Reference>__ReferenceID86</x:Reference>
+                <x:Reference>__ReferenceID84</x:Reference>
               </FlowStep.Next>
             </FlowStep>
           </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID90">
+    <FlowStep x:Name="__ReferenceID88">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -2353,10 +2376,10 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - &quot;+strWorkflowName]" />
       </Sequence>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID87</x:Reference>
+        <x:Reference>__ReferenceID85</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID88</x:Reference>
-    <x:Reference>__ReferenceID89</x:Reference>
+    <x:Reference>__ReferenceID86</x:Reference>
+    <x:Reference>__ReferenceID87</x:Reference>
   </Flowchart>
 </Activity>
