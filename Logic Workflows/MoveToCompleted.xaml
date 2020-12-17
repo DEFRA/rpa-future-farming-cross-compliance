@@ -91,11 +91,11 @@
       </Assign.Value>
     </Assign>
     <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OUT_strCompletedFolder]" />
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
       <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="file" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
@@ -103,7 +103,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[OUT_strCompletedFolder]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[IN_strCaseFolderPath]" />
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[OUT_strCompletedFolder]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[file]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>

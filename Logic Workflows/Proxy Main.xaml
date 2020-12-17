@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>628,744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>965,704</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -173,7 +173,7 @@
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Config Reader workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath">
-                              <Literal x:TypeArguments="x:String">Documents\Config\Live_Config.xlsx</Literal>
+                              <Literal x:TypeArguments="x:String">Documents\Config\config.xlsx</Literal>
                             </InArgument>
                             <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">
                               <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
@@ -419,7 +419,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="642,1539" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -570,7 +570,7 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process Case workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows\Process Case.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
-                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow" />
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">[OUT_strFlow]</OutArgument>
                                                             <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
                                                             <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[browserRP]</InArgument>
                                                             <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[browserCRM]</InArgument>

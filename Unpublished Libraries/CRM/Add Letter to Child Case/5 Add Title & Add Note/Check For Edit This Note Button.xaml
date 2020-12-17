@@ -1,20 +1,20 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Check_For_Add_An_Attachment__Paperclip_" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Check_For_Edit_This_Note_Button" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_browserCRM" Type="InArgument(ui:Browser)" />
+    <x:Property Name="OUT_boolEditExists" Type="OutArgument(x:Boolean)" />
     <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
-    <x:Property Name="OUT_boolAddAttachmentExists" Type="OutArgument(x:Boolean)" />
   </x:Members>
-  <this:Check_For_Add_An_Attachment__Paperclip_.IN_browserCRM>
+  <this:Check_For_Edit_This_Note_Button.IN_browserCRM>
     <InArgument x:TypeArguments="ui:Browser" />
-  </this:Check_For_Add_An_Attachment__Paperclip_.IN_browserCRM>
-  <this:Check_For_Add_An_Attachment__Paperclip_.IN_intTimeout>
+  </this:Check_For_Edit_This_Note_Button.IN_browserCRM>
+  <this:Check_For_Edit_This_Note_Button.IN_intTimeout>
     <InArgument x:TypeArguments="x:Int32" />
-  </this:Check_For_Add_An_Attachment__Paperclip_.IN_intTimeout>
+  </this:Check_For_Edit_This_Note_Button.IN_intTimeout>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap:VirtualizedContainerService.HintSize>712,519</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>Check_For_Add_An_Attachment__Paperclip__1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.IdRef>Check_For_Edit_This_Note_Button_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
@@ -60,21 +60,21 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check_For_Add_An_Attachment__Paperclip_" sap:VirtualizedContainerService.HintSize="476,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check_For_Edit_This_Note_Button" sap:VirtualizedContainerService.HintSize="476,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e65e28da609943c578941fe2fc82e852">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a786b7e511271c6a8ee7b0899902d95e">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <ui:UiElementExists DisplayName="'Add an attachment' Element Exists" Exists="[OUT_boolAddAttachmentExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+          <ui:UiElementExists DisplayName="'Edit this note' Element Exists" Exists="[OUT_boolEditExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4517580b-29c0-44c2-a060-4a8ddc505818" InformativeScreenshot="f64855f5d4b164b641e6de9e049f54fc" Selector="&lt;webctrl parentid='create_note_action_attachement' /&gt;&#xD;&#xA;" TimeoutMS="[IN_intTimeout]">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bd85736d-8145-4b7f-ad2b-3ddacc1c1a09" InformativeScreenshot="f800daffde566d2efe61ac3f7a2d0ff1" Selector="&lt;webctrl tag='SPAN' class='symbolFont Edit-symbol*' /&gt;&#xD;&#xA;" TimeoutMS="[IN_intTimeout]">
                 <ui:Target.WaitForReady>
                   <InArgument x:TypeArguments="ui:WaitForReady" />
                 </ui:Target.WaitForReady>
