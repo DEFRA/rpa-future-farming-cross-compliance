@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,900</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1488,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Customer_Info_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -38,7 +38,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -61,6 +61,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Read_Customer_Info_(Error Handled)" sap:VirtualizedContainerService.HintSize="1175,671" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -131,7 +132,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,395.5 300,445.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Read Customer Info" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Read Customer Info" sap:VirtualizedContainerService.HintSize="459,506" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -146,24 +147,12 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Read Customer Info" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\Rural Payments\Read Customer Info.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserRP" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCustomerNumber">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCustomerNumber" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strReferenceNumber">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strReferenceNumber" />
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strAddress">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strAddress" />
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strName">
-                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strName" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[IN_browserRP]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCustomerNumber">[IN_strCustomerNumber]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strReferenceNumber">[OUT_strReferenceNumber]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strAddress">[OUT_strAddress]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strName">[OUT_strName]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <Assign DisplayName="Reset Retry Counter" sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -201,10 +190,7 @@
                 </TryCatch.Catches>
               </TryCatch>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID2" DisplayName="Continue?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="exceptionCurrent is Nothing" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID2" Condition="[exceptionCurrent is Nothing]" DisplayName="Continue?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -473,14 +473,15 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">290,1245.5 290,1296.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <TryCatch DisplayName="Try Input Child Case Details" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                                              <TryCatch DisplayName="Try Input  Case Details" sap:VirtualizedContainerService.HintSize="438,705" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                                                 <TryCatch.Try>
-                                                  <Sequence sap:VirtualizedContainerService.HintSize="397,379" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="397,478" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="355,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;navigate to case window&quot;]" />
                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Create New Case" sap:VirtualizedContainerService.HintSize="355,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Data Workflows\CRM\Input Child Case Details.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
                                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
