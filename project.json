@@ -3,7 +3,7 @@
   "description": "Future Farming process which receipts inspections and then processes compliant cases if applicable",
   "main": "Main.xaml",
   "dependencies": {
-    "CRM": "[1.0.43]",
+    "CRM": "[1.0.44]",
     "GetWorkflowDetailActivities": "[1.0.1]",
     "Reusable.Components": "[1.0.7]",
     "Rural.Payments": "[1.0.11]",
@@ -13,7 +13,7 @@
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.2]",
     "UiPath.Word.Activities": "[1.5.3]",
-    "XCOM": "[1.0.7]"
+    "XCOM": "[1.0.8]"
   },
   "webServices": [],
   "schemaVersion": "4.0",

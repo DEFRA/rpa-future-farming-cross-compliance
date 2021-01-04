@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1488,744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,744</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -229,7 +229,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Create New Case" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Create New Case.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Create New Case" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Logic Workflows\Create New Case.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[IN_browserCRM]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
@@ -313,16 +313,10 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RP Get Customer IDs workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Logic Workflows\RP Get Customer IDs.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                        </InArgument>
-                                        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="OUT_listCustomers">
-                                          <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="listCustomers" />
-                                        </OutArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                          <Literal x:TypeArguments="x:String">106269975</Literal>
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP" />
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="OUT_listCustomers">[listCustomers]</OutArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[IN_browserRP]</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
                                     <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_30">
@@ -387,7 +381,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">290,985.5 290,1036.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <TryCatch DisplayName="Try Get Customer information" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                                      <TryCatch DisplayName="Try Get Customer information" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_7">
                                         <TryCatch.Try>
                                           <Sequence sap:VirtualizedContainerService.HintSize="376,379" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -401,7 +395,7 @@
                                                   <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
                                                 </InArgument>
                                                 <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listCustomers">
-                                                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(Of String)" />
+                                                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="listCustomers" />
                                                 </InArgument>
                                                 <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">
                                                   <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserRP" />
@@ -473,7 +467,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">290,1245.5 290,1296.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <TryCatch DisplayName="Try Input  Case Details" sap:VirtualizedContainerService.HintSize="438,705" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                                              <TryCatch DisplayName="Try Input  Case Details" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                                                 <TryCatch.Try>
                                                   <Sequence sap:VirtualizedContainerService.HintSize="397,478" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -492,7 +486,7 @@
                                                         </InArgument>
                                                         <InArgument x:TypeArguments="x:Int32" x:Key="IN_intTimeout" />
                                                         <InArgument x:TypeArguments="x:String" x:Key="IN_strCustomerName">
-                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dtCustomerDetails(0)(&quot;Reference Number&quot;).tostring" />
+                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dtCustomerDetails.Rows(0)(&quot;Reference Number&quot;).ToString" />
                                                         </InArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
@@ -843,7 +837,10 @@
                                                                     </FlowStep>
                                                                   </FlowDecision.True>
                                                                   <FlowDecision.False>
-                                                                    <FlowDecision x:Name="__ReferenceID21" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                                                                    <FlowDecision x:Name="__ReferenceID21" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                                                                      <FlowDecision.Condition>
+                                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                                                      </FlowDecision.Condition>
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -906,7 +903,10 @@
                                                             </FlowStep>
                                                           </FlowDecision.True>
                                                           <FlowDecision.False>
-                                                            <FlowDecision x:Name="__ReferenceID17" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                                                            <FlowDecision x:Name="__ReferenceID17" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                                                              <FlowDecision.Condition>
+                                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                                              </FlowDecision.Condition>
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -969,7 +969,10 @@
                                                     </FlowStep>
                                                   </FlowDecision.True>
                                                   <FlowDecision.False>
-                                                    <FlowDecision x:Name="__ReferenceID31" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_12">
+                                                    <FlowDecision x:Name="__ReferenceID31" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_12">
+                                                      <FlowDecision.Condition>
+                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                                      </FlowDecision.Condition>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1032,7 +1035,10 @@
                                             </FlowStep>
                                           </FlowDecision.True>
                                           <FlowDecision.False>
-                                            <FlowDecision x:Name="__ReferenceID32" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_13">
+                                            <FlowDecision x:Name="__ReferenceID32" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_13">
+                                              <FlowDecision.Condition>
+                                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                              </FlowDecision.Condition>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1095,7 +1101,10 @@
                                     </FlowStep>
                                   </FlowDecision.True>
                                   <FlowDecision.False>
-                                    <FlowDecision x:Name="__ReferenceID38" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_15">
+                                    <FlowDecision x:Name="__ReferenceID38" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_15">
+                                      <FlowDecision.Condition>
+                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                      </FlowDecision.Condition>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1158,7 +1167,10 @@
                             </FlowStep>
                           </FlowDecision.True>
                           <FlowDecision.False>
-                            <FlowDecision x:Name="__ReferenceID14" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                            <FlowDecision x:Name="__ReferenceID14" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                              <FlowDecision.Condition>
+                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                              </FlowDecision.Condition>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1221,7 +1233,10 @@
                     </FlowStep>
                   </FlowDecision.True>
                   <FlowDecision.False>
-                    <FlowDecision x:Name="__ReferenceID9" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                    <FlowDecision x:Name="__ReferenceID9" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                      <FlowDecision.Condition>
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3  and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                      </FlowDecision.Condition>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
