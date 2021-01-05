@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,864</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1034,1516</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Earliest_Date_of_Inspection_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -62,7 +62,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Earliest_Date_of_Inspection" sap:VirtualizedContainerService.HintSize="1044,1241" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Earliest_Date_of_Inspection" sap:VirtualizedContainerService.HintSize="1044,1451" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
       <Variable x:TypeArguments="scg:List(s:DateTime)" Default="[new list(of datetime)]" Name="listConvertedDates" />
@@ -75,20 +75,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,117.5</av:PointCollection>
-        <x:Double x:Key="Height">1205</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 299.895,107.5 299.895,127.5</av:PointCollection>
+        <x:Double x:Key="Height">1415</x:Double>
         <x:Double x:Key="Width">1010</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID10</x:Reference>
+      <x:Reference>__ReferenceID12</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">320,828.5</av:Point>
+          <av:Point x:Key="ShapeLocation">320,1038.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">420,880.5 420,910.5 419.895,910.5 419.895,929.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">420,1090.5 420,1120.5 419.895,1120.5 419.895,1139.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[iEnumDates]">
@@ -161,9 +161,9 @@
         <FlowStep x:Name="__ReferenceID2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">288.895,929.5</av:Point>
+              <av:Point x:Key="ShapeLocation">288.895,1139.5</av:Point>
               <av:Size x:Key="ShapeSize">262,60</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">419.895,989.5 419.895,1039.5</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">419.895,1199.5 419.895,1249.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -183,9 +183,9 @@
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">319.895,1039.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">319.895,1249.5</av:Point>
                   <av:Size x:Key="ShapeSize">200,51</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">419.895,1091.5 419.895,1121.5 420,1121.5 420,1137</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">419.895,1301.5 419.895,1331.5 420,1331.5 420,1347</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:ForEach x:TypeArguments="s:DateTime" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listConvertedDates.skip(0)]">
@@ -220,7 +220,7 @@
                 <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">320,1137</av:Point>
+                      <av:Point x:Key="ShapeLocation">320,1347</av:Point>
                       <av:Size x:Key="ShapeSize">200,66</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -252,28 +252,28 @@
     <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">320,567.5</av:Point>
+          <av:Point x:Key="ShapeLocation">320,777.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">420,619.5 420,649.5 415.641666666667,649.5 415.641666666667,658.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">420,829.5 420,859.5 415.641666666667,859.5 415.641666666667,868.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="(\d{1,2}\/){1,2}(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]" />
+      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="(\d{1,2}(\/|\.)){1,2}(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]" />
       <FlowStep.Next>
         <FlowDecision x:Name="__ReferenceID4" Condition="[iEnumDates.Count = 0]" DisplayName="Matches?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">380.641666666667,658.5</av:Point>
+              <av:Point x:Key="ShapeLocation">380.641666666667,868.5</av:Point>
               <av:Size x:Key="ShapeSize">70,87</av:Size>
-              <av:PointCollection x:Key="TrueConnector">380.641666666667,702 340,702</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">450.641666666667,702 480,702 480,798.5 420,798.5 420,828.5</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">380.641666666667,912 340,912</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">450.641666666667,912 480,912 480,1008.5 420,1008.5 420,1038.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
             <FlowStep x:Name="__ReferenceID5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">140,691</av:Point>
+                  <av:Point x:Key="ShapeLocation">140,901</av:Point>
                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -300,12 +300,12 @@
     <FlowStep x:Name="__ReferenceID10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,117.5</av:Point>
+          <av:Point x:Key="ShapeLocation">200,327.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,168.5 300,208.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,379.5 300,418.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="((\d{1,2})\/)((\d{1,2})\/)(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]">
+      <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[IN_strDateOfInspection.ToString]" IsBuilderTabModified="False" Pattern="((\d{1,2})(\/|.))((\d{1,2})(\/|.))(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -316,9 +316,9 @@
         <FlowStep x:Name="__ReferenceID7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,208.5</av:Point>
+              <av:Point x:Key="ShapeLocation">200,418.5</av:Point>
               <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">300,259.5 300,289.5 295.641666666667,289.5 295.641666666667,299.5</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">300,470.5 300,500.5 295.641666666667,500.5 295.641666666667,509.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[iEnumDates]">
@@ -350,29 +350,23 @@
             </ui:ForEach.Body>
           </ui:ForEach>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID8" DisplayName="Full Dates?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-              <FlowDecision.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolShortDate = False" />
-              </FlowDecision.Condition>
+            <FlowDecision x:Name="__ReferenceID8" Condition="[boolShortDate = False]" DisplayName="Full Dates?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2" True="{x:Reference __ReferenceID6}">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <av:Point x:Key="ShapeLocation">260.641666666667,299.5</av:Point>
+                  <av:Point x:Key="ShapeLocation">260.641666666667,509.5</av:Point>
                   <av:Size x:Key="ShapeSize">70,87</av:Size>
-                  <av:PointCollection x:Key="TrueConnector">260.641666666667,343 240,343 240,537.5 420,537.5 420,567.5</av:PointCollection>
-                  <av:PointCollection x:Key="FalseConnector">330.641666666667,343 490,343 490,407</av:PointCollection>
+                  <av:PointCollection x:Key="TrueConnector">260.641666666667,553 240,553 240,747.5 420,747.5 420,777.5</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">330.641666666667,553 490,553 490,617</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <FlowDecision.True>
-                <x:Reference>__ReferenceID6</x:Reference>
-              </FlowDecision.True>
               <FlowDecision.False>
                 <FlowStep x:Name="__ReferenceID9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">390,407</av:Point>
+                      <av:Point x:Key="ShapeLocation">390,617</av:Point>
                       <av:Size x:Key="ShapeSize">200,66</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">490,473 490,536.950904576091 420,536.950904576091 420,567.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">490,683 490,713 420,713 420,777.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Sequence DisplayName="Convert to Full Dates" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
@@ -438,14 +432,14 @@
                                 </Assign>
                               </If.Else>
                             </If>
-                            <If Condition="[item.Groups(4).ToString.Length = 1]" sap:VirtualizedContainerService.HintSize="611,208" sap2010:WorkflowViewState.IdRef="If_5">
+                            <If Condition="[item.Groups(5).ToString.Length = 1]" sap:VirtualizedContainerService.HintSize="611,208" sap2010:WorkflowViewState.IdRef="If_5">
                               <If.Then>
                                 <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[strMonth]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[item.ToString.Replace(item.ToString, "0" + item.Groups(4).ToString)]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[item.ToString.Replace(item.ToString, "0" + item.Groups(5).ToString)]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </If.Then>
@@ -455,12 +449,12 @@
                                     <OutArgument x:TypeArguments="x:String">[strMonth]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[item.Groups(4).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[item.Groups(5).ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </If.Else>
                             </If>
-                            <If Condition="[item.Groups(5).ToString.Length = 2]" sap:VirtualizedContainerService.HintSize="611,300" sap2010:WorkflowViewState.IdRef="If_6">
+                            <If Condition="[item.Groups(7).ToString.Length = 2]" sap:VirtualizedContainerService.HintSize="611,300" sap2010:WorkflowViewState.IdRef="If_6">
                               <If.Then>
                                 <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -473,7 +467,7 @@
                                       <OutArgument x:TypeArguments="x:String">[strYear]</OutArgument>
                                     </Assign.To>
                                     <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">[item.ToString.Replace(item.ToString, "20" + item.Groups(5).ToString)]</InArgument>
+                                      <InArgument x:TypeArguments="x:String">[item.ToString.Replace(item.ToString, "20" + item.Groups(7).ToString)]</InArgument>
                                     </Assign.Value>
                                   </Assign>
                                 </Sequence>
@@ -484,7 +478,7 @@
                                     <OutArgument x:TypeArguments="x:String">[strYear]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[item.Groups(5).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[item.Groups(7).ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </If.Else>
@@ -523,5 +517,55 @@
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
+    <FlowStep x:Name="__ReferenceID12">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">168.895,127.5</av:Point>
+          <av:Size x:Key="ShapeSize">262,60</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">299.895,187.5 299.895,217.5 299.79,217.5 299.79,227.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Convert &quot;.&quot; to &quot;/&quot;" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IN_strDateOfInspection]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[strings.Replace(IN_strDateOfInspection, ".", "/")]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">168.79,227.5</av:Point>
+              <av:Size x:Key="ShapeSize">262,60</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">299.79,287.5 299.79,317.5 300,317.5 300,327.5</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[IN_strDateOfInspection]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[strings.Replace(IN_strDateOfInspection, "00:00:00", "")]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID10</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID11</x:Reference>
   </Flowchart>
 </Activity>

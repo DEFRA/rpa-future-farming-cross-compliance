@@ -4,6 +4,7 @@
     <x:Property Name="IN_browserCRM" Type="InArgument(ui:Browser)" />
     <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
     <x:Property Name="IN_strCustomerName" Type="InArgument(x:String)" />
+    <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
   </x:Members>
   <this:Input_Child_Case_Details.IN_dictConfig>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" />
@@ -20,7 +21,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>748,713</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,753</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Input_Child_Case_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -181,12 +182,12 @@
                 </sap:WorkflowViewStateService.ViewState>
               </cc_:Check_For_Contact_Name_Unknown>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID13" Condition="[boolUnknownInContactExists]" DisplayName="Unknown/Contact Exists?" sap:VirtualizedContainerService.HintSize="139,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
+                <FlowDecision x:Name="__ReferenceID13" Condition="[boolUnknownInContactExists]" DisplayName="Unknown/Contact Exists?" sap:VirtualizedContainerService.HintSize="140,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">430.5,209.5</av:Point>
-                      <av:Size x:Key="ShapeSize">139,87</av:Size>
+                      <av:Size x:Key="ShapeSize">140,87</av:Size>
                       <av:PointCollection x:Key="TrueConnector">430.5,253 400,253 400,339</av:PointCollection>
                       <av:PointCollection x:Key="FalseConnector">569.5,253 599.5,253 599.5,415 500,415</av:PointCollection>
                     </scg:Dictionary>
@@ -234,12 +235,12 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </cc_1:Check_For_Case_Title>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID1" Condition="[boolNoNameSelectedExists]" DisplayName="No Name Selected?" sap:VirtualizedContainerService.HintSize="110,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
+                                <FlowDecision x:Name="__ReferenceID1" Condition="[boolNoNameSelectedExists]" DisplayName="No Name Selected?" sap:VirtualizedContainerService.HintSize="109,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <av:Point x:Key="ShapeLocation">345.5,538</av:Point>
-                                      <av:Size x:Key="ShapeSize">110,87</av:Size>
+                                      <av:Size x:Key="ShapeSize">109,87</av:Size>
                                       <av:PointCollection x:Key="TrueConnector">345.5,581.5 313,581.5 313,650.5</av:PointCollection>
                                       <av:PointCollection x:Key="FalseConnector">455.5,581.5 507,581.5</av:PointCollection>
                                     </scg:Dictionary>
@@ -253,7 +254,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">313,672.5 313,712.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <cc_1:Input_Case_Title DisplayName="Input Case Title" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_strCaseTitle="[IN_dictConfig(&quot;CaseTitle&quot;)]" sap2010:WorkflowViewState.IdRef="Input_Case_Title_1">
+                                      <cc_1:Input_Case_Title DisplayName="Input Case Title" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_strCaseTitle="[IN_dictAttachmentFields(&quot;caseTitle&quot;)]" sap2010:WorkflowViewState.IdRef="Input_Case_Title_1">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,14 +272,14 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                           <cc_1:Check_For_Case_Origin DisplayName="Check For Case Origin" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_intTimeout]" sap2010:WorkflowViewState.IdRef="Check_For_Case_Origin_1" OUT_boolCaseOriginExists="[boolCaseOriginExists]" />
                                           <FlowStep.Next>
-                                            <FlowDecision x:Name="__ReferenceID4" Condition="[boolCaseOriginExists]" DisplayName="Case Origin exists?" sap:VirtualizedContainerService.HintSize="105,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+                                            <FlowDecision x:Name="__ReferenceID4" Condition="[boolCaseOriginExists]" DisplayName="Case Origin exists?" sap:VirtualizedContainerService.HintSize="103,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   <av:Point x:Key="ShapeLocation">260.5,774.5</av:Point>
-                                                  <av:Size x:Key="ShapeSize">105,87</av:Size>
+                                                  <av:Size x:Key="ShapeSize">103,87</av:Size>
                                                   <av:PointCollection x:Key="TrueConnector">260.5,818 220,818 220,897</av:PointCollection>
-                                                  <av:PointCollection x:Key="FalseConnector">365.5,818 425.5,818</av:PointCollection>
+                                                  <av:PointCollection x:Key="FalseConnector">363.5,818 425.5,818</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <FlowDecision.True>
@@ -314,14 +315,14 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                       </cc_1:Check_For_Case_Type>
                                                       <FlowStep.Next>
-                                                        <FlowDecision x:Name="__ReferenceID7" Condition="[boolCaseTypeExists]" DisplayName="Case Type exists?" sap:VirtualizedContainerService.HintSize="97,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                                                        <FlowDecision x:Name="__ReferenceID7" Condition="[boolCaseTypeExists]" DisplayName="Case Type exists?" sap:VirtualizedContainerService.HintSize="95,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               <av:Point x:Key="ShapeLocation">171.5,1031</av:Point>
-                                                              <av:Size x:Key="ShapeSize">97,87</av:Size>
+                                                              <av:Size x:Key="ShapeSize">95,87</av:Size>
                                                               <av:PointCollection x:Key="TrueConnector">171.5,1074.5 130,1074.5 130,1153.5</av:PointCollection>
-                                                              <av:PointCollection x:Key="FalseConnector">268.5,1074.5 328.5,1074.5</av:PointCollection>
+                                                              <av:PointCollection x:Key="FalseConnector">266.5,1074.5 328.5,1074.5</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
                                                           <FlowDecision.True>

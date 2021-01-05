@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -136,23 +136,12 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strMailbox]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">AH</InArgument>
+                  <InArgument x:TypeArguments="x:String">RPAi</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
           </If>
-          <If Condition="[IN_strAHtype is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_3">
-            <If.Then>
-              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[IN_strAHtype]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">ahtb</InArgument>
-                </Assign.Value>
-              </Assign>
-            </If.Then>
-          </If>
+          <If Condition="[IN_strAHtype is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_3" />
           <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
               <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
@@ -160,7 +149,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">["\\GFD218DF\x953922$\Test\FFTest\AHTB\SBI 107082073 2020 AHTB CRF.doc"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Test\FFTest\RPA\SBI 106389561 2020 RPA CRF.xlsm</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
@@ -172,7 +161,7 @@
                   <OutArgument x:TypeArguments="x:String">[IN_strSBINumber]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">107082073</InArgument>
+                  <InArgument x:TypeArguments="x:String">106389561</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
