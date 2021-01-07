@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1054,922</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,962</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SearchForAttachments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -297,7 +297,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,149.5 300,196.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ca_:Check_For_Add_An_Attachment__Paperclip_ DisplayName="Check For Add An Attachment (Paperclip)" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Add_An_Attachment__Paperclip__2" OUT_boolAddAttachmentExists="[boolPaperClipExists]">
+          <ca_:Check_For_Add_An_Attachment__Paperclip_ DisplayName="Check For Add An Attachment (Paperclip)" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutM&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Add_An_Attachment__Paperclip__2" OUT_boolAddAttachmentExists="[boolPaperClipExists]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
