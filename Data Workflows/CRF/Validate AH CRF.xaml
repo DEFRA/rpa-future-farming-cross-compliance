@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_AH_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -130,14 +130,23 @@
                 <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Test\FFTest\SBI 106290632 2020 Animal Welfare Inspection report.docm</InArgument>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
               </Assign.Value>
             </Assign>
           </If.Then>
         </If>
         <If Condition="[IN_strAHtype is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_3">
           <If.Then>
-            <Throw Exception="[New BusinessRuleException (&quot;Couldn't get AH Type&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5" />
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[IN_strAHtype]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">tb</InArgument>
+              </Assign.Value>
+            </Assign>
           </If.Then>
         </If>
       </Sequence>
@@ -212,7 +221,7 @@
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -266,7 +275,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">760,596.5 760,656.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <TryCatch DisplayName="Try Invoke Animal Welfare CRF" sap:VirtualizedContainerService.HintSize="445,606" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                          <TryCatch DisplayName="Try Invoke Animal Welfare CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                             <TryCatch.Try>
                               <Sequence sap:VirtualizedContainerService.HintSize="407,379" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -276,21 +285,11 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke - Animal Welfare CRF" sap:VirtualizedContainerService.HintSize="365,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRF\ValidateAnimalWelfareCRF.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                                    </InArgument>
-                                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                                    </OutArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strPdfText">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strPdfText" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                                    </InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strPdfText">[strPdfText]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -435,9 +434,18 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke AHTB CRF" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate AHTB CRF.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strPDFtext">[strPdfText]</InArgument>
-                                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strPDFtext">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strPdfText" />
+                                    </InArgument>
+                                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
+                                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
+                                    </OutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                                    </InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">

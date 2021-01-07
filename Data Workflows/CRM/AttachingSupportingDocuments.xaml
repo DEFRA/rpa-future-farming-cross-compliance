@@ -4,11 +4,12 @@
     <x:Property Name="IN_strFileName" Type="InArgument(x:String)" />
     <x:Property Name="IN_browserCRM" Type="InArgument(ui:Browser)" />
     <x:Property Name="IN_boolLastDocument" Type="InArgument(x:Boolean)" />
+    <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>AttachingSupportingDocuments_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -127,7 +128,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,447</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1098,1020" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1338,1040" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <Flowchart.Variables>
               <Variable x:TypeArguments="s:Exception" Name="exceptionCurrent" />
             </Flowchart.Variables>
@@ -137,8 +138,8 @@
                 <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                 <av:Size x:Key="ShapeSize">60,75</av:Size>
                 <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
-                <x:Double x:Key="Width">1064</x:Double>
-                <x:Double x:Key="Height">983.5</x:Double>
+                <x:Double x:Key="Width">1304</x:Double>
+                <x:Double x:Key="Height">1003.5</x:Double>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Flowchart.StartNode>
@@ -162,9 +163,15 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Search For Attachments" sap:VirtualizedContainerService.HintSize="350,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\CRM\SearchForAttachments.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM" />
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig" />
-                        <InArgument x:TypeArguments="x:String" x:Key="IN_strFileName">[IN_strFileName]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
+                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserCRM" />
+                        </InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="IN_strFileName">
+                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strFileName" />
+                        </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -226,17 +233,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
-                    <FlowDecision x:Name="__ReferenceID11" DisplayName="Last File?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IN_boolLastDocument" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID11" Condition="[IN_boolLastDocument]" DisplayName="Last File?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">260.5,376.5</av:Point>
                           <av:Size x:Key="ShapeSize">70,87</av:Size>
                           <av:PointCollection x:Key="TrueConnector">260.5,420 240,420 240,494.5 300,494.5 300,524.5</av:PointCollection>
-                          <av:PointCollection x:Key="FalseConnector">330.5,420 1060,420 1060,744.02 300,744.02 300,774.02</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">330.5,420 1097,420 1097,774.800000000004 300,774.800000000004 300,804.02</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
@@ -258,7 +262,15 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="InputNoteForAttachment" sap:VirtualizedContainerService.HintSize="364,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Data Workflows\CRM\InputNoteForAttachment.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
+                                      <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserCRM" />
+                                    </InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
+                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictAttachmentFields" />
+                                    </InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -316,16 +328,16 @@
                                   <av:Point x:Key="ShapeLocation">265,636.5</av:Point>
                                   <av:Size x:Key="ShapeSize">70,87</av:Size>
                                   <av:PointCollection x:Key="FalseConnector">335,680 760,680 760,593.5</av:PointCollection>
-                                  <av:PointCollection x:Key="TrueConnector">265,680 240,680 240,744.02 300,744.02 300,774.02</av:PointCollection>
+                                  <av:PointCollection x:Key="TrueConnector">265,680 240,680 240,774.02 300,774.02 300,804.02</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <FlowDecision.True>
                                 <FlowStep x:Name="__ReferenceID0">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <av:Point x:Key="ShapeLocation">200,774.02</av:Point>
+                                      <av:Point x:Key="ShapeLocation">200,804.02</av:Point>
                                       <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                      <av:PointCollection x:Key="ConnectorLocation">300,825.02 300,886.5</av:PointCollection>
+                                      <av:PointCollection x:Key="ConnectorLocation">300,855.02 300,916.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <TryCatch DisplayName="Try Upload Attachment" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_3">
@@ -338,8 +350,12 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Upload Attachment" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRM\UploadAttachment.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[IN_browserCRM]</InArgument>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                            </InArgument>
+                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
+                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserCRM" />
+                                            </InArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -394,9 +410,9 @@
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          <av:Point x:Key="ShapeLocation">265,886.5</av:Point>
+                                          <av:Point x:Key="ShapeLocation">265,916.5</av:Point>
                                           <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                          <av:PointCollection x:Key="FalseConnector">335,930 760,930 760,843.5</av:PointCollection>
+                                          <av:PointCollection x:Key="FalseConnector">335,960 760,960 760,873.5</av:PointCollection>
                                           <av:PointCollection x:Key="TrueConnector">275,690 250,690 250,754.02 310,754.02 310,784.02</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -405,19 +421,19 @@
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              <av:Point x:Key="ShapeLocation">725,756.5</av:Point>
+                                              <av:Point x:Key="ShapeLocation">725,786.5</av:Point>
                                               <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                              <av:PointCollection x:Key="FalseConnector">795,800 845,800</av:PointCollection>
-                                              <av:PointCollection x:Key="TrueConnector">725,800 695,800 695,799 665,799</av:PointCollection>
+                                              <av:PointCollection x:Key="FalseConnector">795,830 845,830</av:PointCollection>
+                                              <av:PointCollection x:Key="TrueConnector">725,830 695,830 695,829 665,829</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <FlowDecision.True>
                                             <FlowStep x:Name="__ReferenceID14">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <av:Point x:Key="ShapeLocation">465,766</av:Point>
+                                                  <av:Point x:Key="ShapeLocation">465,796</av:Point>
                                                   <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                                  <av:PointCollection x:Key="ConnectorLocation">465,799 435,799 435,799.52 400,799.52</av:PointCollection>
+                                                  <av:PointCollection x:Key="ConnectorLocation">465,829 435,829 435,829.52 400,829.52</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <Sequence DisplayName="Retry Logic" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
@@ -444,7 +460,7 @@
                                             <FlowStep x:Name="__ReferenceID12">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                  <av:Point x:Key="ShapeLocation">845,789</av:Point>
+                                                  <av:Point x:Key="ShapeLocation">845,819</av:Point>
                                                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
@@ -480,7 +496,7 @@
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">465,516</av:Point>
                                           <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                          <av:PointCollection x:Key="ConnectorLocation">465,549 435,549 435,550 400,550</av:PointCollection>
+                                          <av:PointCollection x:Key="ConnectorLocation">465,549 465,550 400,550</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <Sequence DisplayName="Retry Logic" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_6">

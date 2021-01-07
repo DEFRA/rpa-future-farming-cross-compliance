@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>965,701</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InputCustomerNotificationDetails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -53,6 +53,11 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="InputCustomerNotificationDetails" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -165,7 +170,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">360,431 360,461 364,461 364,486.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ca_:Check_For_Document_Type DisplayName="Check For Document Type" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Document_Type_1" OUT_boolCaseTypeExists="[boolDocTypeExists]">
+                      <ca_:Check_For_Document_Type DisplayName="Check For Document Type" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutM&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Document_Type_1" OUT_boolCaseTypeExists="[boolDocTypeExists]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -267,7 +272,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">200,1065 200,1095 203,1095 203,1106.5</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <ca_1:Check_For_Attaching_A_Document DisplayName="Check For Attaching A Document" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutS&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Attaching_A_Document_1" OUT_boolAttachingDocumentExists="[boolAttachingDocumentExists]">
+                                                  <ca_1:Check_For_Attaching_A_Document DisplayName="Check For Attaching A Document" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutM&quot;)]" sap2010:WorkflowViewState.IdRef="Check_For_Attaching_A_Document_1" OUT_boolAttachingDocumentExists="[boolAttachingDocumentExists]">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>735,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>712,519</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_For_Add_An_Attachment__Paperclip__1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -66,7 +66,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="73717a34c035e212677c04212c8206a9">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserCRM]" BrowserType="IE" DisplayName="Attach Browser CRM" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="e65e28da609943c578941fe2fc82e852">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -74,7 +74,7 @@
           </ActivityAction.Argument>
           <ui:UiElementExists DisplayName="'Add an attachment' Element Exists" Exists="[OUT_boolAddAttachmentExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4517580b-29c0-44c2-a060-4a8ddc505818" InformativeScreenshot="f64855f5d4b164b641e6de9e049f54fc" Selector="&lt;webctrl parentid='create_note_action_attachement' class='symbolFont Attach-symbol ' /&gt;" TimeoutMS="[IN_intTimeout]">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4517580b-29c0-44c2-a060-4a8ddc505818" InformativeScreenshot="f64855f5d4b164b641e6de9e049f54fc" Selector="&lt;webctrl parentid='create_note_action_attachement' /&gt;&#xD;&#xA;" TimeoutMS="[IN_intTimeout]">
                 <ui:Target.WaitForReady>
                   <InArgument x:TypeArguments="ui:WaitForReady" />
                 </ui:Target.WaitForReady>
