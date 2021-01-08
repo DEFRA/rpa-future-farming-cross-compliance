@@ -113,7 +113,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,309.5 300,361.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Get IN Args" sap:VirtualizedContainerService.HintSize="526,327" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence DisplayName="Get IN Args" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,7 +140,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,413.5 300,460.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+          <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1375,1777" sap2010:WorkflowViewState.IdRef="Flowchart_3">
             <Flowchart.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="boolUnknownInContactExists" />
               <Variable x:TypeArguments="x:Boolean" Name="boolCaseOriginExists" />
@@ -581,7 +581,7 @@
                                                   <av:Size x:Key="ShapeSize">200,22</av:Size>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Throw Exception="[new BusinessRuleException(&quot;Could not input contact in to CRM&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5">
+                                              <Throw Exception="[new System.Exception(&quot;Could not input contact in to CRM&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_5">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -607,21 +607,6 @@
                   </FlowDecision.False>
                 </FlowDecision>
               </FlowStep.Next>
-            </FlowStep>
-            <FlowStep>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">40,389</av:Point>
-                  <av:Size x:Key="ShapeSize">200,22</av:Size>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <cc_:Input_Contact_Name_From_RP DisplayName="Input Contact Name From RP" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_strCustomerName="[IN_strCustomerName]" sap2010:WorkflowViewState.IdRef="Input_Contact_Name_From_RP_1">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </cc_:Input_Contact_Name_From_RP>
             </FlowStep>
             <x:Reference>__ReferenceID1</x:Reference>
             <x:Reference>__ReferenceID2</x:Reference>
