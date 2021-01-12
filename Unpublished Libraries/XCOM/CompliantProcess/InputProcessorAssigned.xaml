@@ -1,16 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InputBPSClaim" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InputProcessorAssigned" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_browserXCOM" Type="InArgument(ui:Browser)" />
-    <x:Property Name="OUT_boolClaimInputted" Type="OutArgument(x:Boolean)" />
-    <x:Property Name="IN_strBPSClaim" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strProcessorAssigned" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_boolProcessorAssigned" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap:VirtualizedContainerService.HintSize>1794,962</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>InputBPSClaim_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.IdRef>InputProcessorAssigned_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -33,10 +33,10 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -53,20 +53,15 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>UiPath.Mail</AssemblyReference>
-      <AssemblyReference>UiPath.CV</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InputBPSClaim" sap:VirtualizedContainerService.HintSize="625,857" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InputProcessorAssigned" sap:VirtualizedContainerService.HintSize="625,857" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach BrowserXCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8762d0d7c4ce4236f4e6bfdd69ff5868">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach Browser XCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="56b7056dd7c0e22801a2d2d184319890">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -81,18 +76,36 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT'" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strBPSClaim]">
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Processor Assigned" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strProcessorAssigned]">
               <ui:SelectItem.Items>
-                <scg:List x:TypeArguments="x:String" Capacity="8">
-                  <x:String>TBC</x:String>
-                  <x:String>NO BPS Claim</x:String>
-                  <x:String>BPS Claim Submitted</x:String>
-                  <x:String>Withdrawn</x:String>
-                  <x:String>Rejected</x:String>
+                <scg:List x:TypeArguments="x:String" Capacity="32">
+                  <x:String>Adam Gregory</x:String>
+                  <x:String>David Armstrong</x:String>
+                  <x:String>Gemma Middleton</x:String>
+                  <x:String>Hannah Dodds</x:String>
+                  <x:String>Julie Gartland</x:String>
+                  <x:String>Kerry Govans</x:String>
+                  <x:String>Kirsty Power</x:String>
+                  <x:String>Leanne Dixon</x:String>
+                  <x:String>Leanne Frazer</x:String>
+                  <x:String>Linzi Messenger</x:String>
+                  <x:String>Lisa Johnston</x:String>
+                  <x:String>Mark Pithers</x:String>
+                  <x:String>Matthew Cutland</x:String>
+                  <x:String>MG</x:String>
+                  <x:String>Michael Mcdonnell</x:String>
+                  <x:String>Michael Scott</x:String>
+                  <x:String>Robotics Process</x:String>
+                  <x:String>Roz Whitehead</x:String>
+                  <x:String>Scott Blaylock</x:String>
+                  <x:String>Stephen Brown</x:String>
+                  <x:String>Steven Creer</x:String>
+                  <x:String>Teresa Brier</x:String>
+                  <x:String>Vanessa Carter</x:String>
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="264c83af-194e-4d39-a61a-6c010ed92844" InformativeScreenshot="3727520af741cf3cff4e89f4805ce730" Selector="&lt;webctrl name='NoSPSCurrentYear' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0dee3206-e906-4104-abe7-82820494a4fc" InformativeScreenshot="c5ad02505951949ba5258e4fcb56eca5" Selector="&lt;webctrl name='ProcessorName' tag='SELECT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -102,9 +115,9 @@
                 </ui:Target>
               </ui:SelectItem.Target>
             </ui:SelectItem>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text " sap:VirtualizedContainerService.HintSize="507,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Processor Assigned" sap:VirtualizedContainerService.HintSize="507,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1e205010-4260-40a8-90cb-4f4987d61180" InformativeScreenshot="f95d0332bed22f6aaea2269ae2a22392" Selector="&lt;webctrl name='NoSPSCurrentYear' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05434121-c67d-4ba1-a84f-f34379ea5c2c" InformativeScreenshot="c5ad02505951949ba5258e4fcb56eca5" Selector="&lt;webctrl name='ProcessorName' tag='SELECT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -117,11 +130,11 @@
                 <OutArgument x:TypeArguments="x:String">[strTextOut]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <If Condition="[IN_strBPSClaim = strTextOut]" DisplayName="If match" sap:VirtualizedContainerService.HintSize="507,207" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[IN_strProcessorAssigned = strTextOut]" DisplayName="If match" sap:VirtualizedContainerService.HintSize="507,207" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Assign DisplayName="Assign to true" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="x:Boolean">[OUT_boolClaimInputted]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Boolean">[OUT_boolProcessorAssigned]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
                     <InArgument x:TypeArguments="x:Boolean">True</InArgument>
@@ -129,7 +142,7 @@
                 </Assign>
               </If.Then>
               <If.Else>
-                <Throw Exception="[new System.Exception(&quot;Couldn't Input BPS Claim&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw Exception="[new System.Exception(&quot;Couldn't Input Process Assigned&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Else>
             </If>
           </Sequence>

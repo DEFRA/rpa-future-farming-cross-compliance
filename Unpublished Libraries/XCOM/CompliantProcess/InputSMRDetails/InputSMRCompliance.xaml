@@ -1,16 +1,17 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InputBPSClaim" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InputSMRCompliance" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_browserXCOM" Type="InArgument(ui:Browser)" />
-    <x:Property Name="OUT_boolClaimInputted" Type="OutArgument(x:Boolean)" />
-    <x:Property Name="IN_strBPSClaim" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strSMRCode" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strSMRCompliance" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_boolSMRInputted" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,962</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>InputBPSClaim_1</sap2010:WorkflowViewState.IdRef>
+  <sap:VirtualizedContainerService.HintSize>1519,962</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>InputSMRCompliance_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -32,11 +33,10 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
-      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -54,19 +54,19 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="InputBPSClaim" sap:VirtualizedContainerService.HintSize="625,857" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="InputSMRCompliance" sap:VirtualizedContainerService.HintSize="625,857" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach BrowserXCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8762d0d7c4ce4236f4e6bfdd69ff5868">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach Browser XCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="f00f6ad4f78cd077d979d22aa6398b5b">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -81,18 +81,20 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'SELECT'" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strBPSClaim]">
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item SMR Compliance" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strSMRCompliance]">
               <ui:SelectItem.Items>
                 <scg:List x:TypeArguments="x:String" Capacity="8">
-                  <x:String>TBC</x:String>
-                  <x:String>NO BPS Claim</x:String>
-                  <x:String>BPS Claim Submitted</x:String>
-                  <x:String>Withdrawn</x:String>
-                  <x:String>Rejected</x:String>
+                  <x:String>NON COMPLIANT</x:String>
+                  <x:String>COMPLIANT</x:String>
+                  <x:String>N/A</x:String>
+                  <x:String>REFERRAL</x:String>
+                  <x:String>Not Negligent</x:String>
+                  <x:String>REFUSAL</x:String>
+                  <x:String>Non-attributable</x:String>
                 </scg:List>
               </ui:SelectItem.Items>
               <ui:SelectItem.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="264c83af-194e-4d39-a61a-6c010ed92844" InformativeScreenshot="3727520af741cf3cff4e89f4805ce730" Selector="&lt;webctrl name='NoSPSCurrentYear' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dbccf8cd-57c1-45b9-8968-caae7830e518" InformativeScreenshot="1e000852f66442aa93565e4b06e2d077" Selector="&lt;webctrl name='{{IN_strSMRCode}}' tag='SELECT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -102,9 +104,9 @@
                 </ui:Target>
               </ui:SelectItem.Target>
             </ui:SelectItem>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text " sap:VirtualizedContainerService.HintSize="507,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text SMR Compliance" sap:VirtualizedContainerService.HintSize="507,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1e205010-4260-40a8-90cb-4f4987d61180" InformativeScreenshot="f95d0332bed22f6aaea2269ae2a22392" Selector="&lt;webctrl name='NoSPSCurrentYear' tag='SELECT' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="97d6af1d-9a5a-4bec-83bf-43364c391539" InformativeScreenshot="1e000852f66442aa93565e4b06e2d077" Selector="&lt;webctrl name='{{IN_strSMRCode}}' tag='SELECT' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -117,11 +119,11 @@
                 <OutArgument x:TypeArguments="x:String">[strTextOut]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <If Condition="[IN_strBPSClaim = strTextOut]" DisplayName="If match" sap:VirtualizedContainerService.HintSize="507,207" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[IN_strSMRCompliance = strTextOut]" DisplayName="If match" sap:VirtualizedContainerService.HintSize="507,207" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Assign DisplayName="Assign to true" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="x:Boolean">[OUT_boolClaimInputted]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Boolean">[OUT_boolSMRInputted]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
                     <InArgument x:TypeArguments="x:Boolean">True</InArgument>
@@ -129,7 +131,7 @@
                 </Assign>
               </If.Then>
               <If.Else>
-                <Throw Exception="[new System.Exception(&quot;Couldn't Input BPS Claim&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw Exception="[new System.Exception(&quot;Couldn't Input SMR Compliance&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Else>
             </If>
           </Sequence>

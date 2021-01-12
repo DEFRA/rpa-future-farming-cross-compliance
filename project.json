@@ -13,7 +13,7 @@
     "UiPath.System.Activities": "[20.4.0]",
     "UiPath.UIAutomation.Activities": "[20.4.2]",
     "UiPath.Word.Activities": "[1.5.3]",
-    "XCOM": "[1.0.11]"
+    "XCOM": "[1.0.16]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
