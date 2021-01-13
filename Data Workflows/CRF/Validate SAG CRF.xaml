@@ -108,7 +108,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,450.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,866" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -129,13 +129,13 @@
               <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 299.895,208.5 299.895,231.58</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,1724" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1963" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1615" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -234,6 +234,14 @@
                             <Throw Exception="[new BusinessRuleException(&quot;CRF Inspection Type does not match expected.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_22" />
                           </If.Else>
                         </If>
+                        <Assign DisplayName="Assign Inspection Type for XCOM" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_41">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="ui:GenericValue">["SAG Standalone"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
                       </Sequence>
                       <FlowStep.Next>
                         <FlowStep x:Name="__ReferenceID0">
@@ -347,18 +355,18 @@
                                           <av:PointCollection x:Key="ConnectorLocation">300,657 300,707</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                      <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="611,647" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:ExcelReadCell Cell="H103" DisplayName="Read Compliance" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_27" SheetName="[OUT_strSheet]">
+                                        <ui:ExcelReadCell Cell="H103" DisplayName="Read Compliance" sap:VirtualizedContainerService.HintSize="569,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_27" SheetName="[OUT_strSheet]">
                                           <ui:ExcelReadCell.Result>
                                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
                                           </ui:ExcelReadCell.Result>
                                         </ui:ExcelReadCell>
-                                        <If Condition="[dictAttachmentFields(&quot;compliance&quot;) is Nothing]" DisplayName="If Compliance nothing" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_45">
+                                        <If Condition="[dictAttachmentFields(&quot;compliance&quot;) is Nothing]" DisplayName="If Compliance nothing" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_45">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -368,6 +376,28 @@
                                           <If.Then>
                                             <Throw Exception="[New BusinessRuleException(&quot;Compliance value not found on CRF Document&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_27" />
                                           </If.Then>
+                                        </If>
+                                        <If Condition="[dictAttachmentFields(&quot;compliance&quot;).ToLower.Equals(&quot;compliant&quot;)]" DisplayName="Change to correct formatting" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_55">
+                                          <If.Then>
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="ui:GenericValue">["Compliant"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="ui:GenericValue">["Non-Compliant"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </If.Else>
                                         </If>
                                       </Sequence>
                                       <FlowStep.Next>
@@ -417,7 +447,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">300,885 300,935</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="1168,1256" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                              <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
                                                 <Sequence.Variables>
                                                   <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="listDates" />
                                                   <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
@@ -571,15 +601,54 @@
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:ExcelReadCell Cell="F37" DisplayName="Read Reason For Visit" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_34" SheetName="[OUT_strSheet]">
+                                                        <ui:ExcelReadCell Cell="F37" DisplayName="Read Reason For Visit" sap:VirtualizedContainerService.HintSize="856,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_34" SheetName="[OUT_strSheet]">
                                                           <ui:ExcelReadCell.Result>
                                                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
                                                           </ui:ExcelReadCell.Result>
                                                         </ui:ExcelReadCell>
-                                                        <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_51">
+                                                        <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="856,548" sap2010:WorkflowViewState.IdRef="If_51">
                                                           <If.Then>
                                                             <Throw Exception="[new BusinessRuleException(&quot;Could not find Reason for Visit on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_32" />
                                                           </If.Then>
+                                                          <If.Else>
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;).ToLower.Contains(&quot;non&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_54">
+                                                                <If.Then>
+                                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("legacy")]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="ui:GenericValue">["Non-Legacy"]</InArgument>
+                                                                    </Assign.Value>
+                                                                  </Assign>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("legacy")]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="ui:GenericValue">["Legacy"]</InArgument>
+                                                                    </Assign.Value>
+                                                                  </Assign>
+                                                                </If.Else>
+                                                              </If>
+                                                              <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="ui:GenericValue">[split(dictAttachmentFields("reasonForVisit"), " ")(0)]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                            </Sequence>
+                                                          </If.Else>
                                                         </If>
                                                       </Sequence>
                                                     </FlowStep>
@@ -608,10 +677,10 @@
                     <x:Reference>__ReferenceID6</x:Reference>
                     <x:Reference>__ReferenceID7</x:Reference>
                   </Flowchart>
-                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,399" sap2010:WorkflowViewState.IdRef="If_39">
+                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="If_39">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -757,7 +826,7 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="ui:GenericValue">["8"]</InArgument>
+                    <InArgument x:TypeArguments="ui:GenericValue">["SMR8a"]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Assign DisplayName="Assign Case Title" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">

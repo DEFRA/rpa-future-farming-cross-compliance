@@ -66,7 +66,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach Browser XCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="f00f6ad4f78cd077d979d22aa6398b5b">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" BrowserType="IE" DisplayName="Attach Browser XCOM" sap:VirtualizedContainerService.HintSize="583,765" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="54981af46bf00a904d3f8b8223b69871">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
