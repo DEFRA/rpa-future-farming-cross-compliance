@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,754</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToSitiAgriCase_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -440,7 +440,7 @@
                                                                                 <ActivityAction.Argument>
                                                                                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                                                                 </ActivityAction.Argument>
-                                                                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="703,746" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                                                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1359,1132" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                                                                   <Sequence.Variables>
                                                                                     <Variable x:TypeArguments="sd:DataTable" Name="dtSitiPopUp" />
                                                                                   </Sequence.Variables>
@@ -449,7 +449,7 @@
                                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                     </scg:Dictionary>
                                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dtSitiPopUp]" DisplayName="Extract Data Table" ExtractMetadata="&lt;extract&gt;&lt;column name='Application Status' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell' tag='div' idx='3' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="661,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+                                                                                  <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dtSitiPopUp]" DisplayName="Extract Data Table" ExtractMetadata="&lt;extract&gt;&lt;column name='Application Status' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell' tag='div' idx='3' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="1317,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
                                                                                     <ui:ExtractData.Target>
                                                                                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13f32fe9-fd4a-46d7-81eb-90cf3d714d2c" InformativeScreenshot="2c5108680c62572f4ddd12373d670432" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='listResult' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                                                                                         <ui:Target.TimeoutMS>
@@ -458,26 +458,32 @@
                                                                                       </ui:Target>
                                                                                     </ui:ExtractData.Target>
                                                                                   </ui:ExtractData>
-                                                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSitiPopUp]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="661,508" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                                                                  <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSitiPopUp]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1317,894" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                                                                     <ui:ForEachRow.Body>
                                                                                       <ActivityAction x:TypeArguments="sd:DataRow">
                                                                                         <ActivityAction.Argument>
                                                                                           <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                                                                         </ActivityAction.Argument>
-                                                                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,361" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                                                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1267,747" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                                                                           <sap:WorkflowViewStateService.ViewState>
                                                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                             </scg:Dictionary>
                                                                                           </sap:WorkflowViewStateService.ViewState>
-                                                                                          <If Condition="[dtSitiPopUp.Rows.IndexOf(row) = 0 and row(&quot;Application Status&quot;).ToString.Equals(&quot;PAID&quot;)]" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_5">
+                                                                                          <If Condition="[dtSitiPopUp.Rows.IndexOf(row) = 0 and row(&quot;Application Status&quot;).ToString.Equals(&quot;PAID&quot;)]" DisplayName="If Paid" sap:VirtualizedContainerService.HintSize="1225,593" sap2010:WorkflowViewState.IdRef="If_5">
+                                                                                            <sap:WorkflowViewStateService.ViewState>
+                                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                                              </scg:Dictionary>
+                                                                                            </sap:WorkflowViewStateService.ViewState>
                                                                                             <If.Then>
                                                                                               <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                                                                                                 <Assign.To>
                                                                                                   <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
                                                                                                 </Assign.To>
                                                                                                 <Assign.Value>
-                                                                                                  <InArgument x:TypeArguments="ui:GenericValue">[True]</InArgument>
+                                                                                                  <InArgument x:TypeArguments="ui:GenericValue">["BPS Claim Submitted"]</InArgument>
                                                                                                 </Assign.Value>
                                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -487,22 +493,67 @@
                                                                                               </Assign>
                                                                                             </If.Then>
                                                                                             <If.Else>
-                                                                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
-                                                                                                <Assign.To>
-                                                                                                  <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
-                                                                                                </Assign.To>
-                                                                                                <Assign.Value>
-                                                                                                  <InArgument x:TypeArguments="ui:GenericValue">[False]</InArgument>
-                                                                                                </Assign.Value>
+                                                                                              <Sequence sap:VirtualizedContainerService.HintSize="918,446" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                                   </scg:Dictionary>
                                                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                                              </Assign>
+                                                                                                <If Condition="[dtSitiPopUp.Rows.IndexOf(row) = 0 and row(&quot;Application Status&quot;).ToString.ToLower.Equals(&quot;rejected&quot;)]" DisplayName="If Rejected" sap:VirtualizedContainerService.HintSize="876,354" sap2010:WorkflowViewState.IdRef="If_7">
+                                                                                                  <If.Then>
+                                                                                                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                                                                      <Assign.To>
+                                                                                                        <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                                                                                                      </Assign.To>
+                                                                                                      <Assign.Value>
+                                                                                                        <InArgument x:TypeArguments="ui:GenericValue">["Rejected"]</InArgument>
+                                                                                                      </Assign.Value>
+                                                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                                        </scg:Dictionary>
+                                                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                                                    </Assign>
+                                                                                                  </If.Then>
+                                                                                                  <If.Else>
+                                                                                                    <If Condition="[dtSitiPopUp.Rows.IndexOf(row) = 0 and row(&quot;Application Status&quot;).ToString.ToLower.Equals(&quot;withdrawn&quot;)]" DisplayName="If Withdrawn" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_6">
+                                                                                                      <If.Then>
+                                                                                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                                                                                          <Assign.To>
+                                                                                                            <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                                                                                                          </Assign.To>
+                                                                                                          <Assign.Value>
+                                                                                                            <InArgument x:TypeArguments="ui:GenericValue">["Withdrawn"]</InArgument>
+                                                                                                          </Assign.Value>
+                                                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                                            </scg:Dictionary>
+                                                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                                                        </Assign>
+                                                                                                      </If.Then>
+                                                                                                      <If.Else>
+                                                                                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                                                                                          <Assign.To>
+                                                                                                            <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                                                                                                          </Assign.To>
+                                                                                                          <Assign.Value>
+                                                                                                            <InArgument x:TypeArguments="ui:GenericValue">["NO BPS Claim"]</InArgument>
+                                                                                                          </Assign.Value>
+                                                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                                            </scg:Dictionary>
+                                                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                                                        </Assign>
+                                                                                                      </If.Else>
+                                                                                                    </If>
+                                                                                                  </If.Else>
+                                                                                                </If>
+                                                                                              </Sequence>
                                                                                             </If.Else>
                                                                                           </If>
-                                                                                          <ui:Break sap:VirtualizedContainerService.HintSize="569,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                                                                                          <ui:Break sap:VirtualizedContainerService.HintSize="1225,22" sap2010:WorkflowViewState.IdRef="Break_2" />
                                                                                         </Sequence>
                                                                                       </ActivityAction>
                                                                                     </ui:ForEachRow.Body>
@@ -585,7 +636,7 @@
                                                                           <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
                                                                         </Assign.To>
                                                                         <Assign.Value>
-                                                                          <InArgument x:TypeArguments="ui:GenericValue">[False]</InArgument>
+                                                                          <InArgument x:TypeArguments="ui:GenericValue">["NO BPS Claim"]</InArgument>
                                                                         </Assign.Value>
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
