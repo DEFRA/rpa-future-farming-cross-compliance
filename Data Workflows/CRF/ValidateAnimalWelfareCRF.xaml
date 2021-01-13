@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ValidateAnimalWelfareCRF" this:ValidateAnimalWelfareCRF.IN_strSBINumber="106172025" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ValidateAnimalWelfareCRF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,726</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateAnimalWelfareCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -163,7 +163,7 @@
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="304,852" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -279,7 +279,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Get SBI" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence DisplayName="Get SBI" sap:VirtualizedContainerService.HintSize="731,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                   </Sequence.Variables>
@@ -340,7 +340,7 @@
                     </If.Then>
                   </If>
                 </Sequence>
-                <Sequence DisplayName="Get CPH" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Get CPH" sap:VirtualizedContainerService.HintSize="731,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                   </Sequence.Variables>
@@ -394,7 +394,7 @@
                     </ui:ForEach.Body>
                   </ui:ForEach>
                 </Sequence>
-                <Sequence DisplayName="Get Inspector Name" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence DisplayName="Get Inspector Name" sap:VirtualizedContainerService.HintSize="731,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                   </Sequence.Variables>
@@ -448,7 +448,7 @@
                     </ui:ForEach.Body>
                   </ui:ForEach>
                 </Sequence>
-                <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="731,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                   </Sequence.Variables>
@@ -516,7 +516,7 @@
                     </Assign.Value>
                   </Assign>
                 </Sequence>
-                <Sequence DisplayName="Get Inspection Notice" sap:VirtualizedContainerService.HintSize="549,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence DisplayName="Get Inspection Notice" sap:VirtualizedContainerService.HintSize="731,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                   </Sequence.Variables>
@@ -565,7 +565,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:ForEach>
                 </Sequence>
-                <Sequence DisplayName="Get SMR" sap:VirtualizedContainerService.HintSize="549,405" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <Sequence DisplayName="Get SMR" sap:VirtualizedContainerService.HintSize="731,1017" sap2010:WorkflowViewState.IdRef="Sequence_19">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
                     <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="distinctMatches" />
@@ -577,14 +577,14 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Matches sap:VirtualizedContainerService.HintSize="507,59" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;awSMR&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
+                  <ui:Matches sap:VirtualizedContainerService.HintSize="689,59" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[IN_strPdfText]" IsBuilderTabModified="False" Pattern="[IN_dictConfig(&quot;awSMR&quot;)]" RegexOption="IgnoreCase, Compiled" Result="[matches]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:Matches>
-                  <If Condition="[matches.Count = 0]" sap:VirtualizedContainerService.HintSize="507,214" sap2010:WorkflowViewState.IdRef="If_13">
+                  <If Condition="[matches.Count = 0]" sap:VirtualizedContainerService.HintSize="689,826" sap2010:WorkflowViewState.IdRef="If_13">
                     <If.Then>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
                         <Assign.To>
@@ -596,10 +596,10 @@
                       </Assign>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Get SMRs" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <Sequence DisplayName="Get SMRs" sap:VirtualizedContainerService.HintSize="382,678" sap2010:WorkflowViewState.IdRef="Sequence_27">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -636,7 +636,7 @@
                                     <OutArgument x:TypeArguments="x:String">[strMatches]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[strMatches + " " +match]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[strMatches + " " + "SMR"  +match]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
@@ -665,34 +665,34 @@
                       <av:PointCollection x:Key="ConnectorLocation">300,316.04 300,357</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <p:WordApplicationScope DisplayName="Setting User Input Values" FilePath="[IN_strCRFPath]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+                  <p:WordApplicationScope DisplayName="Setting User Input Values" FilePath="[IN_strCRFPath]" sap:VirtualizedContainerService.HintSize="801,1838" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
                     <p:WordApplicationScope.Body>
                       <ActivityAction x:TypeArguments="ui:WordDocument">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="767,1408" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="767,1729" sap2010:WorkflowViewState.IdRef="Sequence_31">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="725,1316" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <Sequence DisplayName="User Input Values" sap:VirtualizedContainerService.HintSize="725,1637" sap2010:WorkflowViewState.IdRef="Sequence_30">
                             <Sequence.Variables>
-                              <Variable x:TypeArguments="s:String[]" Default="[{&quot;AH Standalone&quot;, &quot;AH Selection&quot;}]" Name="arrInspectionTypes" />
+                              <Variable x:TypeArguments="s:String[]" Default="[{&quot;AH Standalones&quot;, &quot;AH Selection&quot;}]" Name="arrInspectionTypes" />
                             </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InputDialog DisplayName="Input Dialog - Inspection Type" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;Please select whether this inspection (&quot; + IN_strSBINumber + &quot;) is an AH Standalone or AH Selection.&quot;]" Options="[arrInspectionTypes]" Title="Animal Welfare CRF - Inspection Type">
+                            <ui:InputDialog DisplayName="Input Dialog - Inspection Type" sap:VirtualizedContainerService.HintSize="683,92" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;Please select whether this inspection (&quot; + IN_strSBINumber + &quot;) is an AH Standalone or AH Selection.&quot;]" Options="[arrInspectionTypes]" Title="Animal Welfare CRF - Inspection Type">
                               <ui:InputDialog.Result>
                                 <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectionType")]</OutArgument>
                               </ui:InputDialog.Result>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -730,7 +730,7 @@
                                       <InArgument x:TypeArguments="ui:GenericValue">["Compliant"]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please select the which SMR codes are applicable for this inspection" Options="[{&quot;11&quot;, &quot;12&quot;, &quot;13&quot;}]" Title="Animal Welfare CRF - Inspection SMR">
+                                  <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please select which SMR code is applicable for this inspection" Options="[{&quot;SMR11&quot;, &quot;SMR12&quot;, &quot;SMR13&quot;}]" Title="Animal Welfare CRF - Inspection SMR">
                                     <ui:InputDialog.Result>
                                       <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("smr")]</OutArgument>
                                     </ui:InputDialog.Result>
@@ -743,7 +743,7 @@
                                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("compliance")]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="ui:GenericValue">["Non Compliant"]</InArgument>
+                                    <InArgument x:TypeArguments="ui:GenericValue">["Non-Compliant"]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </If.Else>
@@ -753,10 +753,10 @@
                                 <Throw Exception="[new BusinessRuleException(&quot;User did not select an SMR value&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_11" />
                               </If.Then>
                             </If>
-                            <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).Equals(&quot;AH Standalone&quot;)]" DisplayName="If Selection ask user for Inspection Reason" sap:VirtualizedContainerService.HintSize="683,51" sap2010:WorkflowViewState.IdRef="If_18">
+                            <If Condition="[dictAttachmentFields(&quot;inspectionType&quot;).Equals(&quot;AH Standalone&quot;)]" DisplayName="If Selection ask user for Inspection Reason" sap:VirtualizedContainerService.HintSize="683,331" sap2010:WorkflowViewState.IdRef="If_18">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>

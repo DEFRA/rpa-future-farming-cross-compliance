@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,1153</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1113</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -114,7 +114,7 @@
               <av:PointCollection x:Key="ConnectorLocation">670,294.5 670,323.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[IN_dictConfig is Nothing]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[IN_dictConfig is Nothing]" DisplayName="If Config nothing" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Then>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
@@ -133,7 +133,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">670,374.5 670,404.5 670.5,404.5 670.5,417</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" sap:VirtualizedContainerService.HintSize="1354,1578" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+              <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1354,1578" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -191,7 +191,7 @@
                             <av:Size x:Key="ShapeSize">200,51</av:Size>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="1372,992" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMailMessages]">
+                        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMailMessages]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="snm:MailMessage">
                               <ActivityAction.Argument>
@@ -401,10 +401,7 @@
                                                 </ui:ForEach.Body>
                                               </ui:ForEach>
                                               <FlowStep.Next>
-                                                <FlowDecision x:Name="__ReferenceID9" DisplayName="Email found?" sap:VirtualizedContainerService.HintSize="75,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
-                                                  <FlowDecision.Condition>
-                                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolEmailFound" />
-                                                  </FlowDecision.Condition>
+                                                <FlowDecision x:Name="__ReferenceID9" Condition="[boolEmailFound]" DisplayName="Email found?" sap:VirtualizedContainerService.HintSize="75,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

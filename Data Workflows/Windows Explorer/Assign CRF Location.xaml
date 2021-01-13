@@ -5,11 +5,13 @@
     <x:Property Name="IN_strCaseFolderPath" Type="InArgument(x:String)" />
     <x:Property Name="OUT_strCRFfolderPath" Type="OutArgument(x:String)" />
     <x:Property Name="OUT_strAHtype" Type="OutArgument(x:String)" />
+    <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_strRPAInspectionType" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,731</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -65,7 +67,7 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Proxy_Main" sap:VirtualizedContainerService.HintSize="634,666" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Assign CRF Location" sap:VirtualizedContainerService.HintSize="634,666" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
     </Flowchart.Variables>
@@ -107,13 +109,13 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304.5 300,356.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="562,682" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,548" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,639" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,6 +143,52 @@
                           <InArgument x:TypeArguments="x:String">animal welfare</InArgument>
                         </Assign.Value>
                       </Assign>
+                    </If.Then>
+                  </If>
+                  <If Condition="[item.ToLower.Contains(&quot;.eml&quot;) and IN_strMailbox.ToLower = &quot;rpai&quot;]" DisplayName="If RPAi" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <If Condition="[item.ToString.ToLower.Contains(&quot;additional&quot;)]" DisplayName="If subject contains &quot;Additional&quot;" sap:VirtualizedContainerService.HintSize="876,356" sap2010:WorkflowViewState.IdRef="If_4">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[OUT_strRPAInspectionType]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">Additional Standalone</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <If Condition="[item.ToString.ToLower.Contains(&quot;standalone&quot;) or item.ToString.ToLower.Contains(&quot;e-forms&quot;)]" DisplayName="If subject contains standalone" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[OUT_strRPAInspectionType]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">RPAI Standalone</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Then>
+                            <If.Else>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[OUT_strRPAInspectionType]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">1% Selection</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Else>
+                          </If>
+                        </If.Else>
+                      </If>
                     </If.Then>
                   </If>
                 </Sequence>

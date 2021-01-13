@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -312,16 +312,16 @@
                                   <av:Point x:Key="ShapeLocation">265,725.5</av:Point>
                                   <av:Size x:Key="ShapeSize">70,87</av:Size>
                                   <av:PointCollection x:Key="FalseConnector">335,769 495,769</av:PointCollection>
-                                  <av:PointCollection x:Key="TrueConnector">265,769 240,769 240,894.5 300,894.5 300,924.5</av:PointCollection>
+                                  <av:PointCollection x:Key="TrueConnector">265,769 240,769 240,874.5 300,874.5 300,904.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <FlowDecision.True>
                                 <FlowStep x:Name="__ReferenceID18">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <av:Point x:Key="ShapeLocation">200,924.5</av:Point>
+                                      <av:Point x:Key="ShapeLocation">200,904.5</av:Point>
                                       <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                      <av:PointCollection x:Key="ConnectorLocation">300,975.5 300,1016.5</av:PointCollection>
+                                      <av:PointCollection x:Key="ConnectorLocation">300,955.5 300,1016.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <TryCatch DisplayName="Try Populate Queue" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_6">
@@ -339,10 +339,18 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Logic Workflows\Populate Queue.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow" />
-                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
-                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
-                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">[strSBINumber]</OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">
+                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strFlow" />
+                                            </OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
+                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
+                                            </InArgument>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
+                                            </InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSBINumber">
+                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSBINumber" />
+                                            </OutArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
@@ -415,7 +423,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="642,1539" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -551,7 +559,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">300,1485.5 300,1535.5</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <TryCatch DisplayName="Try Process Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                                  <TryCatch DisplayName="Try Process Case" sap:VirtualizedContainerService.HintSize="438,706" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -566,14 +574,33 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process Case workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows\Process Case.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
-                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">[OUT_strFlow]</OutArgument>
-                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[browserRP]</InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[browserCRM]</InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[strSBINumber]</InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">[browserSitiAgri]</InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">[strCaseFolderPath]</InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">
+                                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strFlow" />
+                                                            </OutArgument>
+                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">
+                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserRP" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
+                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserCRM" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSBINumber" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">
+                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserSitiAgri" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">
+                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCaseFolderPath" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
+                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
+                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
+                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserXCOM" />
+                                                            </InArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
                                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
