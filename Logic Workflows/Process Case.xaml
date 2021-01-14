@@ -75,6 +75,7 @@
       <Variable x:TypeArguments="x:String" Name="strAHType" />
       <Variable x:TypeArguments="x:String" Name="strCompletedFolderPath" />
       <Variable x:TypeArguments="x:String" Name="strRPAInspectionType" />
+      <Variable x:TypeArguments="x:String" Name="strDateReceived" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -320,15 +321,9 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="355,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\NavigateToXcomCase.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
-                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                                        </InArgument>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
-                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictAttachmentFields" />
-                                        </InArgument>
+                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[dictAttachmentFields]</InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -416,7 +411,7 @@
                                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
                                                 <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
                                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[dictAttachmentFields]</InArgument>
-                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strDateReceived" />
+                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strDateReceived">[strDateReceived]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                             </ui:InvokeWorkflowFile>
                                             <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_28">
@@ -558,7 +553,10 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <FlowDecision.True>
-                                                    <FlowDecision x:Name="__ReferenceID22" Condition="[dictAttachmentFields(&quot;compliance&quot;).tolower.trim = &quot;compliant&quot; and dictAttachmentFields(&quot;bpsClaim&quot;) =  True]" DisplayName="Compliant Process?" sap:VirtualizedContainerService.HintSize="110,87" sap2010:WorkflowViewState.IdRef="FlowDecision_14">
+                                                    <FlowDecision x:Name="__ReferenceID22" DisplayName="Compliant Process?" sap:VirtualizedContainerService.HintSize="110,87" sap2010:WorkflowViewState.IdRef="FlowDecision_14">
+                                                      <FlowDecision.Condition>
+                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="dictAttachmentFields(&quot;compliance&quot;).tolower.trim = &quot;compliant&quot; and dictAttachmentFields(&quot;bpsClaim&quot;) =  &quot;BPS Claim Submitted&quot;" />
+                                                      </FlowDecision.Condition>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1243,6 +1241,7 @@
                                     <OutArgument x:TypeArguments="x:String" x:Key="OUT_strAHtype">[strAHType]</OutArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
                                     <OutArgument x:TypeArguments="x:String" x:Key="OUT_strRPAInspectionType">[strRPAInspectionType]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateReceived">[strDateReceived]</OutArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                                 <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_40">

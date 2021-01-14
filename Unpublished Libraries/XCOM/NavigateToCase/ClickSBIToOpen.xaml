@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,541</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ClickSBIToOpen_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -88,7 +88,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef4f25d5-c414-453a-9887-e6036553d54c" InformativeScreenshot="5abba27f5e55488edd05ee7997961951" Selector="&lt;html title='Cross Compliance 2015' /&gt;&lt;webctrl parentid='ViewContent' tableRow='{{IN_intRowIndex}}' tag='A' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ef4f25d5-c414-453a-9887-e6036553d54c" InformativeScreenshot="5abba27f5e55488edd05ee7997961951" Selector="&lt;webctrl parentid='ViewContent' tableRow='{{IN_intRowIndex}}' tag='A' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Compliance_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -498,7 +498,7 @@
                                                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                       <av:Point x:Key="ShapeLocation">200,2147</av:Point>
                                                                                                       <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                                                                                      <av:PointCollection x:Key="ConnectorLocation">300,2213 300,2243 300.141666666667,2243 300.141666666667,2253</av:PointCollection>
+                                                                                                      <av:PointCollection x:Key="ConnectorLocation">300,2213 300,2243 295.641666666667,2243 295.641666666667,2253</av:PointCollection>
                                                                                                     </scg:Dictionary>
                                                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                                                   <Sequence DisplayName="Input SMR/GAEC details" sap:VirtualizedContainerService.HintSize="689,849" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -518,7 +518,7 @@
                                                                                                         <InArgument x:TypeArguments="ui:GenericValue">[strings.Replace(IN_dictAttachmentFields("compliance").ToUpper, "-", " ")]</InArgument>
                                                                                                       </Assign.Value>
                                                                                                     </Assign>
-                                                                                                    <ui:Matches sap:VirtualizedContainerService.HintSize="647,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_dictAttachmentFields(&quot;smr&quot;)]" IsBuilderTabModified="False" Pattern="(smr|gaec)\s?\d*" RegexOption="IgnoreCase, Compiled" Result="[listSMRMatches]" />
+                                                                                                    <ui:Matches sap:VirtualizedContainerService.HintSize="647,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[IN_dictAttachmentFields(&quot;smr&quot;)]" IsBuilderTabModified="False" Pattern="(smr|gaec)\s?\d*\w?" RegexOption="IgnoreCase, Compiled" Result="[listSMRMatches]" />
                                                                                                     <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="647,558" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listSMRMatches]">
                                                                                                       <ui:ForEach.Body>
                                                                                                         <ActivityAction x:TypeArguments="str:Match">
@@ -564,12 +564,12 @@
                                                                                                     </ui:ForEach>
                                                                                                   </Sequence>
                                                                                                   <FlowStep.Next>
-                                                                                                    <FlowDecision x:Name="__ReferenceID24" Condition="[boolSMRComplianceExists and boolSMRPercentageExists]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_12">
+                                                                                                    <FlowDecision x:Name="__ReferenceID24" Condition="[boolSMRComplianceExists and boolSMRPercentageExists]" DisplayName="SMR In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_12">
                                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                                           <av:Point x:Key="ShapeLocation">260.641666666667,2253</av:Point>
-                                                                                                          <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                                                                                          <av:Size x:Key="ShapeSize">70,87</av:Size>
                                                                                                           <av:PointCollection x:Key="TrueConnector">260.641666666667,2296.5 240,2296.5 240,2365.5 300,2365.5 300,2395.5</av:PointCollection>
                                                                                                         </scg:Dictionary>
                                                                                                       </sap:WorkflowViewStateService.ViewState>

@@ -77,9 +77,9 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Point x:Key="ShapeLocation">340,2.5</av:Point>
+        <av:Point x:Key="ShapeLocation">250,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">370,77.5 370,127.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">280,77.5 280,127.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -88,7 +88,7 @@
     <FlowStep x:Name="__ReferenceID44">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">270,365.5</av:Point>
+          <av:Point x:Key="ShapeLocation">180,365.5</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -104,9 +104,9 @@
     <FlowStep x:Name="__ReferenceID46">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">270,127.5</av:Point>
+          <av:Point x:Key="ShapeLocation">180,127.5</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">370,193.5 370,264.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">280,193.5 280,264.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Sequence DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -122,9 +122,9 @@
         <FlowStep x:Name="__ReferenceID45">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">270,264.5</av:Point>
+              <av:Point x:Key="ShapeLocation">180,264.5</av:Point>
               <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">370,315.5 370,365.5</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">280,315.5 280,365.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="654,4200" sap2010:WorkflowViewState.IdRef="Flowchart_2">
@@ -251,7 +251,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <FlowDecision.True>
-                                            <FlowDecision x:Name="__ReferenceID1" Condition="[IN_dictConfig(&quot;booSupervision&quot;) = true and IN_dictConfig(&quot;boolControlPoint3&quot;) = true]" DisplayName="Breakpoint 3" sap:VirtualizedContainerService.HintSize="72,87" sap2010:WorkflowViewState.IdRef="FlowDecision_16">
+                                            <FlowDecision x:Name="__ReferenceID1" Condition="[IN_dictConfig(&quot;boolSupervision&quot;) = true and IN_dictConfig(&quot;boolControlPoint3&quot;) = true]" DisplayName="Breakpoint 3" sap:VirtualizedContainerService.HintSize="72,87" sap2010:WorkflowViewState.IdRef="FlowDecision_16">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -270,7 +270,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">150,3941 150,3971 420,3971 420,4009</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <r:Breakpoint sap:VirtualizedContainerService.HintSize="200,22" IN_strPopupMessage="This step of the process has been completed. Please check the information entered into Xcom. Do you want the process to continue?" IN_strPopupTitle="Breakpoint - Test" sap2010:WorkflowViewState.IdRef="Breakpoint_2">
+                                                  <r:Breakpoint sap:VirtualizedContainerService.HintSize="200,22" IN_strPopupMessage="[&quot;This step of the process has been completed.&quot; + Environment.NewLine + &quot;Please check the information entered into Xcom.&quot; + Environment.NewLine + Environment.NewLine +  &quot;Do you want the process to continue?&quot;]" IN_strPopupTitle="Breakpoint 3" sap2010:WorkflowViewState.IdRef="Breakpoint_2">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -596,7 +596,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">310,1115.5 310,1145.5 303.641666666667,1145.5 303.641666666667,1147.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Flowchart DisplayName="Input Inspector Name" sap:VirtualizedContainerService.HintSize="664,636" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+                  <Flowchart DisplayName="Input Inspector Name" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

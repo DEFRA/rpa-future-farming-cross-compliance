@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToXcomCase_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -236,7 +236,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">130,683 130,721</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="618,880" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -254,7 +254,7 @@
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;)) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;))]" sap:VirtualizedContainerService.HintSize="484,300" sap2010:WorkflowViewState.IdRef="If_2">
+                                                <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;).ToLower) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;).ToLower)]" sap:VirtualizedContainerService.HintSize="484,300" sap2010:WorkflowViewState.IdRef="If_2">
                                                   <If.Then>
                                                     <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                                       <sap:WorkflowViewStateService.ViewState>
@@ -297,7 +297,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">130,772 130,802 135.5,802 135.5,812</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                                          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,602" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                                             <ui:ForEachRow.Body>
                                               <ActivityAction x:TypeArguments="sd:DataRow">
                                                 <ActivityAction.Argument>
@@ -309,7 +309,7 @@
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;)) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;)) and Not row(&quot;Status&quot;).ToString.ToLower.Contains(&quot;closed&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_1">
+                                                  <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;).ToLower) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;).ToLower) and Not row(&quot;Status&quot;).ToString.ToLower.Contains(&quot;closed&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_1">
                                                     <If.Then>
                                                       <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_3">
                                                         <sap:WorkflowViewStateService.ViewState>
