@@ -81,7 +81,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Processor Assigned" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[IN_strDateAssigned]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Processor Assigned" EmptyField="True" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[IN_strDateAssigned]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="37990274-eb97-4b97-b9b8-07ce74c9d0a2" InformativeScreenshot="2fec6e9124aef45fb7d02b19bd2bffa6" Selector="&lt;webctrl name='DateAssigned' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>

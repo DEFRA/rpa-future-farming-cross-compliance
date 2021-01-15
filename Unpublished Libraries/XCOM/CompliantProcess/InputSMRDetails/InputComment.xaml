@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1519,962</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,962</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InputComment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -81,7 +81,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Comment" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[IN_strComment]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Comment" EmptyField="True" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[IN_strComment]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64fa4c8d-f7b4-42e3-ab83-32d5ff32db5b" InformativeScreenshot="808eb490252eeb9bc0fdad74a0d47101" Selector="&lt;webctrl name='ResultComments' tag='TEXTAREA' /&gt;">
                   <ui:Target.TimeoutMS>
