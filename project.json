@@ -14,7 +14,7 @@
     "UiPath.UIAutomation.Activities": "[20.4.2]",
     "UiPath.Word.Activities": "[1.5.3]",
     "UiPathTeam.SharePoint.Activities": "[1.3.0]",
-    "XCOM": "[1.0.23]"
+    "XCOM": "[1.0.24]"
   },
   "webServices": [],
   "schemaVersion": "4.0",

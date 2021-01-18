@@ -142,7 +142,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300.641666666667,185.5 300.641666666667,235.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Enter Compliance Details" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch DisplayName="Try Enter Compliance Details" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,15 +157,9 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Enter Compliance Details workflow" sap:VirtualizedContainerService.HintSize="336,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Enter Compliance Details.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
-                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
-                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictAttachmentFields" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[IN_dictAttachmentFields]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <Assign sap:VirtualizedContainerService.HintSize="336,60" sap2010:WorkflowViewState.IdRef="Assign_6">
@@ -778,7 +772,7 @@
                                                                                   <av:PointCollection x:Key="ConnectorLocation">290,2305.02 290,2335.02 290.641666666667,2335.02 290.641666666667,2355.5</av:PointCollection>
                                                                                 </scg:Dictionary>
                                                                               </sap:WorkflowViewStateService.ViewState>
-                                                                              <TryCatch DisplayName="Try Change Status to Closed" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                                                                              <TryCatch DisplayName="Try Change Status to Closed" sap:VirtualizedContainerService.HintSize="441,606" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                                                                                 <TryCatch.Try>
                                                                                   <Sequence sap:VirtualizedContainerService.HintSize="403,379" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                                                                     <sap:WorkflowViewStateService.ViewState>
@@ -788,7 +782,12 @@
                                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Change Status to Closed" sap:VirtualizedContainerService.HintSize="361,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\ChangeStatusToClosed.xaml">
                                                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
+                                                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
+                                                                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
+                                                                                        </InArgument>
+                                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                                                        </InArgument>
                                                                                       </ui:InvokeWorkflowFile.Arguments>
                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -815,10 +814,10 @@
                                                                                   </Sequence>
                                                                                 </TryCatch.Try>
                                                                                 <TryCatch.Catches>
-                                                                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,129" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                                                                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="407,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
                                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                                                       </scg:Dictionary>
                                                                                     </sap:WorkflowViewStateService.ViewState>

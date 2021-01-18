@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>896,687</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ClickSaveInspection_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -100,7 +100,7 @@
             </ui:Click>
             <ui:UiElementExists DisplayName="Element Exists 'Error Message'" Exists="[OUT_boolPopUpExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87a2c0b0-df3c-425a-98d1-f7996574d638" InformativeScreenshot="2bc6542b1831be9161360a025833f19a" Selector="&lt;wnd app='iexplore.exe' title='Message from webpage' /&gt;&lt;wnd title='The CPH must be a valid value of format 00/000/0000.' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87a2c0b0-df3c-425a-98d1-f7996574d638" InformativeScreenshot="2bc6542b1831be9161360a025833f19a" Selector="&lt;wnd app='iexplore.exe' title='Message from webpage' /&gt;&lt;wnd title='*' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
