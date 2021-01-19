@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Assign_Processing_Location_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -169,7 +169,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),today.Year)+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[OUT_strNewFolderPath]" />
@@ -214,7 +214,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),today.Year)+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[OUT_strNewFolderPath]" />
@@ -259,7 +259,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),today.Year)+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[OUT_strNewFolderPath]" />
@@ -304,7 +304,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),today.Year)+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[OUT_strNewFolderPath]" />

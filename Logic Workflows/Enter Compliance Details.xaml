@@ -244,7 +244,7 @@
                                       <av:Size x:Key="ShapeSize">200,22</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Throw Exception="[new System.Exception(&quot;Couldn't save Inspection in XCOM&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2">
+                                  <Throw Exception="[new BusinessRuleException(&quot;Couldn't save Inspection in XCOM&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -758,10 +758,7 @@
                                                                                                                         </sap:WorkflowViewStateService.ViewState>
                                                                                                                       </p:CheckForChangeRemainingSMRsPopUp>
                                                                                                                       <FlowStep.Next>
-                                                                                                                        <FlowDecision x:Name="__ReferenceID33" DisplayName="Pop Up?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_19">
-                                                                                                                          <FlowDecision.Condition>
-                                                                                                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="boolContinuePopUpExists" />
-                                                                                                                          </FlowDecision.Condition>
+                                                                                                                        <FlowDecision x:Name="__ReferenceID33" Condition="[boolContinuePopUpExists]" DisplayName="Pop Up?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_19">
                                                                                                                           <sap:WorkflowViewStateService.ViewState>
                                                                                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

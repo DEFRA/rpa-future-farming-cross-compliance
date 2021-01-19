@@ -63,7 +63,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,130</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,124.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -76,7 +76,7 @@
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <usa:SharepointApplicationScope ClientContext="{x:Null}" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" Password="[strSharepointPassword]" QueryGrouping="False" SharePointInstanceType="Online" URL="[IN_dictConfig(&quot;SharepointURL&quot;)]" UserName="[strSharepointEmail]">
+      <usa:SharepointApplicationScope ClientContext="{x:Null}" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" Password="[strSharepointPassword]" QueryGrouping="False" SharePointInstanceType="Online" URL="[IN_dictConfig(&quot;SharepointURL&quot;)]" UserName="[strSharepointEmail]">
         <usa:SharepointApplicationScope.Body>
           <ActivityAction x:TypeArguments="us:SharePointContextInfo">
             <ActivityAction.Argument>
@@ -99,15 +99,15 @@
         </sap:WorkflowViewStateService.ViewState>
       </usa:SharepointApplicationScope>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID2">
+    <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,130</av:Point>
+          <av:Point x:Key="ShapeLocation">200,225.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,181 300,220</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,276.5 300,324.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="True" Label="Please enter your domain password" Title="Sharepoint Logon Details">
+      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Password" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="True" Label="Please enter your domain password" Title="Sharepoint Logon Details">
         <ui:InputDialog.Result>
           <OutArgument x:TypeArguments="x:String">[strSharepointEmail]</OutArgument>
         </ui:InputDialog.Result>
@@ -118,30 +118,30 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InputDialog>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID1">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,220</av:Point>
-              <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">300,271 300,324.5</av:PointCollection>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please enter your email" Title="Sharepoint Logon Details">
-            <ui:InputDialog.Result>
-              <OutArgument x:TypeArguments="x:String">[strSharepointPassword]</OutArgument>
-            </ui:InputDialog.Result>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InputDialog>
-          <FlowStep.Next>
-            <x:Reference>__ReferenceID0</x:Reference>
-          </FlowStep.Next>
-        </FlowStep>
+        <x:Reference>__ReferenceID0</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID1</x:Reference>
+    <FlowStep x:Name="__ReferenceID2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,124.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,175.5 300,225.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please enter your email" Title="Sharepoint Logon Details">
+        <ui:InputDialog.Result>
+          <OutArgument x:TypeArguments="x:String">[strSharepointPassword]</OutArgument>
+        </ui:InputDialog.Result>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InputDialog>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID1</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
   </Flowchart>
 </Activity>

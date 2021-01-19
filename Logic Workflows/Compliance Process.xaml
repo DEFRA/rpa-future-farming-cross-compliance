@@ -772,7 +772,7 @@
                                                                                   <av:PointCollection x:Key="ConnectorLocation">290,2305.02 290,2335.02 290.641666666667,2335.02 290.641666666667,2355.5</av:PointCollection>
                                                                                 </scg:Dictionary>
                                                                               </sap:WorkflowViewStateService.ViewState>
-                                                                              <TryCatch DisplayName="Try Change Status to Closed" sap:VirtualizedContainerService.HintSize="441,606" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                                                                              <TryCatch DisplayName="Try Change Status to Closed" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                                                                                 <TryCatch.Try>
                                                                                   <Sequence sap:VirtualizedContainerService.HintSize="403,379" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                                                                     <sap:WorkflowViewStateService.ViewState>
@@ -782,12 +782,8 @@
                                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Change Status to Closed" sap:VirtualizedContainerService.HintSize="361,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\ChangeStatusToClosed.xaml">
                                                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
-                                                                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
-                                                                                        </InArgument>
-                                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                                                                        </InArgument>
+                                                                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
+                                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
                                                                                       </ui:InvokeWorkflowFile.Arguments>
                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -849,7 +845,10 @@
                                                                                     </scg:Dictionary>
                                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                                   <FlowDecision.False>
-                                                                                    <FlowDecision x:Name="__ReferenceID43" Condition="[intRetryCounter &lt; 3]" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
+                                                                                    <FlowDecision x:Name="__ReferenceID43" DisplayName="Retry?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
+                                                                                      <FlowDecision.Condition>
+                                                                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="intRetryCounter &lt; 3 and Not exceptionCurrent.GetType.ToString = &quot;UiPath.Core.BusinessRuleException&quot;" />
+                                                                                      </FlowDecision.Condition>
                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -874,7 +873,7 @@
                                                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <Assign DisplayName="Increase Retry Counter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                                                                            <Assign DisplayName="Increase Retry Counter" sap:VirtualizedContainerService.HintSize="355,60" sap2010:WorkflowViewState.IdRef="Assign_37">
                                                                                               <Assign.To>
                                                                                                 <OutArgument x:TypeArguments="x:Int32">[intRetryCounter]</OutArgument>
                                                                                               </Assign.To>
@@ -882,6 +881,33 @@
                                                                                                 <InArgument x:TypeArguments="x:Int32">[intRetryCounter + 1]</InArgument>
                                                                                               </Assign.Value>
                                                                                             </Assign>
+                                                                                            <ui:CloseTab Browser="[IN_browserXCOM]" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="355,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
+                                                                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Open XCOM" sap:VirtualizedContainerService.HintSize="355,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\Open XCOM.xaml">
+                                                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                                                                </InArgument>
+                                                                                                <OutArgument x:TypeArguments="ui:Browser" x:Key="OUT_browserXcom">
+                                                                                                  <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
+                                                                                                </OutArgument>
+                                                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                                                            </ui:InvokeWorkflowFile>
+                                                                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Navigate to case" sap:VirtualizedContainerService.HintSize="355,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\NavigateToXcomCase.xaml">
+                                                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                                                <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
+                                                                                                  <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
+                                                                                                </InArgument>
+                                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                                                                                                </InArgument>
+                                                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
+                                                                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictAttachmentFields" />
+                                                                                                </InArgument>
+                                                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                                                                </InArgument>
+                                                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                                                            </ui:InvokeWorkflowFile>
                                                                                           </Sequence>
                                                                                           <FlowStep.Next>
                                                                                             <x:Reference>__ReferenceID0</x:Reference>
