@@ -3,11 +3,12 @@
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_browserCRM" Type="InArgument(ui:Browser)" />
     <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
+    <x:Property Name="IN_strInspectionComment" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InputNoteForAttachment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -111,9 +112,7 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath" />
-                <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">
-                  <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                </OutArgument>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">[IN_dictConfig]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </If.Then>
@@ -128,7 +127,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,447</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Main logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart DisplayName="Main logic" sap:VirtualizedContainerService.HintSize="668,710" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <Flowchart.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="boolPageLoaded" />
             </Flowchart.Variables>
@@ -195,7 +194,7 @@
                               <av:Size x:Key="ShapeSize">200,22</av:Size>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <cf:InputNote sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_strNoteText="[String.Format(IN_dictConfig(&quot;AttachmentNote&quot;), Environment.NewLine + Environment.NewLine, IN_dictAttachmentFields(&quot;InspectionResult&quot;), IN_dictAttachmentFields(&quot;compliance&quot;), &quot;Comments from xcom&quot;, IN_dictAttachmentFields(&quot;GuidanceTitle&quot;), IN_dictAttachmentFields(&quot;GuidanceVersion&quot;), boolInspectionResultSent, &quot;Yes&quot;)]" sap2010:WorkflowViewState.IdRef="InputNote_1">
+                          <cf:InputNote sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[IN_browserCRM]" IN_strNoteText="[String.Format(IN_dictConfig(&quot;AttachmentNote&quot;), Environment.NewLine + Environment.NewLine, IN_dictAttachmentFields(&quot;InspectionResult&quot;), IN_dictAttachmentFields(&quot;compliance&quot;), IN_strInspectionComment, IN_dictAttachmentFields(&quot;GuidanceTitle&quot;), IN_dictAttachmentFields(&quot;GuidanceVersion&quot;), boolInspectionResultSent, &quot;Yes&quot;)]" sap2010:WorkflowViewState.IdRef="InputNote_1">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

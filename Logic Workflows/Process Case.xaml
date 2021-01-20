@@ -9,6 +9,7 @@
     <x:Property Name="IN_strCaseFolderPath" Type="InArgument(x:String)" />
     <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
     <x:Property Name="IN_browserXCOM" Type="InArgument(ui:Browser)" />
+    <x:Property Name="OUT_strMultipleInspection" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -312,7 +313,7 @@
                                   <av:PointCollection x:Key="ConnectorLocation">300,1355.02 300,1396.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <TryCatch DisplayName="Try Navigate to XCOM Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_14">
+                              <TryCatch DisplayName="Try Navigate to XCOM Case" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_14">
                                 <TryCatch.Try>
                                   <Sequence sap:VirtualizedContainerService.HintSize="397,379" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -322,10 +323,21 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="355,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Data Workflows\XCOM\NavigateToXcomCase.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[IN_browserXCOM]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[dictAttachmentFields]</InArgument>
-                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                        <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
+                                          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="IN_browserXCOM" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
+                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictAttachmentFields" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                        </InArgument>
+                                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMultipleInspection">
+                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strMultipleInspection" />
+                                        </OutArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -814,18 +826,10 @@
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MoveToExceptions workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Logic Workflows\MoveToExceptions.xaml">
                                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                                                                        </InArgument>
-                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                                                        </InArgument>
-                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">
-                                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
-                                                                        </InArgument>
-                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strMailbox" />
-                                                                        </InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">[IN_strCaseFolderPath]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
                                                                       </ui:InvokeWorkflowFile.Arguments>
                                                                     </ui:InvokeWorkflowFile>
                                                                     <Throw DisplayName="Throw Exception" Exception="[exceptionCurrent]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_12">

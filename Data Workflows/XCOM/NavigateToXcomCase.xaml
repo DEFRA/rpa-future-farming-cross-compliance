@@ -4,6 +4,7 @@
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
     <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
+    <x:Property Name="OUT_strMultipleInspection" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -238,13 +239,13 @@
                                           <av:PointCollection x:Key="ConnectorLocation">130,683 130,721</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="725,1071" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,540" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="683,540" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                           <ui:ForEachRow.Body>
                                             <ActivityAction x:TypeArguments="sd:DataRow">
                                               <ActivityAction.Argument>
@@ -284,10 +285,37 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:ForEachRow>
-                                        <If Condition="[intInspectionMatches &gt; 1]" sap:VirtualizedContainerService.HintSize="576,208" sap2010:WorkflowViewState.IdRef="If_3">
+                                        <If Condition="[intInspectionMatches &gt; 1]" sap:VirtualizedContainerService.HintSize="683,399" sap2010:WorkflowViewState.IdRef="If_3">
                                           <If.Then>
-                                            <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Multiple Inspections" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Multiple Inspections of this type found.&quot; + System.Environment.NewLine + &quot;Please make a note to create a Multiple Inspection later if required.&quot;]" />
+                                            <Sequence sap:VirtualizedContainerService.HintSize="376,251" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Assign DisplayName="Assign MI" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[OUT_strMultipleInspection]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">Multiple Inspections found</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Multiple Inspections" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Multiple Inspections of this type found.&quot; + System.Environment.NewLine + &quot;Please make a note to create a Multiple Inspection later if required.&quot;]" />
+                                            </Sequence>
                                           </If.Then>
+                                          <If.Else>
+                                            <Assign DisplayName="Assign MI" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[OUT_strMultipleInspection]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">
+                                                  <Literal x:TypeArguments="x:String" Value="" />
+                                                </InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </If.Else>
                                         </If>
                                       </Sequence>
                                       <FlowStep.Next>

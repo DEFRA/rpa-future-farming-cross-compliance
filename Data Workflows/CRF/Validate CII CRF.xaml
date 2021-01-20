@@ -179,7 +179,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,245.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+              <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2369" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
                 <ui:ExcelApplicationScope.Body>
                   <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                     <ActivityAction.Argument>
@@ -406,7 +406,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,647 300,697</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="611,647" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                          <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -498,7 +498,7 @@
                                                       <av:PointCollection x:Key="ConnectorLocation">300,879 300,929</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="684,718" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                  <Sequence DisplayName="Get Date of Inspection" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                     <Sequence.Variables>
                                                       <Variable x:TypeArguments="x:String" Name="strLatestDate" />
                                                     </Sequence.Variables>
@@ -641,7 +641,7 @@
                               <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="ui:GenericValue">["Hallmark"]</InArgument>
+                              <InArgument x:TypeArguments="ui:GenericValue">["HallMark"]</InArgument>
                             </Assign.Value>
                           </Assign>
                         </If.Then>
@@ -673,7 +673,7 @@
                       <av:Size x:Key="ShapeSize">200,66</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="304,852" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <Sequence DisplayName="Setting Generic Values" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -771,6 +771,14 @@
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="ui:GenericValue">["SMR7_8"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Assign Inspection Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectionName")]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("CIIInspectionName")]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </Sequence>

@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1519,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -129,13 +129,13 @@
               <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 299.895,208.5 299.895,231.58</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,1724" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710,2072" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1615" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="676,1963" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -355,7 +355,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">300,657 300,707</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="611,647" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                      <Sequence DisplayName="Get Compliance" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -557,7 +557,7 @@
                                                     </Sequence>
                                                   </If.Else>
                                                 </If>
-                                                <Assign sap:VirtualizedContainerService.HintSize="1084,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                                <Assign sap:VirtualizedContainerService.HintSize="1126,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear")]</OutArgument>
                                                   </Assign.To>
@@ -677,10 +677,10 @@
                     <x:Reference>__ReferenceID6</x:Reference>
                     <x:Reference>__ReferenceID7</x:Reference>
                   </Flowchart>
-                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,51" sap2010:WorkflowViewState.IdRef="If_39">
+                  <If Condition="[dictAttachmentFields(&quot;inspectorName&quot;).ToLower.Trim.Contains(&quot;hallmark&quot;)]" DisplayName="If Inspector Name contains &quot;HallMark&quot;" sap:VirtualizedContainerService.HintSize="634,399" sap2010:WorkflowViewState.IdRef="If_39">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -704,7 +704,7 @@
                             <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("inspectorOrganisation")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="ui:GenericValue">["Hallmark"]</InArgument>
+                            <InArgument x:TypeArguments="ui:GenericValue">["HallMark"]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -835,6 +835,14 @@
                   </Assign.To>
                   <Assign.Value>
                     <InArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("applicationYear") + " Cross Compliance Sheep and Goat Inspection"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Inspection Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("InspectionName")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[IN_dictConfig("SAGInspectionName")]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>

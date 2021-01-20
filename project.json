@@ -14,12 +14,12 @@
     "UiPath.UIAutomation.Activities": "[20.4.2]",
     "UiPath.Word.Activities": "[1.5.3]",
     "UiPathTeam.SharePoint.Activities": "[1.3.0]",
-    "XCOM": "[1.0.24]"
+    "XCOM": "[1.0.27]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.10.4.0",
-  "projectVersion": "1.0.11",
+  "projectVersion": "1.0.13",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
