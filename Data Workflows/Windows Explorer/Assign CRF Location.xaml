@@ -111,19 +111,19 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304.5 300,356.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="562,1021" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="1099,1474" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.getFiles(IN_strCaseFolderPath+&quot;\&quot;)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,887" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1063,1340" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[item.ToLower.Contains(&quot;crf&quot;) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[item.ToLower.Contains(&quot;crf&quot;) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)]" sap:VirtualizedContainerService.HintSize="1021,208" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
                         <Assign.To>
@@ -135,7 +135,7 @@
                       </Assign>
                     </If.Then>
                   </If>
-                  <If Condition="[item.ToLower.Contains(&quot;cross compliance paperwork&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[item.ToLower.Contains(&quot;cross compliance paperwork&quot;)]" sap:VirtualizedContainerService.HintSize="1021,208" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
                         <Assign.To>
@@ -147,10 +147,10 @@
                       </Assign>
                     </If.Then>
                   </If>
-                  <If Condition="[item.ToLower.Contains(&quot;.eml&quot;) and IN_strMailbox.ToLower = &quot;rpai&quot;]" DisplayName="If RPAi" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_5">
+                  <If Condition="[item.ToLower.Contains(&quot;.eml&quot;) and IN_strMailbox.ToLower = &quot;rpai&quot;]" DisplayName="If RPAi" sap:VirtualizedContainerService.HintSize="1021,504" sap2010:WorkflowViewState.IdRef="If_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -184,7 +184,7 @@
                                   <OutArgument x:TypeArguments="x:String">[OUT_strRPAInspectionType]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">1% Selection</InArgument>
+                                  <InArgument x:TypeArguments="x:String">1% SELECTION</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </If.Else>
@@ -193,7 +193,7 @@
                       </If>
                     </If.Then>
                   </If>
-                  <If Condition="[item.ToLower.Contains(&quot;.eml&quot;)]" DisplayName="If eml, get date" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If Condition="[item.ToLower.Contains(&quot;.eml&quot;)]" DisplayName="If eml, get date" sap:VirtualizedContainerService.HintSize="1021,208" sap2010:WorkflowViewState.IdRef="If_6">
                     <If.Then>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
                         <Assign.To>

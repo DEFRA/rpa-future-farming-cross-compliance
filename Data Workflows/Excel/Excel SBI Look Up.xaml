@@ -4,11 +4,13 @@
     <x:Property Name="OUT_strSBINumber" Type="OutArgument(x:String)" />
     <x:Property Name="IN_strReceiptingFolder" Type="InArgument(x:String)" />
     <x:Property Name="IN_email" Type="InArgument(snm:MailMessage)" />
+    <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
+    <x:Property Name="IN_strMailboxName" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,1093</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1053</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_SBI_Look_Up_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -174,14 +176,21 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,788.54 300,829.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[OUT_strSBINumber is Nothing]" DisplayName="If no match" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[OUT_strSBINumber is Nothing]" DisplayName="If no match" sap:VirtualizedContainerService.HintSize="484,262" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Throw Exception="[new BusinessRuleException(&quot;CPH not found on SBI look up sheet.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Throw Exception="[new BusinessRuleException(&quot;CPH not found on SBI look up sheet.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  </Sequence>
                 </If.Then>
               </If>
               <FlowStep.Next>
@@ -218,7 +227,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:PathExists DisplayName="Path Exists" Exists="[boolPathExists]" sap:VirtualizedContainerService.HintSize="797,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[string.Format(IN_strReceiptingFolder,today.Year) +&quot;\&quot;+&quot;Temp&quot;]" PathType="Folder" />
+        <ui:PathExists DisplayName="Path Exists" Exists="[boolPathExists]" sap:VirtualizedContainerService.HintSize="797,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[IN_strReceiptingFolder +&quot;\&quot;+&quot;Temp&quot;]" PathType="Folder" />
         <If Condition="[boolPathExists]" sap:VirtualizedContainerService.HintSize="797,419" sap2010:WorkflowViewState.IdRef="If_4">
           <If.Then>
             <Sequence sap:VirtualizedContainerService.HintSize="376,271" sap2010:WorkflowViewState.IdRef="Sequence_8">
@@ -232,10 +241,10 @@
                   <OutArgument x:TypeArguments="x:String">[strFolderPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[string.Format(IN_strReceiptingFolder,today.Year) +"\"+"Temp2"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[IN_strReceiptingFolder +"\"+"Temp2"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[string.Format(IN_strReceiptingFolder,today.Year) +&quot;\&quot;+&quot;Temp2&quot;]" />
+              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[strFolderPath]" />
             </Sequence>
           </If.Then>
           <If.Else>
@@ -250,14 +259,14 @@
                   <OutArgument x:TypeArguments="x:String">[strFolderPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[string.Format(IN_strReceiptingFolder,today.Year) +"\"+"Temp"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[IN_strReceiptingFolder +"\"+"Temp"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(IN_strReceiptingFolder,today.Year) +&quot;\&quot;+&quot;Temp&quot;]" />
+              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[strFolderPath]" />
             </Sequence>
           </If.Else>
         </If>
-        <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[IN_strReceiptingFolder +&quot;\&quot;+&quot;Temp\&quot;]" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[IN_email]" />
+        <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[strFolderPath + &quot;\&quot;]" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[IN_email]" />
       </Sequence>
       <FlowStep.Next>
         <FlowStep x:Name="__ReferenceID2">
@@ -268,7 +277,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,384.5 300,434.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="627,588" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(strFolderPath)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(strFolderPath)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -328,7 +337,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="the cph is required at this stage to determine the SBI Number. please could you input the cph into the box below to continue processing" Title="Please Input CPH">
+                      <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;The CPH is required at this stage to determine the SBI Number.&quot; + Environment.NewLine + &quot;Please could you input the cph into the box below to continue processing&quot;]" Title="Please Input CPH">
                         <ui:InputDialog.Result>
                           <OutArgument x:TypeArguments="x:String">[strCPH]</OutArgument>
                         </ui:InputDialog.Result>

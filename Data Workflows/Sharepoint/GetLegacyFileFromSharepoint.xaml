@@ -33,7 +33,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -51,6 +51,11 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="GetLegacyFileFromSharepoint" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -76,7 +81,7 @@
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <usa:SharepointApplicationScope ClientContext="{x:Null}" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" Password="[strSharepointPassword]" QueryGrouping="False" SharePointInstanceType="Online" URL="[IN_dictConfig(&quot;SharepointURL&quot;)]" UserName="[strSharepointEmail]">
+      <usa:SharepointApplicationScope ClientContext="{x:Null}" DisplayName="Sharepoint application scope" sap:VirtualizedContainerService.HintSize="434,316" sap2010:WorkflowViewState.IdRef="SharepointApplicationScope_1" Password="[strSharepointPassword]" QueryGrouping="False" SharePointInstanceType="Online" URL="[IN_dictConfig(&quot;SharepointURL&quot;)]" UserName="[strSharepointEmail]">
         <usa:SharepointApplicationScope.Body>
           <ActivityAction x:TypeArguments="us:SharePointContextInfo">
             <ActivityAction.Argument>
@@ -88,7 +93,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <usal:GetFile RelativeUrlHintText="{x:Null}" ChooseFile="False" DisplayName="Get file" sap:VirtualizedContainerService.HintSize="273,104" sap2010:WorkflowViewState.IdRef="GetFile_1" LocalPath="[IN_dictConfig(&quot;LegacyLookUpSavePath&quot;)]" LocalPathHintText="Local path where the file will be saved" RelativeUrl="[IN_dictConfig(&quot;SharepointFilePath&quot;)]" ShowCAMLQuery="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False" />
+              <usal:GetFile RelativeUrlHintText="{x:Null}" ChooseFile="False" DisplayName="Get file" sap:VirtualizedContainerService.HintSize="273,104" sap2010:WorkflowViewState.IdRef="GetFile_1" LocalPath="[string.Format(IN_dictConfig(&quot;LegacyLookUpSavePath&quot;), Environment.GetEnvironmentVariable(&quot;USERPROFILE&quot;).Replace(&quot;C:\Users\&quot;,&quot;&quot;))]" LocalPathHintText="Local path where the file will be saved" RelativeUrl="[string.Format(IN_dictConfig(&quot;SharepointFilePath&quot;), Today.Year)]" ShowCAMLQuery="False" ShowGroupDescription="False" ShowGroupName="False" ShowLibraryName="False" ShowListName="False" ShowLocalPath="True" ShowMove="False" ShowPermissionDropdown="False" ShowPropertiesDictionary="False" ShowRelativeUrl="True" ShowRename="False" ShowUserName="False" />
             </Sequence>
           </ActivityAction>
         </usa:SharepointApplicationScope.Body>
@@ -109,7 +114,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Password" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="True" Label="Please enter your domain password" Title="Sharepoint Logon Details">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[strSharepointEmail]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[strSharepointPassword]</OutArgument>
         </ui:InputDialog.Result>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -131,7 +136,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Email" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Please enter your email" Title="Sharepoint Logon Details">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[strSharepointPassword]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[strSharepointEmail]</OutArgument>
         </ui:InputDialog.Result>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

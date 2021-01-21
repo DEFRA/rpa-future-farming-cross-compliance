@@ -416,7 +416,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="642,1539" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -458,7 +458,7 @@
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <If Condition="[item.ToLower.Contains(&quot;in progress&quot;) or item.ToLower.Contains(&quot;ready to be receipted&quot;) or item.ToLower.Contains(&quot;completed&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_2">
+                                                        <If Condition="[item.ToLower.Contains(&quot;in progress&quot;) or item.ToLower.Contains(&quot;ready to be receipted&quot;) or item.ToLower.Contains(&quot;completed&quot;) or item.ToLower.Contains(&quot;exceptions&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_2">
                                                           <If.Else>
                                                             <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                                               <sap:WorkflowViewStateService.ViewState>
@@ -567,36 +567,16 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process Case workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows\Process Case.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
-                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">
-                                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strFlow" />
-                                                            </OutArgument>
-                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserRP" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserCRM" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSBINumber" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserSitiAgri" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strCaseFolderPath" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strMailbox" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">
-                                                              <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="browserXCOM" />
-                                                            </InArgument>
-                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMultipleInspection">
-                                                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strMultipleInspection" />
-                                                            </OutArgument>
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">[OUT_strFlow]</OutArgument>
+                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[dictConfig]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserRP">[browserRP]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserCRM">[browserCRM]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[strSBINumber]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserSitiAgri">[browserSitiAgri]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">[strCaseFolderPath]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[strMailbox]</InArgument>
+                                                            <InArgument x:TypeArguments="ui:Browser" x:Key="IN_browserXCOM">[browserXCOM]</InArgument>
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMultipleInspection">[strMultipleInspection]</OutArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
                                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
@@ -669,7 +649,7 @@
                                                               <av:PointCollection x:Key="ConnectorLocation">660,1679.04 770,1679.04 770,1511</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

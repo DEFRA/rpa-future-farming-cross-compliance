@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,701</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Receipting_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -287,7 +287,7 @@
                                                           <av:PointCollection x:Key="ConnectorLocation">480,4031 480,4086.5</av:PointCollection>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <p:ClickSaveInspection sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" sap2010:WorkflowViewState.IdRef="ClickSaveInspection_2" OUT_boolPopUpExists="[boolPopUpExists]">
+                                                      <p:ClickSaveInspection sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutMS&quot;)]" sap2010:WorkflowViewState.IdRef="ClickSaveInspection_2" OUT_boolPopUpExists="[boolPopUpExists]">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

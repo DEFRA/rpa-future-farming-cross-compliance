@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Compliance_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -120,7 +120,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304 300,347</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap:VirtualizedContainerService.HintSize="866,4104" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <TryCatch.Try>
               <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="828,3877" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <Flowchart.Variables>
@@ -143,7 +143,7 @@
                 </Flowchart.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
                     <av:Size x:Key="ShapeSize">60,75</av:Size>
                     <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,115.5</av:PointCollection>
@@ -179,7 +179,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">460,3391 460,3421 458,3421 458,3441</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <p:ClickSaveInspection sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" sap2010:WorkflowViewState.IdRef="ClickSaveInspection_2" OUT_boolPopUpExists="[boolPopUpExists]">
+                      <p:ClickSaveInspection sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutMS&quot;)]" sap2010:WorkflowViewState.IdRef="ClickSaveInspection_2" OUT_boolPopUpExists="[boolPopUpExists]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -415,7 +415,7 @@
                                                               <av:PointCollection x:Key="ConnectorLocation">300,1087.08 300,1117.08 299.5,1117.08 299.5,1121</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Input Comment" sap:VirtualizedContainerService.HintSize="382,939" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                                          <Sequence DisplayName="Input Comment" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                                             <Sequence.Variables>
                                                               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="listSMRMatches" />
                                                               <Variable x:TypeArguments="x:String" Name="strSMRsComment" />
@@ -960,7 +960,7 @@
               </Flowchart>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="832,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
