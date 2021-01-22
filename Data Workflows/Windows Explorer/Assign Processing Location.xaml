@@ -92,6 +92,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[OUT_strNewFolderPath]" />
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Ending Workflow - &quot; + strWorkflowName]" />
       </Sequence>
     </FlowStep>
@@ -169,7 +170,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[OUT_strNewFolderPath]" />
@@ -214,7 +215,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[OUT_strNewFolderPath]" />
@@ -259,7 +260,7 @@
                     <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[OUT_strNewFolderPath]" />
@@ -352,7 +353,10 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </FlowDecision>
-            <FlowDecision x:Name="__ReferenceID7" Condition="[IN_dictAttachmentFields(&quot;bpsClaim&quot;)]" DisplayName="BPS Claim Exists?" sap:VirtualizedContainerService.HintSize="96,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6" True="{x:Reference __ReferenceID5}" False="{x:Reference __ReferenceID6}">
+            <FlowDecision x:Name="__ReferenceID7" DisplayName="BPS Claim Exists?" sap:VirtualizedContainerService.HintSize="96,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+              <FlowDecision.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IN_dictAttachmentFields(&quot;bpsClaim&quot;) = &quot;BPS Claim Submitted&quot;" />
+              </FlowDecision.Condition>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -362,6 +366,12 @@
                   <av:PointCollection x:Key="FalseConnector">548,190 705,190 705,266.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
+              <FlowDecision.True>
+                <x:Reference>__ReferenceID5</x:Reference>
+              </FlowDecision.True>
+              <FlowDecision.False>
+                <x:Reference>__ReferenceID6</x:Reference>
+              </FlowDecision.False>
             </FlowDecision>
           </Flowchart>
           <FlowStep.Next>
