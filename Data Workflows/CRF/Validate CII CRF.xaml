@@ -585,21 +585,60 @@
                                                               <av:Size x:Key="ShapeSize">200,66</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Get Reason For Visit" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                          <Sequence DisplayName="Get Reason For Visit" sap:VirtualizedContainerService.HintSize="898,739" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:ExcelReadCell Cell="I21" DisplayName="Read Reason For Visit" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_27" SheetName="[OUT_strSheet]">
+                                                            <ui:ExcelReadCell Cell="I21" DisplayName="Read Reason For Visit" sap:VirtualizedContainerService.HintSize="856,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_27" SheetName="[OUT_strSheet]">
                                                               <ui:ExcelReadCell.Result>
                                                                 <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
                                                               </ui:ExcelReadCell.Result>
                                                             </ui:ExcelReadCell>
-                                                            <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_31">
+                                                            <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="856,548" sap2010:WorkflowViewState.IdRef="If_31">
                                                               <If.Then>
                                                                 <Throw Exception="[new BusinessRuleException(&quot;Could not find Reason for Visit on CRF&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_27" />
                                                               </If.Then>
+                                                              <If.Else>
+                                                                <Sequence sap:VirtualizedContainerService.HintSize="611,400" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <If Condition="[dictAttachmentFields(&quot;reasonForVisit&quot;).ToLower.Contains(&quot;non&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_36">
+                                                                    <If.Then>
+                                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                                                        <Assign.To>
+                                                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("legacy")]</OutArgument>
+                                                                        </Assign.To>
+                                                                        <Assign.Value>
+                                                                          <InArgument x:TypeArguments="ui:GenericValue">["Non-Legacy"]</InArgument>
+                                                                        </Assign.Value>
+                                                                      </Assign>
+                                                                    </If.Then>
+                                                                    <If.Else>
+                                                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                                                        <Assign.To>
+                                                                          <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("legacy")]</OutArgument>
+                                                                        </Assign.To>
+                                                                        <Assign.Value>
+                                                                          <InArgument x:TypeArguments="ui:GenericValue">["Legacy"]</InArgument>
+                                                                        </Assign.Value>
+                                                                      </Assign>
+                                                                    </If.Else>
+                                                                  </If>
+                                                                  <Assign sap:VirtualizedContainerService.HintSize="569,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                                                    <Assign.To>
+                                                                      <OutArgument x:TypeArguments="ui:GenericValue">[dictAttachmentFields("reasonForVisit")]</OutArgument>
+                                                                    </Assign.To>
+                                                                    <Assign.Value>
+                                                                      <InArgument x:TypeArguments="ui:GenericValue">[split(dictAttachmentFields("reasonForVisit"), " ")(0)]</InArgument>
+                                                                    </Assign.Value>
+                                                                  </Assign>
+                                                                </Sequence>
+                                                              </If.Else>
                                                             </If>
                                                           </Sequence>
                                                         </FlowStep>

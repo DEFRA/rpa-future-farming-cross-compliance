@@ -338,13 +338,13 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="478,522" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,343" sap2010:WorkflowViewState.IdRef="Sequence_22">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[strBaseFolderPath]</OutArgument>
                       </Assign.To>
@@ -352,7 +352,7 @@
                         <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("ARFFolder"),Today.Year)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
                       </Assign.To>
@@ -360,7 +360,7 @@
                         <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("ARFMatchedFolder"),Today.Year)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                       <ui:CommentOut.Body>
                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_38">
                           <sap:WorkflowViewStateService.ViewState>
@@ -378,6 +378,12 @@
                           </Assign>
                         </Sequence>
                       </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
                   </Sequence>
                 </If.Then>
@@ -441,7 +447,8 @@
                         <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(IN_email.Headers("Date").Remove(10), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MM-yyyy")]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;) + &quot; &quot; + strDateEmailReceived +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_3" MailMessage="[IN_email]">
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) + &quot; &quot; + strDateEmailReceived +&quot;.eml&quot;]" />
+                    <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) + &quot; &quot; + strDateEmailReceived +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_3" MailMessage="[IN_email]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -467,7 +474,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">580,417.02 580,506.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Save to Master Folder" sap:VirtualizedContainerService.HintSize="376,728" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                      <Sequence DisplayName="Save to Master Folder" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_31">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -481,7 +488,7 @@
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:CreateDirectory>
                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Create Folder master" />
-                        <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_4" MailMessage="[IN_email]">
+                        <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_4" MailMessage="[IN_email]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -571,7 +578,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:CreateDirectory>
-                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
+                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
