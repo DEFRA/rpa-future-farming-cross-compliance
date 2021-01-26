@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1342</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LauraTest_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -61,7 +61,7 @@
       <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="LauraTest" sap:VirtualizedContainerService.HintSize="714,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="LauraTest" sap:VirtualizedContainerService.HintSize="714,1237" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strEmail" />
       <Variable x:TypeArguments="x:String" Name="strPassword" />
@@ -79,6 +79,7 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Double x:Key="Width">680</x:Double>
+        <x:Double x:Key="Height">1201</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,134.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
@@ -139,15 +140,15 @@
         </ui:ForEach.Body>
       </ui:ForEach>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID3">
+    <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
+          <av:Point x:Key="ShapeLocation">400,114.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">300,304 300,347</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,736" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
         <Flowchart.Variables>
           <Variable x:TypeArguments="x:String" Name="Legacy" />
         </Flowchart.Variables>
@@ -278,6 +279,42 @@
         <x:Reference>__ReferenceID0</x:Reference>
         <x:Reference>__ReferenceID1</x:Reference>
       </Flowchart>
+    </FlowStep>
+    <FlowStep x:Name="__ReferenceID3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Create Excel Inspection" sap:VirtualizedContainerService.HintSize="587,223" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" ReadOnly="True" WorkbookPath="C:\Users\x953922\Desktop\CII CRF_106226622_40_138_0005_ Mr A Turner_43858.5489090278.xlsm">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelCopySheet DestinationFilePath="[&quot;C:\Users\x953922\Desktop\CII CRF_106226622_40_138_0005_ Mr A Turner_43858.5489090278.xlsm&quot;.Replace(&quot;CRF&quot;, &quot;Inspection Report&quot;).Replace(&quot;xlsm&quot;, &quot;xlsx&quot;)]" DestinationSheetName="SMR 7 XC CRF" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="SMR 7 XC CRF">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ExcelCopySheet>
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ExcelApplicationScope>
     </FlowStep>
   </Flowchart>
 </Activity>

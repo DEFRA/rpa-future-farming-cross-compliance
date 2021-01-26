@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Enter_Receipting_Details" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:XCOM;assembly=XCOM" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xr="clr-namespace:XCOM.ReceiptingProcess;assembly=XCOM">
+<Activity mc:Ignorable="sap sap2010" x:Class="Enter_Receipting_Details" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:XCOM;assembly=XCOM" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:xr="clr-namespace:XCOM.ReceiptingProcess;assembly=XCOM">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_browserXCOM" Type="InArgument(ui:Browser)" />
@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Enter_Receipting_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -83,9 +83,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID49</x:Reference>
+      <x:Reference>__ReferenceID51</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID47">
+    <FlowStep x:Name="__ReferenceID49">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">180,365.5</av:Point>
@@ -101,7 +101,7 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Ending Workflow - &quot; + strWorkflowName]" />
       </Sequence>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID49">
+    <FlowStep x:Name="__ReferenceID51">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">180,127.5</av:Point>
@@ -119,7 +119,7 @@
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - &quot;+strWorkflowName]" />
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID48">
+        <FlowStep x:Name="__ReferenceID50">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">180,264.5</av:Point>
@@ -151,7 +151,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Flowchart.StartNode>
-              <x:Reference>__ReferenceID46</x:Reference>
+              <x:Reference>__ReferenceID48</x:Reference>
             </Flowchart.StartNode>
             <FlowDecision x:Name="__ReferenceID3" Condition="[boolDateOfInspection]" DisplayName="InspectionDate  In" sap:VirtualizedContainerService.HintSize="101,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
               <sap:WorkflowViewStateService.ViewState>
@@ -776,7 +776,7 @@
                 <x:Reference>__ReferenceID25</x:Reference>
               </FlowStep.Next>
             </FlowStep>
-            <FlowDecision x:Name="__ReferenceID27" Condition="[boolTypeInputted]" DisplayName="Type Inputted" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28" True="{x:Reference __ReferenceID26}">
+            <FlowDecision x:Name="__ReferenceID28" Condition="[boolTypeInputted]" DisplayName="Type Inputted" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_28" True="{x:Reference __ReferenceID26}">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -786,7 +786,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </FlowDecision>
-            <FlowStep x:Name="__ReferenceID46">
+            <FlowStep x:Name="__ReferenceID48">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
@@ -808,25 +808,115 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">260.5,196.5</av:Point>
                       <av:Size x:Key="ShapeSize">83,87</av:Size>
-                      <av:PointCollection x:Key="TrueConnector">260.5,240 240,240 240,299 300,299 300,329</av:PointCollection>
+                      <av:PointCollection x:Key="TrueConnector">260.5,240 240,240 240,284.5 300,284.5 300,314.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
-                    <FlowStep x:Name="__ReferenceID28">
+                    <FlowStep x:Name="__ReferenceID46">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">200,329</av:Point>
-                          <av:Size x:Key="ShapeSize">200,22</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">300,351 300,381 301,381 301,396.5</av:PointCollection>
+                          <av:Point x:Key="ShapeLocation">200,314.5</av:Point>
+                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">300,365.5 300,395.5 301,395.5 301,396.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <xr:InputSchemeYear sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" IN_strInspectionYear="[IN_dictAttachmentFields(&quot;applicationYear&quot;)]" sap2010:WorkflowViewState.IdRef="InputSchemeYear_2" OUT_boolYearExists="[boolYearExists]">
+                      <Flowchart DisplayName="Input Scheme Year" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+                            <av:Size x:Key="ShapeSize">60,75</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,129</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </xr:InputSchemeYear>
+                        <Flowchart.StartNode>
+                          <x:Reference>__ReferenceID27</x:Reference>
+                        </Flowchart.StartNode>
+                        <FlowStep x:Name="__ReferenceID27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">200,129</av:Point>
+                              <av:Size x:Key="ShapeSize">200,51</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch DisplayName="TryCatch Input Scheme Year" sap:VirtualizedContainerService.HintSize="516,803" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                            <TryCatch.Try>
+                              <xr:InputSchemeYear sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" IN_strInspectionYear="[IN_dictAttachmentFields(&quot;applicationYear&quot;)]" sap2010:WorkflowViewState.IdRef="InputSchemeYear_3" OUT_boolYearExists="[boolYearExists]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </xr:InputSchemeYear>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="482,641" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="476,572" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IN_browserXCOM]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="434,480" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+                                      <ui:BrowserScope.Body>
+                                        <ActivityAction x:TypeArguments="x:Object">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[IN_dictAttachmentFields(&quot;applicationYear&quot;)]">
+                                              <ui:TypeInto.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa584abc-9415-4543-800f-91bfde635222" InformativeScreenshot="96441aa5b8492124dc3182487a6326a6" Selector="&lt;webctrl name='SchemeYear' tag='INPUT' /&gt;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:TypeInto.Target>
+                                            </ui:TypeInto>
+                                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                              <ui:GetValue.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8dcc9a48-ecdd-4e37-b2bb-e0dace42cd28" InformativeScreenshot="de6cda4c4622426a8d29528ec73b980f" Selector="&lt;webctrl name='SchemeYear' tag='INPUT' /&gt;">
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetValue.Target>
+                                              <ui:GetValue.Value>
+                                                <OutArgument x:TypeArguments="x:Boolean">[boolYearExists]</OutArgument>
+                                              </ui:GetValue.Value>
+                                            </ui:GetValue>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:BrowserScope.Body>
+                                    </ui:BrowserScope>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                        </FlowStep>
+                      </Flowchart>
                       <FlowStep.Next>
                         <FlowDecision x:Name="__ReferenceID31" Condition="[boolYearExists]" DisplayName="Year Inputted?" sap:VirtualizedContainerService.HintSize="81,87" sap2010:WorkflowViewState.IdRef="FlowDecision_29">
                           <sap:WorkflowViewStateService.ViewState>
@@ -835,6 +925,7 @@
                               <av:Point x:Key="ShapeLocation">260.5,396.5</av:Point>
                               <av:Size x:Key="ShapeSize">81,87</av:Size>
                               <av:PointCollection x:Key="TrueConnector">260.5,440 240,440 240,501.5 300,501.5 300,531.5</av:PointCollection>
+                              <av:PointCollection x:Key="FalseConnector">341.5,440 391.5,440</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
@@ -854,10 +945,27 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </xr:InputInspectionType>
                               <FlowStep.Next>
-                                <x:Reference>__ReferenceID27</x:Reference>
+                                <x:Reference>__ReferenceID28</x:Reference>
                               </FlowStep.Next>
                             </FlowStep>
                           </FlowDecision.True>
+                          <FlowDecision.False>
+                            <FlowStep x:Name="__ReferenceID47">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">391.5,429</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw Exception="[new System.Exception(&quot;Couldn't input Scheme Year&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Throw>
+                            </FlowStep>
+                          </FlowDecision.False>
                         </FlowDecision>
                       </FlowStep.Next>
                     </FlowStep>
@@ -865,7 +973,21 @@
                 </FlowDecision>
               </FlowStep.Next>
             </FlowStep>
-            <x:Reference>__ReferenceID28</x:Reference>
+            <FlowStep>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">470,209</av:Point>
+                  <av:Size x:Key="ShapeSize">200,22</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <xr:InputSchemeYear sap:VirtualizedContainerService.HintSize="200,22" IN_browserXCOM="[IN_browserXCOM]" IN_strInspectionYear="[IN_dictAttachmentFields(&quot;applicationYear&quot;)]" sap2010:WorkflowViewState.IdRef="InputSchemeYear_2" OUT_boolYearExists="[boolYearExists]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </xr:InputSchemeYear>
+            </FlowStep>
             <x:Reference>__ReferenceID29</x:Reference>
             <x:Reference>__ReferenceID30</x:Reference>
             <x:Reference>__ReferenceID31</x:Reference>
@@ -885,13 +1007,15 @@
             <x:Reference>__ReferenceID44</x:Reference>
             <x:Reference>__ReferenceID45</x:Reference>
             <x:Reference>__ReferenceID0</x:Reference>
+            <x:Reference>__ReferenceID46</x:Reference>
+            <x:Reference>__ReferenceID47</x:Reference>
           </Flowchart>
           <FlowStep.Next>
-            <x:Reference>__ReferenceID47</x:Reference>
+            <x:Reference>__ReferenceID49</x:Reference>
           </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID48</x:Reference>
+    <x:Reference>__ReferenceID50</x:Reference>
   </Flowchart>
 </Activity>

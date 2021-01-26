@@ -76,6 +76,7 @@
       <Variable x:TypeArguments="ui:Browser" Name="browserSitiAgri" />
       <Variable x:TypeArguments="ui:Browser" Name="browserXCOM" />
       <Variable x:TypeArguments="x:String" Name="strLogFilePath" />
+      <Variable x:TypeArguments="x:String" Name="strLogSBINumber" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -173,7 +174,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Config Reader workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath">Documents\Config\config.xlsx</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath">Documents\Config\config_Win7.xlsx</InArgument>
                             <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">[dictConfig]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
@@ -416,14 +417,14 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,1215.5 300,1291</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="642,1539" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                          <TryCatch DisplayName="Try Get Next Case" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <TryCatch.Try>
-                                              <Sequence sap:VirtualizedContainerService.HintSize="604,1312" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                              <Sequence sap:VirtualizedContainerService.HintSize="604,1412" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -446,21 +447,21 @@
                                                     <InArgument x:TypeArguments="x:String">[nothing]</InArgument>
                                                   </Assign.Value>
                                                 </Assign>
-                                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,588" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrFolderPaths]">
+                                                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,688" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrFolderPaths]">
                                                   <ui:ForEach.Body>
                                                     <ActivityAction x:TypeArguments="x:String">
                                                       <ActivityAction.Argument>
                                                         <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                                                       </ActivityAction.Argument>
-                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,454" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,554" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <If Condition="[item.ToLower.Contains(&quot;in progress&quot;) or item.ToLower.Contains(&quot;ready to be receipted&quot;) or item.ToLower.Contains(&quot;completed&quot;) or item.ToLower.Contains(&quot;exceptions&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_2">
+                                                        <If Condition="[item.ToLower.Contains(&quot;in progress&quot;) or item.ToLower.Contains(&quot;ready to be receipted&quot;) or item.ToLower.Contains(&quot;completed&quot;) or item.ToLower.Contains(&quot;exceptions&quot;)]" sap:VirtualizedContainerService.HintSize="484,462" sap2010:WorkflowViewState.IdRef="If_2">
                                                           <If.Else>
-                                                            <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="304,314" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -472,6 +473,14 @@
                                                                 </Assign.To>
                                                                 <Assign.Value>
                                                                   <InArgument x:TypeArguments="x:String">[item]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[strLogSBINumber]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[strCaseFolderPath.split("\"c)(9)]</InArgument>
                                                                 </Assign.Value>
                                                               </Assign>
                                                               <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
@@ -655,7 +664,7 @@
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <r:Log_Case___Preset DisplayName="Log Case - Sucess" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strSBINumber]" IN_strFailureMessage="N/A" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Success" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_2" />
+                                                            <r:Log_Case___Preset DisplayName="Log Case - Sucess" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="N/A" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Success" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_2" />
                                                           </Sequence>
                                                           <FlowStep.Next>
                                                             <FlowStep x:Name="__ReferenceID1">
@@ -743,7 +752,7 @@
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <r:Log_Case___Preset DisplayName="Log Case - Failed" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strSBINumber]" IN_strFailureMessage="[exceptionCurrent.Message.ToString]" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Failed" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_1" />
+                                                            <r:Log_Case___Preset DisplayName="Log Case - Failed" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="[exceptionCurrent.Message.ToString]" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Failed" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_1" />
                                                           </Sequence>
                                                           <FlowStep.Next>
                                                             <x:Reference>__ReferenceID1</x:Reference>

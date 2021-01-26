@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1053,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateInspectionReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -147,7 +147,7 @@
                   <av:Size x:Key="ShapeSize">200,51</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Create Excel Inspection" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Create Excel Inspection" sap:VirtualizedContainerService.HintSize="434,223" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" ReadOnly="True" WorkbookPath="[IN_strCRFPath]">
                 <ui:ExcelApplicationScope.Body>
                   <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                     <ActivityAction.Argument>
@@ -159,7 +159,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ExcelCopySheet DestinationFilePath="[IN_strCRFPath.Replace(&quot;CRF&quot;, &quot;Inspection Report&quot;).Replace(&quot;xlsm&quot;, &quot;&quot;)]" DestinationSheetName="[IN_strSheet]" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="[IN_strSheet]">
+                      <ui:ExcelCopySheet DestinationFilePath="[IN_strCRFPath.Replace(&quot;CRF&quot;, &quot;Inspection Report&quot;).Replace(&quot;xlsm&quot;, &quot;xlsx&quot;)]" DestinationSheetName="[IN_strSheet]" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="[IN_strSheet]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -187,10 +187,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.False>
-                <FlowDecision x:Name="__ReferenceID2" DisplayName="AHTB?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IN_strCRFPath.tolower.Contains(&quot;mailmerge&quot;)" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID2" Condition="[IN_strCRFPath.tolower.Contains(&quot;mailmerge&quot;)]" DisplayName="AHTB?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -208,7 +205,7 @@
                           <av:Size x:Key="ShapeSize">200,66</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Create AHTB Inspection Report" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence DisplayName="Create AHTB Inspection Report" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
