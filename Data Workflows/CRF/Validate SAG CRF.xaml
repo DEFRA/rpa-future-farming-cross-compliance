@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Validate_SAG_CRF" this:Validate_SAG_CRF.IN_strSBINumber="200102289" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Validate_SAG_CRF" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:g="clr-namespace:GetWorkflowName;assembly=GetWorkflowName" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strCRFPath" Type="InArgument(x:String)" />
@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>832,828</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Validate_SAG_CRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -112,7 +112,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,450.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="634,866" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -256,7 +256,7 @@
                               <av:PointCollection x:Key="ConnectorLocation">300,309 300,359</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Get SBI" sap:VirtualizedContainerService.HintSize="771,547" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <Sequence DisplayName="Get SBI" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -413,7 +413,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">300,773 300,817</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Sequence DisplayName="Get Full/Partial" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                          <Sequence DisplayName="Get Full/Partial" sap:VirtualizedContainerService.HintSize="1044,1178" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -435,9 +435,9 @@
                                                 <Throw Exception="[New BusinessRuleException(&quot;Checked value not found on CRF Document&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_35" />
                                               </If.Then>
                                             </If>
-                                            <If Condition="[dictAttachmentFields(&quot;checked&quot;).ToLower.Equals(&quot;partial&quot;)]" DisplayName="Partial?" sap:VirtualizedContainerService.HintSize="1002,801" sap2010:WorkflowViewState.IdRef="If_57">
+                                            <If Condition="[dictAttachmentFields(&quot;checked&quot;).ToLower.Equals(&quot;partial&quot;)]" DisplayName="Partial?" sap:VirtualizedContainerService.HintSize="1002,739" sap2010:WorkflowViewState.IdRef="If_57">
                                               <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="653,653" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="653,591" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                                   <Sequence.Variables>
                                                     <Variable x:TypeArguments="x:String" Name="strPartialDescription" />
                                                   </Sequence.Variables>
@@ -459,9 +459,9 @@
                                                       <OutArgument x:TypeArguments="x:String">[strPartialDescription]</OutArgument>
                                                     </ui:ExcelReadCell.Result>
                                                   </ui:ExcelReadCell>
-                                                  <If Condition="[strPartialDescription is Nothing]" sap:VirtualizedContainerService.HintSize="611,362" sap2010:WorkflowViewState.IdRef="If_58">
+                                                  <If Condition="[strPartialDescription is Nothing]" sap:VirtualizedContainerService.HintSize="611,300" sap2010:WorkflowViewState.IdRef="If_58">
                                                     <If.Then>
-                                                      <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_39">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -475,7 +475,6 @@
                                                             <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                                           </Assign.Value>
                                                         </Assign>
-                                                        <Throw Exception="[new BusinessRuleException(&quot;CRF is Partial but description is empty&quot;)]" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Throw_36" />
                                                       </Sequence>
                                                     </If.Then>
                                                     <If.Else>
@@ -1049,18 +1048,7 @@
                 </ui:InvokeWorkflowFile>
               </If.Then>
             </If>
-            <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_12">
-              <If.Then>
-                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[IN_strCRFPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\SAG\SBI 200102289 2020 SAG CRF.xlsm</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </If.Then>
-            </If>
+            <If Condition="[IN_strCRFPath is Nothing]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_12" />
           </Sequence>
           <FlowStep.Next>
             <x:Reference>__ReferenceID13</x:Reference>
