@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExcelLegacyLookUp_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -232,7 +232,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">300,460.5 300,520</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[IN_dictAttachmentFields(&quot;legacy&quot;).Equals(&quot;&quot;) and IN_dictAttachmentFields(&quot;applicationYear&quot;) &lt;&gt; 2020]" DisplayName="If No match" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If Condition="[IN_dictAttachmentFields(&quot;legacy&quot;).Equals(&quot;&quot;) and IN_dictAttachmentFields(&quot;applicationYear&quot;) &lt;&gt; 2020]" DisplayName="If No match" sap:VirtualizedContainerService.HintSize="814,356" sap2010:WorkflowViewState.IdRef="If_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -241,6 +241,30 @@
                         <If.Then>
                           <Throw Exception="[new BusinessRuleException(&quot;Couldn't find SBI on Legacy Look up sheet&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                         </If.Then>
+                        <If.Else>
+                          <If Condition="[IN_dictAttachmentFields(&quot;legacy&quot;).tolower.contains(&quot;non&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("legacy")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ui:GenericValue">["Non-Legacy"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Then>
+                            <If.Else>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("legacy")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ui:GenericValue">["Legacy"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Else>
+                          </If>
+                        </If.Else>
                       </If>
                       <FlowStep.Next>
                         <FlowStep x:Name="__ReferenceID2">

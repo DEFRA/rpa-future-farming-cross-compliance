@@ -74,6 +74,7 @@
       <Variable x:TypeArguments="x:Int32" Name="intRetryCounter" />
       <Variable x:TypeArguments="x:Boolean" Name="boolCRFfound" />
       <Variable x:TypeArguments="x:Boolean" Name="boolExists" />
+      <Variable x:TypeArguments="x:String" Name="strDateEmailReceived" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -423,9 +424,6 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Sequence DisplayName="Save to Base Folder" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="strDateEmailReceived" />
-                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -578,7 +576,7 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </ui:CreateDirectory>
-                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
+                                              <ui:SaveMail DisplayName="Save Mail Message" FilePath="[String.Format(IN_dictConfig(&quot;RobotProcessingFolder&quot;),Today.Year)+&quot;\&quot;+IN_strMailbox+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;)  + &quot; &quot; + strDateEmailReceived +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_5" MailMessage="[IN_email]">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
