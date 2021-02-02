@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="IN_browserXCOM" Type="InArgument(ui:Browser)" />
     <x:Property Name="OUT_boolPublicTabExists" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_intTimeout" Type="InArgument(x:Int32)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -78,10 +79,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:UiElementExists DisplayName="Element Exists Public Tab" Exists="[OUT_boolPublicTabExists]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a905d324-d941-446f-9719-d4f53b2c18b9" InformativeScreenshot="7f11918c424dd3b6bfd611d7f532a93a" Selector="&lt;webctrl id='tablinksmr2' tag='A' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a905d324-d941-446f-9719-d4f53b2c18b9" InformativeScreenshot="7f11918c424dd3b6bfd611d7f532a93a" Selector="&lt;webctrl id='tablinksmr2' tag='A' /&gt;" TimeoutMS="[IN_intTimeout]">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>

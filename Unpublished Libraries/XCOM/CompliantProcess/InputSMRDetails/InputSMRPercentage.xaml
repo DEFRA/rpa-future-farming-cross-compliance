@@ -77,7 +77,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into %" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[IN_strPercentage]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into %" EmptyField="True" sap:VirtualizedContainerService.HintSize="507,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[IN_strPercentage]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2643ad57-b738-4685-9999-9039db3f50f2" InformativeScreenshot="7c555a9aa3533dd79e515a93fa771d45" Selector="&lt;webctrl name='{{IN_strSMRShortCode}}_Percentage' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
