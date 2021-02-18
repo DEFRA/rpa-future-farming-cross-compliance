@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,744</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -159,7 +159,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">300.641666666667,425.5 300.641666666667,475.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="Try Config Reader" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <TryCatch DisplayName="Try Config Reader" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -175,7 +175,7 @@
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Config Reader workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath">
-                              <Literal x:TypeArguments="x:String">Documents\Config\config_Win7.xlsx</Literal>
+                              <Literal x:TypeArguments="x:String">Documents\Config\config.xlsx</Literal>
                             </InArgument>
                             <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">
                               <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
@@ -578,6 +578,14 @@
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="s:DateTime">[dateStartTime]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                                                          </Assign.Value>
+                                                        </Assign>
                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process Case workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logic Workflows\Process Case.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
                                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strFlow">[OUT_strFlow]</OutArgument>
@@ -592,14 +600,6 @@
                                                             <OutArgument x:TypeArguments="x:String" x:Key="OUT_strMultipleInspection">[strMultipleInspection]</OutArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
-                                                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_25">
-                                                          <Assign.To>
-                                                            <OutArgument x:TypeArguments="s:DateTime">[dateStartTime]</OutArgument>
-                                                          </Assign.To>
-                                                          <Assign.Value>
-                                                            <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
-                                                          </Assign.Value>
-                                                        </Assign>
                                                         <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="s:Exception">[exceptionCurrent]</OutArgument>
@@ -662,13 +662,13 @@
                                                               <av:PointCollection x:Key="ConnectorLocation">660,1679.04 770,1679.04 770,1511</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <r:Log_Case___Preset DisplayName="Log Case - Sucess" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="N/A" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Success" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_2" />
+                                                            <r:Log_Case___Preset DisplayName="Log Case - Sucess" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[(Now - dateStartTime).ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="N/A" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Success" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_2" />
                                                           </Sequence>
                                                           <FlowStep.Next>
                                                             <FlowStep x:Name="__ReferenceID1">
@@ -756,7 +756,7 @@
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <r:Log_Case___Preset DisplayName="Log Case - Failed" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[Now.ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="[exceptionCurrent.Message.ToString]" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Failed" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_1" />
+                                                            <r:Log_Case___Preset DisplayName="Log Case - Failed" sap:VirtualizedContainerService.HintSize="200,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[dateStartTime]" IN_dateCaseTotalTime="[(Now - dateStartTime).ToString]" IN_strCaseID="[strLogSBINumber]" IN_strFailureMessage="[exceptionCurrent.Message.ToString]" IN_strFilePath="[strLogFilePath]" IN_strNotes="[strMultipleInspection]" IN_strSuccessful="Failed" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;WorkPackageName&quot;)]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_1" />
                                                           </Sequence>
                                                           <FlowStep.Next>
                                                             <x:Reference>__ReferenceID1</x:Reference>
