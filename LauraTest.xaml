@@ -1,15 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="LauraTest" this:LauraTest.IN_strSBINumber="106218347" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="LauraTest" this:LauraTest.IN_strSBINumber="106218347" this:LauraTest.IN_dictAttachmentFields="[new Dictionary(of String, GenericValue)]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
     <x:Property Name="OUT_strDateOfInspection" Type="OutArgument(x:String)" />
+    <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,1342</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>832,1524</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LauraTest_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="24">
+    <scg:List x:TypeArguments="x:String" Capacity="48">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,6 +35,7 @@
       <x:String>System.Globalization</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -70,11 +72,9 @@
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="iEnumDates" />
       <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
       <Variable x:TypeArguments="s:DateTime" Name="dateInspection" />
-      <Variable x:TypeArguments="scg:ICollection(s:DateTime)" Name="listConvertedDates">
-        <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="scg:ICollection(s:DateTime)" ExpressionText="new list(of datetime)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:ICollection(s:DateTime)" Default="[new list(of datetime)]" Name="listConvertedDates" />
+      <Variable x:TypeArguments="ui:Browser" Name="browserSitiPopUp" />
+      <Variable x:TypeArguments="x:String" Name="strClaimStatus" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -83,364 +83,139 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Double x:Key="Width">724</x:Double>
         <x:Double x:Key="Height">1423</x:Double>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 299.895,107.5 299.895,127.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID13</x:Reference>
+      <x:Reference>__ReferenceID0</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep>
+    <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">490,664.5</av:Point>
+          <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listMailMessages]">
-        <ui:ForEach.Body>
-          <ActivityAction x:TypeArguments="snm:MailMessage">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Pop Up - Check for PAID" sap:VirtualizedContainerService.HintSize="1097,2352" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1d7c3b1c52d5be83d3a37464921aa6ef" Selector="&lt;html htmlwindowname='domanda' title='IACS - Applications' /&gt;" UiBrowser="[browserSitiPopUp]">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,649" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1063,2206" sap2010:WorkflowViewState.IdRef="Sequence_23">
               <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="strDate" />
+                <Variable x:TypeArguments="sd:DataTable" Name="dtSitiPopUp" />
+                <Variable x:TypeArguments="sc:IEnumerable" Name="arrClaimStatuses" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign sap:VirtualizedContainerService.HintSize="1021,60" sap2010:WorkflowViewState.IdRef="Assign_22">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(item.Headers("Date").Remove(10), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MM-yyyy")]</InArgument>
+                  <InArgument x:TypeArguments="ui:GenericValue">[Nothing]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[strDate]" />
-              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[item.Headers("Date").Remove(10)]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[strDate]" />
-              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[strEmail]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(strDate, "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("dd/MM/yyyy")]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[strEmail]" />
-            </Sequence>
-          </ActivityAction>
-        </ui:ForEach.Body>
-      </ui:ForEach>
-    </FlowStep>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">460,614.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,304 300,347</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_3">
-        <Flowchart.Variables>
-          <Variable x:TypeArguments="x:String" Name="Legacy" />
-        </Flowchart.Variables>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
-            <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
-            <x:Double x:Key="Height">700</x:Double>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <Flowchart.StartNode>
-          <x:Reference>__ReferenceID2</x:Reference>
-        </Flowchart.StartNode>
-        <FlowStep x:Name="__ReferenceID2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
-              <av:Size x:Key="ShapeSize">200,51</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,228.5</av:PointCollection>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="C:\Users\x953922\Desktop\XC Master List 2021 v1.0.xlsx">
-            <ui:ExcelApplicationScope.Body>
-              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ExcelReadRange AddHeaders="True" DataTable="[dtLegacyLookUp]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="XC Master list">
-                    <ui:ExcelReadRange.Range>
-                      <InArgument x:TypeArguments="x:String">
-                        <Literal x:TypeArguments="x:String" Value="" />
-                      </InArgument>
-                    </ui:ExcelReadRange.Range>
-                  </ui:ExcelReadRange>
-                </Sequence>
-              </ActivityAction>
-            </ui:ExcelApplicationScope.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:ExcelApplicationScope>
-          <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID0">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">200,228.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,51</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,279.5 300,329.5</av:PointCollection>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtLegacyLookUp]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dtSitiPopUp]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="1021,106" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100" SimulateClick="True">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c576fb-a632-4b6a-9752-0c1d33ff9552" InformativeScreenshot="f4ef6a2a95c37dea214e8e6d06c5f122" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='listResult' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSitiPopUp]" DisplayName="For Each Row - get status of index 0" sap:VirtualizedContainerService.HintSize="1021,600" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,454" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,453" sap2010:WorkflowViewState.IdRef="Sequence_20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[row(&quot;SBI&quot;).ToString = IN_strSBINumber]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If Condition="[row(&quot;Application type&quot;).Equals(&quot;DIRECT PAYMENTS&quot;)]" sap:VirtualizedContainerService.HintSize="484,361" sap2010:WorkflowViewState.IdRef="If_14">
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_19">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
                               <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[Legacy]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String">[strClaimStatus]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[row("SBI XC Status").ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[row("Application Status").ToString.ToLower]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+                            <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_3" />
                           </Sequence>
                         </If.Then>
                       </If>
                     </Sequence>
                   </ActivityAction>
                 </ui:ForEachRow.Body>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
               </ui:ForEachRow>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">200,329.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[Legacy is Nothing and today.year &lt;&gt; 2020]" DisplayName="If No match" sap:VirtualizedContainerService.HintSize="484,209" sap2010:WorkflowViewState.IdRef="If_4">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Throw Exception="[new BusinessRuleException(&quot;Couldn't find SBI on Legacy Look up sheet&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
-                    </If.Then>
-                    <If.Else>
-                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[Legacy]" />
-                    </If.Else>
-                  </If>
-                </FlowStep>
-              </FlowStep.Next>
-            </FlowStep>
-          </FlowStep.Next>
-        </FlowStep>
-        <x:Reference>__ReferenceID0</x:Reference>
-        <x:Reference>__ReferenceID1</x:Reference>
-      </Flowchart>
-    </FlowStep>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">480,544.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,51</av:Size>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <If Condition="[today.DayOfYear &lt;= 166]" DisplayName="If - Check if earlier than June 15th" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_6">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <If.Then>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Use 2020 claim&quot;]" />
-        </If.Then>
-        <If.Else>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Use 2021 claim&quot;]" />
-        </If.Else>
-      </If>
-    </FlowStep>
-    <FlowStep x:Name="__ReferenceID13">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">168.895,127.5</av:Point>
-          <av:Size x:Key="ShapeSize">262,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">299.895,187.5 299.895,217.5 299.911666666667,217.5 299.911666666667,231.5</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[strDate]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">11/01/2021</InArgument>
-        </Assign.Value>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID12">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">184.911666666667,231.5</av:Point>
-              <av:Size x:Key="ShapeSize">230,61</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">299.911666666667,292.5 299.911666666667,322.5 299.895,322.5 299.895,337.5</av:PointCollection>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[strDate]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </WriteLine>
-          <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">199.895,337.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,51</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">299.895,388.5 299.895,434.5</av:PointCollection>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:Matches sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strDate]" IsBuilderTabModified="False" Pattern="(\d{1,2}(\/|\.)){1,2}(\d{4}|\d{2})" RegexOption="IgnoreCase, Compiled" Result="[iEnumDates]" />
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID6">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">199.895,434.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">299.895,485.5 299.895,515.5 300,515.5 300,530</av:PointCollection>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[iEnumDates]">
-                    <ui:ForEach.Body>
-                      <ActivityAction x:TypeArguments="str:Match">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="str:Match" Name="item" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="787,589" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[iEnumDates.Count = 1]" sap:VirtualizedContainerService.HintSize="745,435" sap2010:WorkflowViewState.IdRef="If_11">
-                            <If.Then>
-                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                                <TryCatch.Try>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="s:DateTime">[DateMatch]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(item.ToString,("MM/dd/yyyy"), System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                </TryCatch.Try>
-                                <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <ActivityAction x:TypeArguments="s:Exception">
-                                      <ActivityAction.Argument>
-                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                                      </ActivityAction.Argument>
-                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="s:DateTime">[DateMatch]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(item.ToString,("dd/MM/yyyy"), System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                    </ActivityAction>
-                                  </Catch>
-                                </TryCatch.Catches>
-                              </TryCatch>
-                            </If.Then>
-                            <If.Else>
-                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="s:DateTime">[DateMatch]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(item.ToString, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </If.Else>
-                          </If>
-                          <AddToCollection x:TypeArguments="s:DateTime" Collection="[listConvertedDates]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="745,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[DateMatch]" />
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ForEach.Body>
-                  </ui:ForEach>
-                  <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID9">
+              <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1021,586" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrClaimStatuses]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="status" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,453" sap2010:WorkflowViewState.IdRef="Sequence_22">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">169,530</av:Point>
-                          <av:Size x:Key="ShapeSize">262,60</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">300,590 300,634.5</av:PointCollection>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <If Condition="[strClaimStatus.Equals(status)]" sap:VirtualizedContainerService.HintSize="484,361" sap2010:WorkflowViewState.IdRef="If_15">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="ui:GenericValue">["BPS Claim Submitted"]</InArgument>
+                              </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Assign>
+                            <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_4" />
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+              </ui:ForEach>
+              <If Condition="[IN_dictAttachmentFields(&quot;bpsClaim&quot;) is Nothing]" sap:VirtualizedContainerService.HintSize="1021,501" sap2010:WorkflowViewState.IdRef="If_18">
+                <If.Then>
+                  <If Condition="[strClaimStatus.Equals(&quot;rejected&quot;)]" DisplayName="If Rejected" sap:VirtualizedContainerService.HintSize="876,354" sap2010:WorkflowViewState.IdRef="If_17">
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="s:DateTime">[dateInspection]</OutArgument>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="s:DateTime">[listConvertedDates(0)]</InArgument>
+                          <InArgument x:TypeArguments="ui:GenericValue">["Rejected"]</InArgument>
                         </Assign.Value>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -448,211 +223,54 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </Assign>
-                      <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID8">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">200,634.5</av:Point>
-                              <av:Size x:Key="ShapeSize">200,51</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">300,685.5 300,715.5 300.016666666667,715.5 300.016666666667,725.5</av:PointCollection>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:ForEach x:TypeArguments="s:DateTime" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[listConvertedDates.skip(0)]">
-                            <ui:ForEach.Body>
-                              <ActivityAction x:TypeArguments="s:DateTime">
-                                <ActivityAction.Argument>
-                                  <DelegateInArgument x:TypeArguments="s:DateTime" Name="item" />
-                                </ActivityAction.Argument>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,300" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <If Condition="[dateInspection &lt; item]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_12">
-                                    <If.Then>
-                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="s:DateTime">[dateInspection]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="s:DateTime">[item]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                    </If.Then>
-                                  </If>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:ForEach.Body>
-                          </ui:ForEach>
-                          <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID11">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">185.016666666667,725.5</av:Point>
-                                  <av:Size x:Key="ShapeSize">230,61</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">300.016666666667,786.5 300.016666666667,816.5 299.895,816.5 299.895,835.5</av:PointCollection>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[dateInspection.ToShortDateString]">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </WriteLine>
-                              <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID10">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <av:Point x:Key="ShapeLocation">168.895,835.5</av:Point>
-                                      <av:Size x:Key="ShapeSize">262,60</av:Size>
-                                      <av:PointCollection x:Key="ConnectorLocation">299.895,895.5 299.895,925.5 300,925.5 300,947</av:PointCollection>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:String">[boolDateUK]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">[Date.TryParseExact(dateInspection.ToShortDateString,“dd/MM/yyyy”,CultureInfo.InvariantCulture,Globalization.DateTimeStyles.None,Nothing).ToString]</InArgument>
-                                    </Assign.Value>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </Assign>
-                                  <FlowStep.Next>
-                                    <FlowStep x:Name="__ReferenceID7">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <av:Point x:Key="ShapeLocation">200,947</av:Point>
-                                          <av:Size x:Key="ShapeSize">200,66</av:Size>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Set OUT Args" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                                        <Sequence.Variables>
-                                          <Variable x:TypeArguments="x:String" Name="strDateInspection" />
-                                        </Sequence.Variables>
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <If Condition="[boolDateUK.Equals(&quot;True&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_13">
-                                          <If.Then>
-                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
-                                              <Assign.To>
-                                                <OutArgument x:TypeArguments="x:String">[OUT_strDateOfInspection]</OutArgument>
-                                              </Assign.To>
-                                              <Assign.Value>
-                                                <InArgument x:TypeArguments="x:String">[dateInspection.ToShortDateString]</InArgument>
-                                              </Assign.Value>
-                                            </Assign>
-                                          </If.Then>
-                                          <If.Else>
-                                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
-                                              <Assign.To>
-                                                <OutArgument x:TypeArguments="x:String">[OUT_strDateOfInspection]</OutArgument>
-                                              </Assign.To>
-                                              <Assign.Value>
-                                                <InArgument x:TypeArguments="x:String">[dateInspection.tostring("dd/MM/yyyy")]</InArgument>
-                                              </Assign.Value>
-                                            </Assign>
-                                          </If.Else>
-                                        </If>
-                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="569,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[OUT_strDateOfInspection + &quot; &quot; + boolDateUK]" />
-                                      </Sequence>
-                                    </FlowStep>
-                                  </FlowStep.Next>
-                                </FlowStep>
-                              </FlowStep.Next>
-                            </FlowStep>
-                          </FlowStep.Next>
-                        </FlowStep>
-                      </FlowStep.Next>
-                    </FlowStep>
-                  </FlowStep.Next>
-                </FlowStep>
-              </FlowStep.Next>
-            </FlowStep>
-          </FlowStep.Next>
-        </FlowStep>
-      </FlowStep.Next>
-    </FlowStep>
-    <FlowStep x:Name="__ReferenceID4">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">178.895,1167.5</av:Point>
-          <av:Size x:Key="ShapeSize">262,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">309.895,1227.5 309.895,1257.5 309.911666666667,1257.5 309.911666666667,1277.5</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[boolDateUK]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[Date.TryParseExact(strDate,“dd/MM/yyyy”,CultureInfo.InvariantCulture,Globalization.DateTimeStyles.None,Nothing).ToString]</InArgument>
-        </Assign.Value>
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[strClaimStatus.Equals(&quot;withdrawn&quot;)]" DisplayName="If Withdrawn" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_16">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">["Withdrawn"]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictAttachmentFields("bpsClaim")]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="ui:GenericValue">["NO BPS Claim"]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                </If.Then>
+              </If>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1021,61" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="[IN_dictAttachmentFields(&quot;bpsClaim&quot;)]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID3">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">194.911666666667,1277.5</av:Point>
-              <av:Size x:Key="ShapeSize">230,61</av:Size>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[strDate +  boolDateUK]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </WriteLine>
-        </FlowStep>
-      </FlowStep.Next>
+      </ui:BrowserScope>
     </FlowStep>
-    <x:Reference>__ReferenceID3</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">179,1070</av:Point>
-          <av:Size x:Key="ShapeSize">262,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">310,1130 310,1160 309.895,1160 309.895,1167.5</av:PointCollection>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[dateDate]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strDate,("MM/dd/yyyy"), System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
-        </Assign.Value>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </Assign>
-      <FlowStep.Next>
-        <x:Reference>__ReferenceID4</x:Reference>
-      </FlowStep.Next>
-    </FlowStep>
-    <x:Reference>__ReferenceID5</x:Reference>
-    <x:Reference>__ReferenceID6</x:Reference>
-    <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
-    <x:Reference>__ReferenceID9</x:Reference>
-    <x:Reference>__ReferenceID10</x:Reference>
-    <x:Reference>__ReferenceID11</x:Reference>
-    <x:Reference>__ReferenceID12</x:Reference>
   </Flowchart>
 </Activity>
