@@ -175,7 +175,7 @@
                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Config Reader workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logic Workflows\Config Reader.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="IN_strConfigPath">
-                              <Literal x:TypeArguments="x:String">Documents\Config\config.xlsx</Literal>
+                              <Literal x:TypeArguments="x:String">Documents\Config\config_Win7.xlsx</Literal>
                             </InArgument>
                             <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictConfig">
                               <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictConfig" />
@@ -662,7 +662,7 @@
                                                               <av:PointCollection x:Key="ConnectorLocation">660,1679.04 770,1679.04 770,1511</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                          <Sequence DisplayName="Mark Case as Successful" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
