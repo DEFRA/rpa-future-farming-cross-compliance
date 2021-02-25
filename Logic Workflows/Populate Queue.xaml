@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1434,1153</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1153</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -173,7 +173,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;SAGMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutL&quot;)]" Top="20" />
+                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;SAGMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutXL&quot;)]" Top="20" />
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strMailboxName]</OutArgument>
@@ -312,7 +312,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">290,721 290,771</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[strMailboxName]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_5" MailFolder="In Progress" MarkAsRead="False" Messages="[listInProgress]" OnlyUnreadMessages="False" TimeoutMS="[IN_dictConfig(&quot;timeoutL&quot;)]" Top="30">
+                                              <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[strMailboxName]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_5" MailFolder="In Progress" MarkAsRead="False" Messages="[listInProgress]" OnlyUnreadMessages="False" TimeoutMS="[IN_dictConfig(&quot;timeoutXL&quot;)]" Top="30">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -674,7 +674,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;RPAMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutL&quot;)]" Top="20" />
+                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;RPAMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_2" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutXL&quot;)]" Top="20" />
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_34">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strMailboxName]</OutArgument>
@@ -702,7 +702,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;AHMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_3" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutL&quot;)]" Top="20" />
+                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;AHMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_3" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutXL&quot;)]" Top="20" />
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strMailboxName]</OutArgument>
@@ -730,7 +730,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;CiiMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutL&quot;)]" Top="20" />
+                      <ui:GetOutlookMailMessages Filter="{x:Null}" Account="[IN_dictConfig(&quot;CiiMailbox&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_4" MailFolder="Inbox" MarkAsRead="False" Messages="[listMailMessages]" OnlyUnreadMessages="True" TimeoutMS="[IN_dictConfig(&quot;timeoutXL&quot;)]" Top="20" />
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[strMailboxName]</OutArgument>

@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>832,1524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,1564</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LauraTest_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="48">
+    <scg:List x:TypeArguments="x:String" Capacity="25">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -65,7 +65,7 @@
       <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="LauraTest" sap:VirtualizedContainerService.HintSize="758,1459" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="LauraTest" sap:VirtualizedContainerService.HintSize="834,1459" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strDate" />
       <Variable x:TypeArguments="x:String" Name="boolDateUK" />
@@ -75,13 +75,14 @@
       <Variable x:TypeArguments="scg:ICollection(s:DateTime)" Default="[new list(of datetime)]" Name="listConvertedDates" />
       <Variable x:TypeArguments="ui:Browser" Name="browserSitiPopUp" />
       <Variable x:TypeArguments="x:String" Name="strClaimStatus" />
+      <Variable x:TypeArguments="x:Int32" Name="intRowIndex" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <x:Double x:Key="Width">724</x:Double>
+        <x:Double x:Key="Width">800</x:Double>
         <x:Double x:Key="Height">1423</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
       </scg:Dictionary>
@@ -96,16 +97,16 @@
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Pop Up - Check for PAID" sap:VirtualizedContainerService.HintSize="1097,2352" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1d7c3b1c52d5be83d3a37464921aa6ef" Selector="&lt;html htmlwindowname='domanda' title='IACS - Applications' /&gt;" UiBrowser="[browserSitiPopUp]">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Pop Up - Check for PAID" sap:VirtualizedContainerService.HintSize="1097,2490" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1d7c3b1c52d5be83d3a37464921aa6ef" Selector="&lt;html htmlwindowname='domanda' title='IACS - Applications' /&gt;" UiBrowser="[browserSitiPopUp]">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1063,2206" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1063,2344" sap2010:WorkflowViewState.IdRef="Sequence_23">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dtSitiPopUp" />
-                <Variable x:TypeArguments="sc:IEnumerable" Name="arrClaimStatuses" />
+                <Variable x:TypeArguments="sc:IEnumerable" Default="[{&quot;paid&quot;, &quot;in checking&quot;, &quot;in correction&quot;, &quot;received&quot;, &quot;submitted&quot;, &quot;data alignment&quot;, &quot;post pay phase 2&quot;}]" Name="arrClaimStatuses" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -120,30 +121,38 @@
                   <InArgument x:TypeArguments="ui:GenericValue">[Nothing]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dtSitiPopUp]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="1021,106" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100" SimulateClick="True">
+              <Assign sap:VirtualizedContainerService.HintSize="1021,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[intRowIndex]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[dtSitiPopUp]" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;/row&gt;&lt;column name='Sector' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell' tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column name='Application type' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell' tag='div' idx='2' /&gt;&lt;/column&gt;&lt;column name='Year' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell numeric' tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column name='Application Status' exact='1' attr='text'&gt;&lt;webctrl class='tabRow' tag='div' /&gt;&lt;webctrl class='tabCell' tag='div' idx='3' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="1021,106" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="100" SimulateClick="True">
                 <ui:ExtractData.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07c576fb-a632-4b6a-9752-0c1d33ff9552" InformativeScreenshot="f4ef6a2a95c37dea214e8e6d06c5f122" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='listResult' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c46e8a9e-e208-4161-bf4a-728af9e05fe1" InformativeScreenshot="36e1e1b40f14c5c96711e7fc763e291c" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='listResult' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
                   </ui:Target>
                 </ui:ExtractData.Target>
               </ui:ExtractData>
-              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSitiPopUp]" DisplayName="For Each Row - get status of index 0" sap:VirtualizedContainerService.HintSize="1021,600" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtSitiPopUp]" DisplayName="For Each Row - get status of index 0" sap:VirtualizedContainerService.HintSize="1021,638" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,453" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,491" sap2010:WorkflowViewState.IdRef="Sequence_20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[row(&quot;Application type&quot;).Equals(&quot;DIRECT PAYMENTS&quot;)]" sap:VirtualizedContainerService.HintSize="484,361" sap2010:WorkflowViewState.IdRef="If_14">
+                      <If Condition="[row(&quot;Application type&quot;).Equals(&quot;DIRECT PAYMENTS&quot;) and dtSitiPopUp.Rows.IndexOf(row) &lt;= intRowIndex]" sap:VirtualizedContainerService.HintSize="484,399" sap2010:WorkflowViewState.IdRef="If_14">
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_19">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,7 +166,14 @@
                                 <InArgument x:TypeArguments="x:String">[row("Application Status").ToString.ToLower]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_3" />
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[intRowIndex]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[dtSitiPopUp.Rows.IndexOf(row)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
                           </Sequence>
                         </If.Then>
                       </If>
