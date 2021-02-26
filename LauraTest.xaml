@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1564</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1519,1564</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LauraTest_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -67,7 +67,7 @@
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="LauraTest" sap:VirtualizedContainerService.HintSize="834,1459" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="strDate" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="strDate" />
       <Variable x:TypeArguments="x:String" Name="boolDateUK" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="iEnumDates" />
       <Variable x:TypeArguments="s:DateTime" Name="DateMatch" />
@@ -90,14 +90,14 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID0</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID0">
+    <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+          <av:Point x:Key="ShapeLocation">480,164.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Pop Up - Check for PAID" sap:VirtualizedContainerService.HintSize="1097,2490" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1d7c3b1c52d5be83d3a37464921aa6ef" Selector="&lt;html htmlwindowname='domanda' title='IACS - Applications' /&gt;" UiBrowser="[browserSitiPopUp]">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" BrowserType="IE" DisplayName="Attach Pop Up - Check for PAID" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1d7c3b1c52d5be83d3a37464921aa6ef" Selector="&lt;html htmlwindowname='domanda' title='IACS - Applications' /&gt;" UiBrowser="[browserSitiPopUp]">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -287,6 +287,74 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:BrowserScope>
+    </FlowStep>
+    <FlowStep x:Name="__ReferenceID0">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="959,927" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="\\GFD218DF\x953922$\Documents\Future Farming\Example Documents\RPA\New CRF\PROTECT XC CRF_106492259_08_132_0015_Mr J Bland &amp; Mrs JL Bland Test.xlsm">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,818" sap2010:WorkflowViewState.IdRef="Sequence_24">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="dtExcel" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelReadCell Cell="F29" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="436,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="XC CRF">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[strDate]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[strDate]" />
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,229" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dtExcel]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="XC CRF">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,257" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelWriteRange AddHeaders="False" DataTable="[dtExcel]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="LauraTest" StartingCell="A1" />
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ExcelApplicationScope>
     </FlowStep>
   </Flowchart>
 </Activity>
