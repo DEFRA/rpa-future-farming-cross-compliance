@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1052,701</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Open_CRM_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -34,7 +34,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -56,6 +56,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Open_CRM" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -97,7 +98,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,410.5 300,447</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="659,900" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="664,900" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <Flowchart.Variables>
           <Variable x:TypeArguments="x:Boolean" Name="boolLogInPageExists" />
           <Variable x:TypeArguments="x:Boolean" Name="boolAccountExists" />
@@ -110,7 +111,7 @@
             <av:Size x:Key="ShapeSize">60,75</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">340,75 340,127.5</av:PointCollection>
             <x:Double x:Key="Height">863.5</x:Double>
-            <x:Double x:Key="Width">625</x:Double>
+            <x:Double x:Key="Width">630</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <Flowchart.StartNode>
@@ -191,7 +192,7 @@
                       <av:Point x:Key="ShapeLocation">300.641666666667,300.5</av:Point>
                       <av:Size x:Key="ShapeSize">73,87</av:Size>
                       <av:PointCollection x:Key="TrueConnector">300.641666666667,344 200,344 200,409</av:PointCollection>
-                      <av:PointCollection x:Key="FalseConnector">373.641666666667,344 597.5,344 597.5,654.04 290,654.04 290,703.5</av:PointCollection>
+                      <av:PointCollection x:Key="FalseConnector">373.641666666667,344 577.641666666667,344 577.641666666667,654 290,654 290,709</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
@@ -227,7 +228,7 @@
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">40,643.5</av:Point>
                                   <av:Size x:Key="ShapeSize">200,22</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">240,654.5 290,654.5 290,703.5</av:PointCollection>
+                                  <av:PointCollection x:Key="ConnectorLocation">240,654.5 290,654.5 290,709</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <co:Click_Own_Account_for_CRM DisplayName="Click Own Account for CRM" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Click_Own_Account_for_CRM_1">
@@ -241,18 +242,18 @@
                                 <FlowStep x:Name="__ReferenceID0">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <av:Point x:Key="ShapeLocation">190,703.5</av:Point>
+                                      <av:Point x:Key="ShapeLocation">190,709</av:Point>
                                       <av:Size x:Key="ShapeSize">200,22</av:Size>
-                                      <av:PointCollection x:Key="ConnectorLocation">290,725.5 290,755.5 285.641666666667,755.5 285.641666666667,776.5</av:PointCollection>
+                                      <av:PointCollection x:Key="ConnectorLocation">290,731 290,761 285.641666666667,761 285.641666666667,776.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <co:Check_Signed_In DisplayName="Check Signed In" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[OUT_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutM&quot;)]" sap2010:WorkflowViewState.IdRef="Check_Signed_In_2" OUT_boolSignedIn="[boolSignedIn]">
+                                  <co:Check_Signed_In___FF DisplayName="Check Signed In - FF" sap:VirtualizedContainerService.HintSize="200,22" IN_browserCRM="[OUT_browserCRM]" IN_intTimeout="[IN_dictConfig(&quot;timeoutM&quot;)]" sap2010:WorkflowViewState.IdRef="Check_Signed_In___FF_1" OUT_boolSignedIn="[boolSignedIn]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                  </co:Check_Signed_In>
+                                  </co:Check_Signed_In___FF>
                                   <FlowStep.Next>
                                     <FlowDecision x:Name="__ReferenceID7" Condition="[boolSignedIn]" DisplayName="Logged In?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                                       <sap:WorkflowViewStateService.ViewState>
@@ -321,9 +322,9 @@
         <x:Reference>__ReferenceID4</x:Reference>
         <x:Reference>__ReferenceID5</x:Reference>
         <x:Reference>__ReferenceID6</x:Reference>
-        <x:Reference>__ReferenceID0</x:Reference>
         <x:Reference>__ReferenceID7</x:Reference>
         <x:Reference>__ReferenceID8</x:Reference>
+        <x:Reference>__ReferenceID0</x:Reference>
       </Flowchart>
       <FlowStep.Next>
         <x:Reference>__ReferenceID10</x:Reference>
