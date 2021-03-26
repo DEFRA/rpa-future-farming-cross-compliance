@@ -6,11 +6,12 @@
     <x:Property Name="OUT_strNewFolderPath" Type="OutArgument(x:String)" />
     <x:Property Name="IN_dictAttachmentFields" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strAHType" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1487,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Assign_Processing_Location_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -159,22 +160,36 @@
                   <av:PointCollection x:Key="ConnectorLocation">850,553 850,583 520,583 520,689</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Move to non Compliant non BPS Claim Exists Folder" sap:VirtualizedContainerService.HintSize="504,694" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence DisplayName="Move to non Compliant non BPS Claim Exists Folder" sap:VirtualizedContainerService.HintSize="611,842" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_11">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[OUT_strNewFolderPath]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+                <If Condition="[IN_strAHType.contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strAHType+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="569,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[OUT_strNewFolderPath]" />
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="569,383" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
@@ -210,16 +225,30 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[OUT_strNewFolderPath]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_12" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+                <If Condition="[IN_strAHType.contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strAHType+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("NonBPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="569,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[OUT_strNewFolderPath]" />
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="569,383" sap2010:WorkflowViewState.IdRef="ForEach`1_12" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
@@ -255,16 +284,30 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[OUT_strNewFolderPath]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+                <If Condition="[IN_strAHType.contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strAHType+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("BPSNCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="569,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[OUT_strNewFolderPath]" />
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="569,383" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
@@ -300,16 +343,30 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[OUT_strNewFolderPath]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+                <If Condition="[IN_strAHType.contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" sap:VirtualizedContainerService.HintSize="569,208" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+ IN_strAHType+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[OUT_strNewFolderPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("BPSCToBeAssignedFolder"),IN_dictAttachmentFields("applicationYear"))+"\"+IN_strMailbox+"\"+IN_strSBINumber]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="569,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_5" Path="[OUT_strNewFolderPath]" />
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="569,383" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
@@ -353,10 +410,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </FlowDecision>
-            <FlowDecision x:Name="__ReferenceID7" DisplayName="BPS Claim Exists?" sap:VirtualizedContainerService.HintSize="96,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-              <FlowDecision.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IN_dictAttachmentFields(&quot;bpsClaim&quot;) = &quot;BPS Claim Submitted&quot;" />
-              </FlowDecision.Condition>
+            <FlowDecision x:Name="__ReferenceID7" Condition="[IN_dictAttachmentFields(&quot;bpsClaim&quot;) = &quot;BPS Claim Submitted&quot;]" DisplayName="BPS Claim Exists?" sap:VirtualizedContainerService.HintSize="96,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6" True="{x:Reference __ReferenceID5}" False="{x:Reference __ReferenceID6}">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -366,12 +420,6 @@
                   <av:PointCollection x:Key="FalseConnector">548,190 705,190 705,266.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <FlowDecision.True>
-                <x:Reference>__ReferenceID5</x:Reference>
-              </FlowDecision.True>
-              <FlowDecision.False>
-                <x:Reference>__ReferenceID6</x:Reference>
-              </FlowDecision.False>
             </FlowDecision>
           </Flowchart>
           <FlowStep.Next>

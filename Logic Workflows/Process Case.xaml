@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1487,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -148,7 +148,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300.641666666667,865.5 300.641666666667,915.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Validate CRF" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch DisplayName="Try Validate CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -403,7 +403,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">300,1585.5 300,1626.5</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <TryCatch DisplayName="Try Enter Receipting Details" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                                      <TryCatch DisplayName="Try Enter Receipting Details" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -501,12 +501,27 @@
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Assign Processing Location Workflow" sap:VirtualizedContainerService.HintSize="379,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Data Workflows\Windows Explorer\Assign Processing Location.xaml">
                                                       <ui:InvokeWorkflowFile.Arguments>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">[IN_strCaseFolderPath]</InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
-                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                                                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strNewFolderPath">[IN_strCaseFolderPath]</OutArgument>
-                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">[dictAttachmentFields]</InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">
+                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
+                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                        </InArgument>
+                                                        <OutArgument x:TypeArguments="x:String" x:Key="OUT_strNewFolderPath">
+                                                          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
+                                                        </OutArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictAttachmentFields">
+                                                          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="dictAttachmentFields" />
+                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
+                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strMailbox" />
+                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="IN_strAHType">
+                                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strAHType" />
+                                                        </InArgument>
                                                       </ui:InvokeWorkflowFile.Arguments>
                                                     </ui:InvokeWorkflowFile>
                                                     <Assign sap:VirtualizedContainerService.HintSize="379,60" sap2010:WorkflowViewState.IdRef="Assign_33">
@@ -696,7 +711,7 @@
                                                                           <av:PointCollection x:Key="ConnectorLocation">310,2625.5 310,2666.5</av:PointCollection>
                                                                         </scg:Dictionary>
                                                                       </sap:WorkflowViewStateService.ViewState>
-                                                                      <TryCatch DisplayName="Try Move to Completed " sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_13">
+                                                                      <TryCatch DisplayName="Try Move to Completed " sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_13">
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -711,11 +726,24 @@
                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Move to Completed workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Logic Workflows\MoveToCompleted.xaml">
                                                                               <ui:InvokeWorkflowFile.Arguments>
-                                                                                <OutArgument x:TypeArguments="x:String" x:Key="OUT_strCompletedFolder">[strCompletedFolderPath]</OutArgument>
-                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">[IN_strCaseFolderPath]</InArgument>
-                                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
-                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                                                                <OutArgument x:TypeArguments="x:String" x:Key="OUT_strCompletedFolder">
+                                                                                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strCompletedFolderPath" />
+                                                                                </OutArgument>
+                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strCaseFolderPath">
+                                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
+                                                                                </InArgument>
+                                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                                                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                                                                                </InArgument>
+                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
+                                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strMailbox" />
+                                                                                </InArgument>
+                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                                                                                </InArgument>
+                                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strAHType">
+                                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strAHType" />
+                                                                                </InArgument>
                                                                               </ui:InvokeWorkflowFile.Arguments>
                                                                             </ui:InvokeWorkflowFile>
                                                                             <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_49">

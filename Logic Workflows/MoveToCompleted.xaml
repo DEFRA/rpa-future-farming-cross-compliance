@@ -5,11 +5,12 @@
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
     <x:Property Name="IN_strSBINumber" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strAHType" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>965,1033</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1487,1932</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MoveToCompleted_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -63,16 +64,17 @@
       <AssemblyReference>System.Memory</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MoveToCompleted" sap:VirtualizedContainerService.HintSize="504,968" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MoveToCompleted" sap:VirtualizedContainerService.HintSize="691,1827" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strWorkflowName" />
+      <Variable x:TypeArguments="x:String" Name="strMasterFolderPath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="462,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="649,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -82,34 +84,82 @@
       <g:GetWorkflowName DisplayName="Get workflow name" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetWorkflowName_1" WorkflowName="[strWorkflowName]" />
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - &quot;+strWorkflowName]" />
     </Sequence>
-    <Assign sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[OUT_strCompletedFolder]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("CompletedFolder"), Today.Year, IN_strMailbox) + IN_strSBINumber]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OUT_strCompletedFolder]" />
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
+    <If Condition="[IN_strAHType.Contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" DisplayName="If AW OR AHTB" sap:VirtualizedContainerService.HintSize="649,400" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Completed Path" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[OUT_strCompletedFolder]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("CompletedFolder"), Today.Year, IN_strAHType) + IN_strSBINumber]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign Master Path" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strMasterFolderPath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[String.Format(IN_dictConfig("MasterCopiesFolder"),Today.Year)+"\"+IN_strAHType +"\"+IN_strSBINumber]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[OUT_strCompletedFolder]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[string.Format(IN_dictConfig("CompletedFolder"), Today.Year, IN_strMailbox) + IN_strSBINumber]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="649,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OUT_strCompletedFolder]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="649,902" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles(IN_strCaseFolderPath)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="613,768" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[OUT_strCompletedFolder+&quot;\&quot;+file.Split(&quot;\&quot;c)(9).ToString]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[file]" />
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[OUT_strCompletedFolder+&quot;\&quot;+file.Split(&quot;\&quot;c)(9).ToString]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="571,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[file]" />
+            <If Condition="[IN_strAHType.Contains(&quot;Animal Welfare&quot;) or IN_strAHType.Contains(&quot;AHTB&quot;)]" sap:VirtualizedContainerService.HintSize="571,479" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="426,311" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strMasterFolderPath +&quot;\&quot;+file.Split(&quot;\&quot;c)(7)]" DisplayName="Copy File to master folder" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[file]" />
+                  <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[String.Format(IN_dictConfig(&quot;MasterCopiesFolder&quot;),Today.Year)+&quot;\&quot;+ IN_strMailbox +&quot;\&quot;+IN_strSBINumber]" />
+                </Sequence>
+              </If.Then>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="462,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[IN_strCaseFolderPath]" />
-    <Sequence DisplayName="Log End" sap:VirtualizedContainerService.HintSize="462,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="649,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[IN_strCaseFolderPath]" />
+    <Sequence DisplayName="Log End" sap:VirtualizedContainerService.HintSize="649,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
