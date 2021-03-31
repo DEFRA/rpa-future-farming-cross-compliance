@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>896,449</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_Signed_In_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -71,7 +71,7 @@
           </ActivityAction.Argument>
           <ui:UiElementExists DisplayName="Signed In Element Exists" Exists="[OUT_boolSignedIn]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="57905f02-4477-4f16-8ab8-f47fb3b289d9" InformativeScreenshot="dfa5c87cfc3317010221693f7fa769bb" Selector="&lt;webctrl tag='BUTTON' aaname='*app*' /&gt;" TimeoutMS="[IN_intTimeout]" WaitForReady="COMPLETE" />
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="57905f02-4477-4f16-8ab8-f47fb3b289d9" InformativeScreenshot="dfa5c87cfc3317010221693f7fa769bb" Selector="&lt;webctrl tag='BUTTON' aaname='*pp*' /&gt;" TimeoutMS="[IN_intTimeout]" WaitForReady="COMPLETE" />
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
         </ActivityAction>

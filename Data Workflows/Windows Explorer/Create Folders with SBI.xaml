@@ -310,7 +310,7 @@
                               <av:Size x:Key="ShapeSize">200,22</av:Size>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Throw Exception="[new exception(&quot;Failed To Located CRF In Base folder&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
+                          <Throw Exception="[new exception(&quot;Failed To Locate CRF In Base folder&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -472,7 +472,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">580,417.02 580,506.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Save to Master Folder" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                      <Sequence DisplayName="Save to Master Folder" sap:VirtualizedContainerService.HintSize="376,829" sap2010:WorkflowViewState.IdRef="Sequence_31">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -485,7 +485,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:CreateDirectory>
-                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Create Folder master" />
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[&quot;Create Folder master: &quot; + strMasterFolderPath+&quot;\&quot;+IN_strSBINumber]" />
                         <ui:SaveMail DisplayName="Save Mail Message" FilePath="[strMasterFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+IN_email.subject.Replace(&quot;/&quot;c,&quot;-&quot;).Replace(&quot;:&quot;c, &quot;-&quot;) +&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="SaveMail_4" MailMessage="[IN_email]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -502,6 +502,7 @@
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:SaveMailAttachments>
                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="Save Attachments master" />
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[&quot;Checking for saved in: &quot; + strBaseFolderPath+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;]" />
                       </Sequence>
                       <FlowStep.Next>
                         <FlowDecision x:Name="__ReferenceID17" Condition="[IN_strMailbox.ToLower= &quot;cii&quot;]" DisplayName="Cii?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">

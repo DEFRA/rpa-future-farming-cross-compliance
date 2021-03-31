@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1487,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -123,7 +123,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[item.ToLower.Contains(&quot;crf&quot;) and item.ToLower.Contains(&quot;.xls&quot;) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)]" sap:VirtualizedContainerService.HintSize="1021,208" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[(item.ToLower.Contains(&quot;crf&quot;) and item.ToLower.Contains(&quot;.xls&quot;)) or (item.ToLower.Contains(&quot;crf&quot;) and item.ToLower.Contains(&quot;.doc&quot;)) or item.ToLower.Contains(&quot;smr4 mailmerge&quot;)]" sap:VirtualizedContainerService.HintSize="1021,208" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
                       <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_26">
                         <Assign.To>
