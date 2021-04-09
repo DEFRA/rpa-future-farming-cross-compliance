@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,744</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Proxy_Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
@@ -464,7 +464,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">290,1245.5 290,1296.5</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <TryCatch DisplayName="Try Input  Case Details" sap:VirtualizedContainerService.HintSize="438,697" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                                              <TryCatch DisplayName="Try Input  Case Details" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                                                 <TryCatch.Try>
                                                   <Sequence sap:VirtualizedContainerService.HintSize="397,470" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                     <sap:WorkflowViewStateService.ViewState>
@@ -566,7 +566,7 @@
                                                           <av:PointCollection x:Key="ConnectorLocation">290,1515.02 290,1545.02 290.641666666667,1545.02 290.641666666667,1575.5</av:PointCollection>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <TryCatch DisplayName="Try Create Customer Notification" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                                      <TryCatch DisplayName="Try Create Customer Notification" sap:VirtualizedContainerService.HintSize="438,606" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                                                         <TryCatch.Try>
                                                           <Sequence sap:VirtualizedContainerService.HintSize="395,379" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                                             <sap:WorkflowViewStateService.ViewState>
