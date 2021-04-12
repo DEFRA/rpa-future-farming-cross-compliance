@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>746,519</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,518</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Click_Type_Drop_Down_Button_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -80,7 +80,7 @@
               </ui:CursorPosition>
             </ui:Click.CursorPosition>
             <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c7a37b0f-5cc6-471d-8bae-46d52370b9f0" InformativeScreenshot="4a9bec65f07669b8e5abcba62bf955ac" Selector="&lt;webctrl class='symbolFont DropdownArrow-symbol ' /&gt;">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c7a37b0f-5cc6-471d-8bae-46d52370b9f0" InformativeScreenshot="4a9bec65f07669b8e5abcba62bf955ac" Selector="&lt;webctrl class='symbolFont DropdownArrow-symbol*' /&gt;">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>

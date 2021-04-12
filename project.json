@@ -3,7 +3,7 @@
   "description": "Future Farming process which receipts inspections and then processes compliant cases if applicable",
   "main": "Main.xaml",
   "dependencies": {
-    "CRM": "[1.0.52]",
+    "CRM": "[1.0.55]",
     "GetWorkflowDetailActivities": "[1.0.1]",
     "Microsoft.SharePoint2016.CSOM": "[16.0.4690.1000]",
     "Reusable.Components": "[1.0.7]",
@@ -20,7 +20,7 @@
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.10.4.0",
-  "projectVersion": "1.0.43",
+  "projectVersion": "1.0.44",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
