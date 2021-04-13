@@ -4,6 +4,7 @@
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
     <x:Property Name="IN_strWorkingFolderPath" Type="InArgument(x:String)" />
     <x:Property Name="IN_strMailbox" Type="InArgument(x:String)" />
+    <x:Property Name="IN_boolAssigned" Type="InArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -87,7 +88,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 300.141666666667,208.5 300.141666666667,228.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Exceptions Folder" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(IN_dictConfig(&quot;ExceptionsFolder&quot;),today.Year,IN_strMailbox)+&quot;/&quot;+IN_strSBINumber]">
+      <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Exceptions Folder" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(IN_dictConfig(&quot;ExceptionsFolder&quot;),today.Year,IN_strMailbox)+&quot;\&quot;+IN_strSBINumber]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -111,7 +112,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">60,466.04</av:Point>
                   <av:Size x:Key="ShapeSize">200,66</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">160,532.04 160,562.04 320,562.04 320,704.02</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">160,532.04 160,562.04 320,562.04 320,664.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Sequence DisplayName="Assign CaseFolderPath" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -133,29 +134,58 @@
                 <FlowStep x:Name="__ReferenceID0">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">220,704.02</av:Point>
+                      <av:Point x:Key="ShapeLocation">220,664.5</av:Point>
                       <av:Size x:Key="ShapeSize">200,51</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">320,755.02 320,805.02</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">320,715.5 320,805.02</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Get Files From working folder" sap:VirtualizedContainerService.HintSize="462,484" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(strWorkingFolderPath)]">
-                    <ui:ForEach.Body>
-                      <ActivityAction x:TypeArguments="x:String">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,350" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Item: &quot; + item]" />
-                          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format(IN_dictConfig(&quot;ExceptionsFolder&quot;),today.Year,IN_strMailbox)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(9)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[item]" />
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ForEach.Body>
-                  </ui:ForEach>
+                  <If Condition="[IN_boolAssigned]" DisplayName="Check for processing location " sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Get Files From working folder" sap:VirtualizedContainerService.HintSize="462,484" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Directory.GetFiles(strWorkingFolderPath)]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:String">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,350" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Item: &quot; + item]" />
+                              <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format(IN_dictConfig(&quot;ExceptionsFolder&quot;),today.Year,IN_strMailbox)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(9)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[item]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                    </If.Then>
+                    <If.Else>
+                      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Get Files From working folder" sap:VirtualizedContainerService.HintSize="462,484" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[Directory.GetFiles(strWorkingFolderPath)]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="x:String">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,350" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Item: &quot; + item]" />
+                              <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format(IN_dictConfig(&quot;ExceptionsFolder&quot;),today.Year,IN_strMailbox)+&quot;\&quot;+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(11)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_3" Overwrite="True" Path="[item]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                      </ui:ForEach>
+                    </If.Else>
+                  </If>
                   <FlowStep.Next>
                     <FlowStep x:Name="__ReferenceID6">
                       <sap:WorkflowViewStateService.ViewState>
@@ -221,7 +251,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">390.641666666667,445.5</av:Point>
                       <av:Size x:Key="ShapeSize">122,87</av:Size>
-                      <av:PointCollection x:Key="TrueConnector">390.641666666667,489 320,489 320,704.02</av:PointCollection>
+                      <av:PointCollection x:Key="TrueConnector">390.641666666667,489 320,489 320,664.5</av:PointCollection>
                       <av:PointCollection x:Key="FalseConnector">512.641666666667,489 562.641666666667,489</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -251,10 +281,10 @@
     </FlowStep>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
   </Flowchart>
 </Activity>
