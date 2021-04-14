@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToXcomCase_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -239,7 +239,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">130,683 130,721</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="725,1071" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <Sequence DisplayName="Check for Multiple Inspections" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -327,7 +327,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">130,772 130,802 135.5,802 135.5,812</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                                          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtInspectionResults]" DisplayName="For Each Row - check for case to open" sap:VirtualizedContainerService.HintSize="576,602" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                                             <ui:ForEachRow.Body>
                                               <ActivityAction x:TypeArguments="sd:DataRow">
                                                 <ActivityAction.Argument>
@@ -339,7 +339,7 @@
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;).ToLower) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;).ToLower) and Not row(&quot;Status&quot;).ToString.ToLower.Contains(&quot;closed&quot;)]" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_1">
+                                                  <If Condition="[row(&quot;Scheme Year&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;applicationYear&quot;).ToLower) and row(&quot;Inspection Type&quot;).ToString.ToLower.Contains(IN_dictAttachmentFields(&quot;inspectionType&quot;).ToLower) and Not row(&quot;Status&quot;).ToString.ToLower.Contains(&quot;closed&quot;)]" DisplayName="If Scheme year and inspection type match case, and status not closed" sap:VirtualizedContainerService.HintSize="484,362" sap2010:WorkflowViewState.IdRef="If_1">
                                                     <If.Then>
                                                       <Sequence sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_3">
                                                         <sap:WorkflowViewStateService.ViewState>
@@ -611,7 +611,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <av:Point x:Key="ShapeLocation">420.5,516.5</av:Point>
                                           <av:Size x:Key="ShapeSize">70,87</av:Size>
-                                          <av:PointCollection x:Key="TrueConnector">420.5,560 390.5,560 390.5,500 560,500 560,1319</av:PointCollection>
+                                          <av:PointCollection x:Key="TrueConnector">420.5,560 350.5,560 350.5,665.04 560,665.04 560,1319</av:PointCollection>
                                           <av:PointCollection x:Key="FalseConnector">490.5,560 579.5,560</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>

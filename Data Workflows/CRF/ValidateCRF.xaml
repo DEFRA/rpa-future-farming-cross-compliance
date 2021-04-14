@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,830</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1240,741</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidateCRF_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -239,7 +239,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">219.895,594.5 219.895,624.5 340,624.5 340,694.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign DisplayName="Assign CRF Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[strCrfDocType]</OutArgument>
                       </Assign.To>
@@ -387,10 +387,10 @@
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">418.895,540</av:Point>
                             <av:Size x:Key="ShapeSize">262,60</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">549.895,600 549.895,630 340,630 340,694.5</av:PointCollection>
+                            <av:PointCollection x:Key="ConnectorLocation">549.895,600 549.895,625.04 340,625.04 340,694.5</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign DisplayName="Assign CRF Type" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[strCrfDocType]</OutArgument>
                           </Assign.To>
@@ -419,29 +419,15 @@
                     <av:PointCollection x:Key="ConnectorLocation">430,335.5 430,461.2 219.895,461.2 219.895,534.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate SAG CRF" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate SAG CRF.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate SAG CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate SAG CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
-                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
-                    </OutArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSheet" />
-                    </OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_boolPartial">
-                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="OUT_boolPartial" />
-                    </OutArgument>
-                    <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_boolPartialEmpty">
-                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="OUT_boolPartialEmpty" />
-                    </OutArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">[strSheet]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_boolPartial">[OUT_boolPartial]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_boolPartialEmpty">[OUT_boolPartialEmpty]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">

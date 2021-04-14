@@ -120,7 +120,12 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304 300,347</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <TryCatch sap:VirtualizedContainerService.HintSize="866,4104" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <TryCatch sap2010:Annotation.AnnotationText="Main Logic in a tryCatch as throws are within the library activities" DisplayName="TryCatch - Main Logic" sap:VirtualizedContainerService.HintSize="866,4135" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
               <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="828,3877" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <Flowchart.Variables>

@@ -121,7 +121,7 @@
               <av:PointCollection x:Key="ConnectorLocation">300,304.5 300,354.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" sap:VirtualizedContainerService.HintSize="1274,2790" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart sap2010:Annotation.AnnotationText="Added a flowchart as this workflow has a lot of possible end points. This allows the Log End sequence to always take place and keep the workflow cleaner" DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1274,2790" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <Flowchart.Variables>
               <Variable x:TypeArguments="s:Exception" Name="exceptionCurrent" />
               <Variable x:TypeArguments="x:Int32" Name="intRetryCounter" />
@@ -853,21 +853,11 @@
                                                                         </sap:WorkflowViewStateService.ViewState>
                                                                         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MoveToExceptions workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Logic Workflows\MoveToExceptions.xaml">
                                                                           <ui:InvokeWorkflowFile.Arguments>
-                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                                                                            </InArgument>
-                                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                                              <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                                                            </InArgument>
-                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">
-                                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
-                                                                            </InArgument>
-                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strMailbox" />
-                                                                            </InArgument>
-                                                                            <InArgument x:TypeArguments="x:Boolean" x:Key="IN_boolAssigned">
-                                                                              <Literal x:TypeArguments="x:Boolean" Value="True" />
-                                                                            </InArgument>
+                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">[IN_strCaseFolderPath]</InArgument>
+                                                                            <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
+                                                                            <InArgument x:TypeArguments="x:Boolean" x:Key="IN_boolAssigned">True</InArgument>
                                                                           </ui:InvokeWorkflowFile.Arguments>
                                                                         </ui:InvokeWorkflowFile>
                                                                         <Throw DisplayName="Throw Exception" Exception="[exceptionCurrent]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_12">
@@ -1004,7 +994,7 @@
                                                               <av:PointCollection x:Key="ConnectorLocation">960,327 960,251</av:PointCollection>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Exception Sequence" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                          <Sequence DisplayName="Exception Sequence" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1012,21 +1002,11 @@
                                                             </sap:WorkflowViewStateService.ViewState>
                                                             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MoveToExceptions workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Logic Workflows\MoveToExceptions.xaml">
                                                               <ui:InvokeWorkflowFile.Arguments>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
-                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
-                                                                </InArgument>
-                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
-                                                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
-                                                                </InArgument>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">
-                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCaseFolderPath" />
-                                                                </InArgument>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">
-                                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strMailbox" />
-                                                                </InArgument>
-                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="IN_boolAssigned">
-                                                                  <Literal x:TypeArguments="x:Boolean" />
-                                                                </InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkingFolderPath">[IN_strCaseFolderPath]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="IN_strMailbox">[IN_strMailbox]</InArgument>
+                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="IN_boolAssigned">False</InArgument>
                                                               </ui:InvokeWorkflowFile.Arguments>
                                                             </ui:InvokeWorkflowFile>
                                                           </Sequence>
@@ -1547,40 +1527,6 @@
             <x:Reference>__ReferenceID27</x:Reference>
             <x:Reference>__ReferenceID29</x:Reference>
             <x:Reference>__ReferenceID30</x:Reference>
-            <FlowStep>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">0,927</av:Point>
-                  <av:Size x:Key="ShapeSize">200,66</av:Size>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Move to Ready to be Receipted Folder" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="462,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(IN_dictConfig(&quot;ReadyToBeReceiptedFolder&quot;),today.year,IN_strMailbox)+IN_strSBINumber]" />
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="462,383" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[directory.GetFiles(IN_strCaseFolderPath)]">
-                  <ui:ForEach.Body>
-                    <ActivityAction x:TypeArguments="x:String">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="x:String" Name="item" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,249" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format(IN_dictConfig(&quot;ReadyToBeReceiptedFolder&quot;),today.year,IN_strMailbox)+IN_strSBINumber+&quot;\&quot;+item.Split(&quot;\&quot;c)(11)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="[item]" />
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:ForEach.Body>
-                </ui:ForEach>
-                <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="462,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[IN_strCaseFolderPath]" />
-              </Sequence>
-            </FlowStep>
             <x:Reference>__ReferenceID31</x:Reference>
             <x:Reference>__ReferenceID32</x:Reference>
             <x:Reference>__ReferenceID33</x:Reference>
