@@ -9,6 +9,8 @@
     <x:Property Name="IN_strRPAInspectionType" Type="InArgument(x:String)" />
     <x:Property Name="OUT_boolPartial" Type="OutArgument(x:Boolean)" />
     <x:Property Name="OUT_boolPartialEmpty" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="IN_strDateReceived" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_strDateReceived" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -216,13 +218,29 @@
                     <av:PointCollection x:Key="ConnectorLocation">100,216.02 100,461.2 219.895,461.2 219.895,534.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate CII CRF" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate CII CRF.xaml">
+                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Validate CII CRF" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Data Workflows\CRF\Validate CII CRF.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">[OUT_dictAttachmentFields]</OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">[IN_strCRFPath]</InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">[strSheet]</OutArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">[IN_strSBINumber]</InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="OUT_dictAttachmentFields">
+                      <mva:VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="OUT_dictAttachmentFields" />
+                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strCRFPath">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strCRFPath" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strSheet">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSheet" />
+                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strSBINumber">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strSBINumber" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strDateReceived">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strDateReceived" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="OUT_strDateReceived">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="OUT_strDateReceived" />
+                    </OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
