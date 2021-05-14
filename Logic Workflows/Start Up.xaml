@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,772</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1319,772</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Start_Up_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -137,7 +137,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,400.5 300,447</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+              <Flowchart DisplayName="Main Logic" sap:VirtualizedContainerService.HintSize="1099,1480" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
